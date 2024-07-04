@@ -118,22 +118,79 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="cambio" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cambio.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="zebra400" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\zebra400.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="minimizarTamaño" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\minimizarTamaño.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="logoSanlufilm128px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logoSanlufilm128px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="numerado16px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\numerado16px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="palletIPBulto" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\palletIPBulto.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="rehacer32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\rehacer32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pallet32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pallet32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="cambioEncargado" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cambioEncargado.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="cerrar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cerrar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="filtrar16px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\filtrar16px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="minimizarTamaño" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\minimizarTamaño.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="zebra11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\zebra11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="maximizar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\maximizar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="zebra2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\zebra2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="rollo32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\rollo32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="rollo64px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\rollo64px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="palletIP" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\palletIP.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="calendario16px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\calendario16px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cajas64px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cajas64px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cerrar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cerrar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="logoSanlufilm32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logoSanlufilm32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="registrarBobina" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\registrarBobina.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="zebra1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\zebra1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="editar16px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\editar16px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cambio" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cambio.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bolsa64px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bolsa64px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="palletIPBulto01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\palletIPBulto01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -17,6 +17,9 @@ namespace EtiquetadoBultos.Models
         public int idOrigen3 { get; set; }
         public int sectorOrigen { get; set; }
         public int idOrden { get; set; }
+        public string observacion { get; set; }
+        public DateTime fechaCreado { get; set; }
+        public int idnt { get; set; }
 
     }
 }

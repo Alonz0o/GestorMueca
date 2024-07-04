@@ -28,14 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(manualDeUsuarioBobinado));
             this.pnlHead = new System.Windows.Forms.Panel();
             this.lblTitulo = new System.Windows.Forms.Label();
+            this.ibtnSalirOp = new FontAwesome.Sharp.IconButton();
             this.pnlPrincipal = new System.Windows.Forms.Panel();
             this.tlpManualMain = new System.Windows.Forms.TableLayoutPanel();
             this.pnlPrimeraParte = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.ibtnSalirOp = new FontAwesome.Sharp.IconButton();
+            this.label1 = new System.Windows.Forms.Label();
             this.pnlHead.SuspendLayout();
             this.pnlPrincipal.SuspendLayout();
             this.tlpManualMain.SuspendLayout();
@@ -50,7 +51,7 @@
             this.pnlHead.Controls.Add(this.ibtnSalirOp);
             this.pnlHead.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlHead.Location = new System.Drawing.Point(0, 0);
-            this.pnlHead.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.pnlHead.Margin = new System.Windows.Forms.Padding(7);
             this.pnlHead.Name = "pnlHead";
             this.pnlHead.Size = new System.Drawing.Size(590, 30);
             this.pnlHead.TabIndex = 18;
@@ -68,6 +69,23 @@
             this.lblTitulo.TabIndex = 0;
             this.lblTitulo.Text = "Manual De Usuario";
             this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // ibtnSalirOp
+            // 
+            this.ibtnSalirOp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ibtnSalirOp.FlatAppearance.BorderSize = 0;
+            this.ibtnSalirOp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ibtnSalirOp.IconChar = FontAwesome.Sharp.IconChar.Times;
+            this.ibtnSalirOp.IconColor = System.Drawing.Color.Brown;
+            this.ibtnSalirOp.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.ibtnSalirOp.IconSize = 20;
+            this.ibtnSalirOp.Location = new System.Drawing.Point(560, 6);
+            this.ibtnSalirOp.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.ibtnSalirOp.Name = "ibtnSalirOp";
+            this.ibtnSalirOp.Size = new System.Drawing.Size(23, 23);
+            this.ibtnSalirOp.TabIndex = 12;
+            this.ibtnSalirOp.UseVisualStyleBackColor = true;
+            this.ibtnSalirOp.Click += new System.EventHandler(this.ibtnSalirOp_Click);
             // 
             // pnlPrincipal
             // 
@@ -107,16 +125,6 @@
             this.pnlPrimeraParte.Size = new System.Drawing.Size(584, 137);
             this.pnlPrimeraParte.TabIndex = 0;
             // 
-            // label1
-            // 
-            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(584, 34);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Primero se debe introducir el número identificador de la bobina madre de manera m" +
-    "anual o mediante el lector de codigo de barras por Ejemplo:";
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -127,22 +135,15 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // ibtnSalirOp
+            // label1
             // 
-            this.ibtnSalirOp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ibtnSalirOp.FlatAppearance.BorderSize = 0;
-            this.ibtnSalirOp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ibtnSalirOp.IconChar = FontAwesome.Sharp.IconChar.Times;
-            this.ibtnSalirOp.IconColor = System.Drawing.Color.Brown;
-            this.ibtnSalirOp.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.ibtnSalirOp.IconSize = 20;
-            this.ibtnSalirOp.Location = new System.Drawing.Point(560, 6);
-            this.ibtnSalirOp.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.ibtnSalirOp.Name = "ibtnSalirOp";
-            this.ibtnSalirOp.Size = new System.Drawing.Size(23, 23);
-            this.ibtnSalirOp.TabIndex = 12;
-            this.ibtnSalirOp.UseVisualStyleBackColor = true;
-            this.ibtnSalirOp.Click += new System.EventHandler(this.ibtnSalirOp_Click);
+            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(584, 34);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Primero se debe introducir el número identificador de la bobina madre de manera m" +
+    "anual o mediante el lector de codigo de barras por Ejemplo:";
             // 
             // manualDeUsuarioBobinado
             // 
@@ -153,6 +154,7 @@
             this.Controls.Add(this.pnlHead);
             this.Font = new System.Drawing.Font("Roboto Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "manualDeUsuarioBobinado";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

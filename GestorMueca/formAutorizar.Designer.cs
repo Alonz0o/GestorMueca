@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formAutorizar));
             this.pnlOpPrincipal = new System.Windows.Forms.Panel();
             this.pnlBoton = new System.Windows.Forms.Panel();
             this.btnVerificarUsuario = new System.Windows.Forms.Button();
@@ -37,6 +38,15 @@
             this.ibtnContraseñaLimpiar = new FontAwesome.Sharp.IconButton();
             this.tbContraseña = new System.Windows.Forms.TextBox();
             this.pnlSeparacion = new System.Windows.Forms.Panel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.cbEncargado = new System.Windows.Forms.ComboBox();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.lblAlerta = new System.Windows.Forms.Label();
+            this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.pnlHead = new System.Windows.Forms.Panel();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.ibtnSalirVerificacion = new FontAwesome.Sharp.IconButton();
@@ -44,6 +54,11 @@
             this.pnlBoton.SuspendLayout();
             this.gbContraseña.SuspendLayout();
             this.pnlContrasena.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
             this.pnlHead.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,18 +69,22 @@
             this.pnlOpPrincipal.Controls.Add(this.pnlBoton);
             this.pnlOpPrincipal.Controls.Add(this.gbContraseña);
             this.pnlOpPrincipal.Controls.Add(this.pnlSeparacion);
+            this.pnlOpPrincipal.Controls.Add(this.groupBox1);
+            this.pnlOpPrincipal.Controls.Add(this.panel4);
+            this.pnlOpPrincipal.Controls.Add(this.panel3);
+            this.pnlOpPrincipal.Controls.Add(this.panel2);
             this.pnlOpPrincipal.Controls.Add(this.pnlHead);
             this.pnlOpPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlOpPrincipal.Location = new System.Drawing.Point(0, 0);
             this.pnlOpPrincipal.Name = "pnlOpPrincipal";
-            this.pnlOpPrincipal.Size = new System.Drawing.Size(364, 166);
+            this.pnlOpPrincipal.Size = new System.Drawing.Size(364, 303);
             this.pnlOpPrincipal.TabIndex = 16;
             // 
             // pnlBoton
             // 
             this.pnlBoton.Controls.Add(this.btnVerificarUsuario);
             this.pnlBoton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlBoton.Location = new System.Drawing.Point(0, 98);
+            this.pnlBoton.Location = new System.Drawing.Point(0, 243);
             this.pnlBoton.Name = "pnlBoton";
             this.pnlBoton.Padding = new System.Windows.Forms.Padding(5);
             this.pnlBoton.Size = new System.Drawing.Size(362, 59);
@@ -91,8 +110,8 @@
             this.gbContraseña.Controls.Add(this.pnlContrasena);
             this.gbContraseña.Dock = System.Windows.Forms.DockStyle.Top;
             this.gbContraseña.Font = new System.Drawing.Font("Roboto Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbContraseña.ForeColor = System.Drawing.Color.Black;
-            this.gbContraseña.Location = new System.Drawing.Point(0, 36);
+            this.gbContraseña.ForeColor = System.Drawing.Color.DarkBlue;
+            this.gbContraseña.Location = new System.Drawing.Point(0, 181);
             this.gbContraseña.Name = "gbContraseña";
             this.gbContraseña.Size = new System.Drawing.Size(362, 62);
             this.gbContraseña.TabIndex = 16;
@@ -147,23 +166,132 @@
             // 
             // tbContraseña
             // 
+            this.tbContraseña.BackColor = System.Drawing.SystemColors.Info;
             this.tbContraseña.Dock = System.Windows.Forms.DockStyle.Top;
             this.tbContraseña.ForeColor = System.Drawing.Color.Black;
             this.tbContraseña.Location = new System.Drawing.Point(3, 3);
             this.tbContraseña.Margin = new System.Windows.Forms.Padding(0);
+            this.tbContraseña.MaxLength = 20;
             this.tbContraseña.Name = "tbContraseña";
             this.tbContraseña.Size = new System.Drawing.Size(350, 27);
             this.tbContraseña.TabIndex = 19;
             this.tbContraseña.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.tbContraseña.UseSystemPasswordChar = true;
+            this.tbContraseña.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbContraseña_KeyDown);
             // 
             // pnlSeparacion
             // 
             this.pnlSeparacion.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlSeparacion.Location = new System.Drawing.Point(0, 26);
+            this.pnlSeparacion.Location = new System.Drawing.Point(0, 171);
             this.pnlSeparacion.Name = "pnlSeparacion";
             this.pnlSeparacion.Size = new System.Drawing.Size(362, 10);
             this.pnlSeparacion.TabIndex = 18;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.Controls.Add(this.panel1);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox1.Font = new System.Drawing.Font("Roboto Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.ForeColor = System.Drawing.Color.DarkBlue;
+            this.groupBox1.Location = new System.Drawing.Point(0, 109);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(362, 62);
+            this.groupBox1.TabIndex = 21;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Autoridad pertinente";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.cbEncargado);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(3, 23);
+            this.panel1.Name = "panel1";
+            this.panel1.Padding = new System.Windows.Forms.Padding(3);
+            this.panel1.Size = new System.Drawing.Size(356, 36);
+            this.panel1.TabIndex = 6;
+            // 
+            // cbEncargado
+            // 
+            this.cbEncargado.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.cbEncargado.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbEncargado.Dock = System.Windows.Forms.DockStyle.Top;
+            this.cbEncargado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbEncargado.ForeColor = System.Drawing.Color.DarkBlue;
+            this.cbEncargado.Location = new System.Drawing.Point(3, 3);
+            this.cbEncargado.Name = "cbEncargado";
+            this.cbEncargado.Size = new System.Drawing.Size(350, 27);
+            this.cbEncargado.TabIndex = 20;
+            // 
+            // panel4
+            // 
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel4.Location = new System.Drawing.Point(0, 99);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(362, 10);
+            this.panel4.TabIndex = 24;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.GhostWhite;
+            this.panel3.Controls.Add(this.tableLayoutPanel1);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(0, 36);
+            this.panel3.Name = "panel3";
+            this.panel3.Padding = new System.Windows.Forms.Padding(3);
+            this.panel3.Size = new System.Drawing.Size(362, 63);
+            this.panel3.TabIndex = 23;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.lblAlerta, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.iconPictureBox1, 0, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(356, 57);
+            this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // lblAlerta
+            // 
+            this.lblAlerta.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblAlerta.Font = new System.Drawing.Font("Roboto Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAlerta.Location = new System.Drawing.Point(53, 0);
+            this.lblAlerta.Name = "lblAlerta";
+            this.lblAlerta.Size = new System.Drawing.Size(300, 57);
+            this.lblAlerta.TabIndex = 14;
+            this.lblAlerta.Text = "Para ejecutar dicha acción se necesita autorización de un encargado o jefe de pro" +
+    "ducción.";
+            this.lblAlerta.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // iconPictureBox1
+            // 
+            this.iconPictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.iconPictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.iconPictureBox1.ForeColor = System.Drawing.Color.Brown;
+            this.iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.Lock;
+            this.iconPictureBox1.IconColor = System.Drawing.Color.Brown;
+            this.iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconPictureBox1.IconSize = 44;
+            this.iconPictureBox1.Location = new System.Drawing.Point(3, 3);
+            this.iconPictureBox1.Name = "iconPictureBox1";
+            this.iconPictureBox1.Size = new System.Drawing.Size(44, 51);
+            this.iconPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.iconPictureBox1.TabIndex = 15;
+            this.iconPictureBox1.TabStop = false;
+            // 
+            // panel2
+            // 
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 26);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(362, 10);
+            this.panel2.TabIndex = 22;
             // 
             // pnlHead
             // 
@@ -212,17 +340,24 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(364, 166);
+            this.ClientSize = new System.Drawing.Size(364, 303);
             this.Controls.Add(this.pnlOpPrincipal);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "formAutorizar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "formAutorizar";
+            this.Activated += new System.EventHandler(this.formAutorizar_Activated);
             this.pnlOpPrincipal.ResumeLayout(false);
             this.pnlBoton.ResumeLayout(false);
             this.gbContraseña.ResumeLayout(false);
             this.pnlContrasena.ResumeLayout(false);
             this.pnlContrasena.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).EndInit();
             this.pnlHead.ResumeLayout(false);
             this.pnlHead.PerformLayout();
             this.ResumeLayout(false);
@@ -243,5 +378,14 @@
         private System.Windows.Forms.Panel pnlBoton;
         private System.Windows.Forms.Button btnVerificarUsuario;
         private FontAwesome.Sharp.IconButton ibtnVerContrasena;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ComboBox cbEncargado;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Label lblAlerta;
+        private FontAwesome.Sharp.IconPictureBox iconPictureBox1;
     }
 }

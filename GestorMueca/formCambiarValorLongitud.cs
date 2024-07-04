@@ -1,4 +1,5 @@
 ﻿using EtiquetadoBultos.Models;
+using MaterialSkin.Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,12 +12,12 @@ using System.Windows.Forms;
 
 namespace EtiquetadoBultos
 {
-    public partial class formCambiarValorLongitud : Form
+    public partial class formCambiarValorLongitud : MaterialForm
     {
         ConexionMySql mySqlConexion = new ConexionMySql();
         IList<Usuario> personal = new List<Usuario>();
         public int mtsNuevoValor = 0;
-        public string legajoVerificar;
+        public string nomApeVerificarCambiarValor;
         public static formCambiarValorLongitud instancia;
         public formCambiarValorLongitud()
         {
@@ -39,40 +40,6 @@ namespace EtiquetadoBultos
             AutoCompleteStringCollection autoCompleteCollection = new AutoCompleteStringCollection();
             personal = mySqlConexion.buscarEncargados();
             foreach (Usuario u in personal) autoCompleteCollection.Add(u.Legajo.ToString());
-            tbEncargado.AutoCompleteSource = AutoCompleteSource.CustomSource;
-            tbEncargado.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            tbEncargado.AutoCompleteCustomSource = autoCompleteCollection;
-        }
-
-        private void tbEncargado_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyData == Keys.Enter && tbEncargado.Text.All(char.IsDigit))
-            {              
-                if (string.IsNullOrEmpty(tbEncargado.Text))
-                {
-                    MessageBox.Show("Debe ingresar legajo.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    tbEncargado.Focus();
-                    return;
-                }
-
-                if (!tbEncargado.Text.All(char.IsDigit))
-                {
-                    MessageBox.Show("Use solamente numeros.", "Precaución", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    tbEncargado.Focus();
-                    return;
-                }
-
-                var encargado = personal.SingleOrDefault(x => x.Legajo == Convert.ToInt32(tbEncargado.Text));
-                if (encargado != null) lblEncargado.Text = encargado.Nombre + " " + encargado.Apellido;
-                else
-                {
-                    MessageBox.Show("No existe el legajo " + tbEncargado.Text + " registrado en el sistema.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    lblEncargado.Text = "Operario *";
-                    tbEncargado.Text = "";
-                    tbEncargado.Focus();
-                }
-                        
-            }
         }
 
         private void btnSalirOp_Click(object sender, EventArgs e)
@@ -82,7 +49,10 @@ namespace EtiquetadoBultos
 
         private void btnCambiarLongitud_Click(object sender, EventArgs e)
         {
-            legajoVerificar = "";
+            if (formReEtiquetar.instancia != null) {
+                formReEtiquetar.instancia.nomApeVerificarReEtiquetar = "";
+            }
+
             if (string.IsNullOrEmpty(tbMetros.Text))
             {
                 MessageBox.Show("Debe ingresar metros.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -97,43 +67,27 @@ namespace EtiquetadoBultos
                 return;
             }
 
-            if (string.IsNullOrEmpty(tbEncargado.Text))
-            {
-                MessageBox.Show("Debe ingresar legajo.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                tbEncargado.Focus();
-                return;
-            }
-
-            if (!tbEncargado.Text.All(char.IsDigit))
-            {
-                MessageBox.Show("Use solamente numeros.", "Precaución", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                tbEncargado.Focus();
-                return;
-            }
-            legajoVerificar = tbEncargado.Text;
             formAutorizar autorizarForm = new formAutorizar();
             autorizarForm.ShowDialog();
             if (autorizarForm.autenticacion)
             {
                 mtsNuevoValor = int.Parse(tbMetros.Text);
                 Close();
-            }else MessageBox.Show("No se pudo realizar esta acción.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-      
+            }
         }
         private void ibtnMetrosLimpiar_Click(object sender, EventArgs e)
         {
             tbMetros.Clear();
         }
 
-        private void ibtnEncargadoLimpiar_Click(object sender, EventArgs e)
-        {
-            tbEncargado.Clear();
-            lblEncargado.Text = "Autoriza";
-        }
-
         private void tbMetros_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)) e.Handled = true;
+            if (!char.IsControl(e.KeyChar) & !char.IsDigit(e.KeyChar)) e.Handled = true;
+
+            if (formReEtiquetar.instancia != null)
+            {
+                formReEtiquetar.instancia.nomApeVerificarReEtiquetar = "";
+            }
 
             if (e.KeyChar == (char)Keys.Enter)
             {
@@ -143,18 +97,26 @@ namespace EtiquetadoBultos
                     return;
                 }
 
-                if (tbMetros.Text.All(char.IsDigit))
+                formAutorizar autorizarForm = new formAutorizar();
+                autorizarForm.ShowDialog();
+                if (autorizarForm.autenticacion)
                 {
-                    tbEncargado.Focus();
+                    nomApeVerificarCambiarValor = autorizarForm.autoriza;
+                    mtsNuevoValor = int.Parse(tbMetros.Text);
+                    Close();
                 }
-                else MessageBox.Show("Use solamente numeros.", "Precaución", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
+                else MessageBox.Show("No se pudo realizar esta acción.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
         }
-        private void tbEncargado_KeyPress(object sender, KeyPressEventArgs e)
+
+        private void tbMetros_TextChanged(object sender, EventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)) e.Handled = true;
+            if (!tbMetros.Text.All(char.IsDigit))
+            {
+                tbMetros.Text = "";
+                return;
+            }
         }
     }
 }

@@ -15,9 +15,19 @@ namespace EtiquetadoBultos
         ConexionMySql mySqlConexion = new ConexionMySql();
         int contadorErrores = 1;
         public bool autenticacion = false;
+        public string autoriza = "";
         public formAutorizar()
         {
             InitializeComponent();
+            var encargadosNomApe = mySqlConexion.buscarEncargadosNomApe();
+            cbEncargado.DataSource = new BindingSource(encargadosNomApe, null);
+            if (formReEtiquetar.instancia != null) {
+                if (!string.IsNullOrEmpty(formReEtiquetar.instancia.mensajeAlerta))
+                {
+                    lblAlerta.Text = formReEtiquetar.instancia.mensajeAlerta;
+                }
+            }
+            
         }
 
         private void ibtnVerContrasena_Click(object sender, EventArgs e)
@@ -41,18 +51,56 @@ namespace EtiquetadoBultos
         }
 
         private void btnVerificarUsuario_Click(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrEmpty(tbContraseña.Text)) {
-                if (formCambiarValorLongitud.instancia.legajoVerificar != "")
+        {        
+            if (!string.IsNullOrEmpty(tbContraseña.Text))
+            {            
+                if (mySqlConexion.verificarContraseña(cbEncargado.SelectedItem.ToString(), tbContraseña.Text))
                 {
-                    if (mySqlConexion.verificarContraseña(formCambiarValorLongitud.instancia.legajoVerificar, tbContraseña.Text))
+                    MessageBox.Show("Verificación aceptada.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    autenticacion = true;
+                    autoriza = cbEncargado.SelectedItem.ToString();
+                    Close();
+                }
+                else
+                {
+                    if (contadorErrores == 3) Application.Exit();
+                    DialogResult verificarUsuario = MessageBox.Show("La contraseña ingresada no es correcta.", "ERROR, INTENTO N° " + contadorErrores, MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                    if (verificarUsuario == DialogResult.Retry)
+                    {
+
+                    }
+                    else if (verificarUsuario == DialogResult.Cancel)
+                    {
+                        Close();
+                    }
+                    contadorErrores++;
+                }
+
+            }
+            else MessageBox.Show("Debe ingresar una contraseña.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void ibtnSalirVerificacion_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void tbContraseña_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+            {
+                if (!string.IsNullOrEmpty(tbContraseña.Text))
+                {
+                    if (mySqlConexion.verificarContraseña(cbEncargado.SelectedItem.ToString(), tbContraseña.Text))
                     {
                         MessageBox.Show("Verificación aceptada.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        autoriza = cbEncargado.SelectedItem.ToString();
                         autenticacion = true;
                         Close();
                     }
                     else
                     {
+                        tbContraseña.Clear();
                         if (contadorErrores == 3) Application.Exit();
                         DialogResult verificarUsuario = MessageBox.Show("La contraseña ingresada no es correcta.", "ERROR, INTENTO N° " + contadorErrores, MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
                         if (verificarUsuario == DialogResult.Retry)
@@ -65,16 +113,15 @@ namespace EtiquetadoBultos
                         }
                         contadorErrores++;
                     }
+
                 }
+                else MessageBox.Show("Debe ingresar una contraseña.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            else MessageBox.Show("Debe ingresar una contraseña.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-
         }
 
-        private void ibtnSalirVerificacion_Click(object sender, EventArgs e)
+        private void formAutorizar_Activated(object sender, EventArgs e)
         {
-            Close();
+            tbContraseña.Focus();
         }
     }
 }
