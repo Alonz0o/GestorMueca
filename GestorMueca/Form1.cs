@@ -459,14 +459,15 @@ namespace EtiquetadoBultos
             }
         }
 
-        const int MTS_REMANENTES_BOBINA = 1;
         private int comprobarPallet(int totalMtsRemanentes, Bobina buscarBob)
         {
             var respuesta = -1;
             var porcentaje_al_10 = (totalMtsRemanentes * 10) / 100;
-            //if () { 
-            
-            //}
+            if (totalMtsRemanentes <= porcentaje_al_10  )
+            {
+                mySqlConexion.bajaLogicaTc(buscarBob.idNTIntermedio);
+            }
+
             if (totalMtsRemanentes == 0)
             {
                 if (buscarBob.idNTIntermedio != -1) mySqlConexion.bajaLogicaTc(buscarBob.idNTIntermedio);
@@ -665,9 +666,9 @@ namespace EtiquetadoBultos
                 else btnEtiquetar.Enabled = false;
             }
         }
-
+        string ZPLEtiquetaMuestreo = "";
         private void btnEtiquetar_Click(object sender, EventArgs e)
-        {           
+        {
             if (calc.porUnPaquete == 0) calc.porUnPaquete = double.Parse(tbCantidadBolsas.Text) * double.Parse(datosOp[2]);
             bolsasConfeccionadas = 0;
             var numBulto = mySqlConexion.buscarUltimoBulto(int.Parse(datosOp[11]));
@@ -700,7 +701,6 @@ namespace EtiquetadoBultos
                 sqlActualizarMtsRemanentesP1 = "update extrusiones set metrosremanentes = (case";
                 
             }
-
             var bolsas = tbCantidadBolsas.Enabled != true ? datosOp[12] : tbCantidadBolsas.Text;
             string operarios;
             do
@@ -735,12 +735,17 @@ namespace EtiquetadoBultos
                 if (calc.mtsRestantes != 0) restaTotal = restaTotal + calc.mtsRestantes;
                 if (calc.mtsRestantes == 0 && double.Parse(row.Cells[mtsDisponibles].Value.ToString()) < calc.porUnPaquete) calc.mtsRestantes = double.Parse(row.Cells[mtsDisponibles].Value.ToString());
                 while (restaTotal >= calc.porUnPaquete)
-                {                
+                {
+                    
                     if (contador == int.Parse(tbCantPaquetes.Text)) break;
                     if (total == double.Parse(tbSumPaquetes.Text)) break;
                     restaTotal = restaTotal - calc.porUnPaquete;
                     calc.mtsRestantes = restaTotal;
                     total = total + calc.porUnPaquete;
+
+                   
+                    
+
                     sqlAgregarBultos = sqlAgregarBultos + "(" + datosOp[11] + "," + numBulto + ",current_timestamp," + oper + "," + bolsas + "," + row.Cells[identificador].Value.ToString() + "," + "'" + bobinaSector + "'" + "),";
                     bolsasConfeccionadas = bolsasConfeccionadas + int.Parse(bolsas);
                     numBulto++;
@@ -766,6 +771,8 @@ namespace EtiquetadoBultos
             sqlActualizarMtsRemanentesP2 = sqlActualizarMtsRemanentesP2.TrimEnd(',') + ");";
             sqlAgregarBultos = sqlAgregarBultos.TrimEnd(',') + ";";
             sqlActualizarMtsRemanentesP1 = sqlActualizarMtsRemanentesP1 + sqlActualizarMtsRemanentesP2;
+
+
 
             //Update bobinas involucradas en el dgv
             if (mySqlConexion.sqlSimpleQuery(sqlActualizarMtsRemanentesP1, sqlAgregarBultos))
@@ -809,6 +816,8 @@ namespace EtiquetadoBultos
 
         private void crearArchivoZpl(int desde, int hasta)
         {
+            var proximos = mySqlConexion.GetProximoMayor(101);
+
             List<string> numeroBultos = new List<string>();
             FileStream str = new FileStream(@"D:\ZplEtiquetado\ZPLArchivo.ejf", FileMode.Create, FileAccess.Write);
             StreamWriter writer = new StreamWriter(str);
@@ -864,8 +873,22 @@ namespace EtiquetadoBultos
                     }
                     writer.WriteLine("^FO65,143^BCN,70,Y,N,N,N^FD" + "P" + bultoImprimir.idBulto + "^FS");
                     writer.WriteLine("^XZ");
+
+                    if (proximos.Skip(2).Contains(bultoImprimir.numBulto))
+                    {
+                        writer.WriteLine("^XA");
+                        writer.WriteLine($@"^CI28");
+                        writer.WriteLine($@"^FWN");
+                        writer.WriteLine($@"^FO120,50^A0,40^FB540,3,0,C^FDPAQUETE DE MUESTREÓ CALIDAD\&^FS");
+                        writer.WriteLine($@"^FO50,145^A0,40^FB160,3,0,C^FD{bultoImprimir.numBulto}\&^FS");
+                        writer.WriteLine($@"^FO25,200^A0,30^FB200,3,0,C^FDNUM\&^FS");
+                        writer.WriteLine($@"^FO600,145^A0,40^FB160,3,0,C^FD{datosOp[11]}\&^FS");
+                        writer.WriteLine($@"^FO585,200^A0,30^FB200,3,0,C^FDORDEN\&^FS");
+                        writer.WriteLine($@"^XZ");
+                    }
                 }
             }
+            writer.WriteLine(ZPLEtiquetaMuestreo);
             writer.Close();
             ejecutarZPLBAT(numeroBultos);
         }

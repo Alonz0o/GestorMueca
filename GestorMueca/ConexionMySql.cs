@@ -16,6 +16,7 @@ namespace EtiquetadoBultos
     {
         // Sql connection
         MySqlConnection conexion = new MySqlConnection("server = localhost; port=3306; userid=root; password=kamila; database=sistemaindustrial;");
+        MySqlConnection conexionSanlufilm_db = new MySqlConnection("server = localhost; port=3306; userid=root; password=kamila; database=sanlufilm_db;");
 
         public IList<Usuario> buscarPersonal()
         {
@@ -758,6 +759,39 @@ namespace EtiquetadoBultos
 
 
             return idNt;
+        }
+
+        internal List<int> GetProximoMayor(int bolsas)
+        {
+            var res = new List<int>();
+            try
+            {
+
+                conexionSanlufilm_db.Open();
+                using (var command = conexionSanlufilm_db.CreateCommand())
+                {
+                    command.CommandText = @"SELECT * FROM muestreoconfeccion WHERE id = COALESCE(
+                                                (SELECT id FROM muestreoconfeccion WHERE bulto = @pBulto AND col1 IS NOT NULL),
+                                                (SELECT id FROM muestreoconfeccion WHERE bulto > @pBulto AND col1 IS NOT NULL ORDER BY id LIMIT 1));";
+                    command.Parameters.Add("@pBulto", MySqlDbType.Int32).Value = bolsas;
+                    using (var reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            for (int i = 0; i < reader.FieldCount; i++)
+                            {
+                                res.Add(reader.IsDBNull(i) ? 0 : reader.GetInt32(i));
+                            }
+                        }
+                    }
+                }
+                conexionSanlufilm_db.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+            return res;
         }
 
         public IList<string> buscarOp(string orden, string codigo)
