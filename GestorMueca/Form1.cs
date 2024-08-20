@@ -50,13 +50,11 @@ namespace EtiquetadoBultos
             cargarDatosEnTextBox();
             if (Program.argumentos.Count != 0)
             {
-
-
                 bobinaSector = mySqlConexion.comprobarSector(Program.argumentos[1]);
                 datosOp = mySqlConexion.buscarOp(Program.argumentos[0], Program.argumentos[1]);
                 if (datosOp.Count == 0) return;
                 bobinasOp = mySqlConexion.buscarBobinas(Program.argumentos[0], Program.argumentos[1], bobinaSector);
-                
+
                 if (Program.argumentos[2] != "0")
                 {
                     cargarEncargado(Program.argumentos[2]);
@@ -68,15 +66,16 @@ namespace EtiquetadoBultos
                 }
                 if (Program.argumentos[4] != "0")
                 {
-                    maquinaSeleccionada = mySqlConexion.buscarMaquinaPorId(Program.argumentos[4]);                 
+                    maquinaSeleccionada = mySqlConexion.buscarMaquinaPorId(Program.argumentos[4]);
                 }
-                if (maquinaSeleccionada=="FASON") {
+                if (maquinaSeleccionada == "FASON")
+                {
                     btnEtiquetar.Visible = false;
                     btnGenerarFason.Visible = true;
                 }
                 cambiarDatos();
             }
-            
+
             instancia = this;
             dgvBobinasRegistradas.AllowUserToAddRows = false;
             dgvBobinasRegistradas.Columns.Add("cIdentificador", "Identificador");
@@ -88,7 +87,8 @@ namespace EtiquetadoBultos
             if (!Directory.Exists(@"D:\ZplEtiquetado"))
             {
                 Directory.CreateDirectory(@"D:\ZplEtiquetado");
-                if (!File.Exists(@"D:\\ZplEtiquetado\ZplEjecutableSECTORCONFECCION.bat")) {
+                if (!File.Exists(@"D:\\ZplEtiquetado\ZplEjecutableSECTORCONFECCION.bat"))
+                {
                     FileStream fs = new FileStream(@"D:\\ZplEtiquetado\ZplEjecutableSECTORCONFECCION.bat", FileMode.Create, FileAccess.Write);
                     StreamWriter writer = new StreamWriter(fs);
                     writer.WriteLine(@"copy D:\ZplEtiquetado\ZPLArchivo.ejf \\SECTORCONFECCION\zpl02");
@@ -122,11 +122,9 @@ namespace EtiquetadoBultos
                     writer.WriteLine(@"copy D:\ZplEtiquetado\ZPLArchivo.ejf \\MAQUINA49\Zebra492");
                     writer.Close();
                 }
-
             }
 
             lblInstanciaOP = lblOp;
-
         }
 
         public void cambiarDatos()
@@ -136,13 +134,13 @@ namespace EtiquetadoBultos
             lblOp.Text = datosOp[orden] + " / " + datosOp[codigo];
             tbCliente.Text = datosOp[0];
             lblMaquina.Text = maquinaSeleccionada != "" ? maquinaSeleccionada : datosOp[6];
-            lblSoldadura.Text = datosOp[5];   
-            
+            lblSoldadura.Text = datosOp[5];
+
             tbAnchoBolsa.Text = datosOp[1] + "cm";
             tbLargoBolsa.Text = largoMostrar.ToString() + "cm";
             tbEspesorBolsa.Text = datosOp[3] + "µm";
             var totalBolsasCreadas = mySqlConexion.totalBolsasCreadas(datosOp[11]);
-      
+
             var excedenteMin = int.Parse(datosOp[7]) / 100 * int.Parse(datosOp[19]);//excedenteMin
             var excedenteMax = int.Parse(datosOp[7]) / 100 * int.Parse(datosOp[20]);//excedenteMax
             excedenteMin = int.Parse(datosOp[7]) - excedenteMin;
@@ -152,11 +150,11 @@ namespace EtiquetadoBultos
             tbCantBolsasMax.Text = "MAX " + excedenteMax.ToString();
 
             tbBolsasSolicitadas.Text = datosOp[7] + "|" + totalBolsasCreadas;
-            
+
 
             btnReEtiquetar.Enabled = true;
             btnIp.Enabled = true;
-            calc.porUnPaquete = datosOp.Count > 0 ? double.Parse(datosOp[12]) * double.Parse(datosOp[2]) : 0.0;           
+            calc.porUnPaquete = datosOp.Count > 0 ? double.Parse(datosOp[12]) * double.Parse(datosOp[2]) : 0.0;
         }
 
         public void limpiarEM()
@@ -177,7 +175,7 @@ namespace EtiquetadoBultos
             tbRegistrarBobina.Clear();
         }
 
-          private void ibtnSalir_Click(object sender, EventArgs e)
+        private void ibtnSalir_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
@@ -321,8 +319,8 @@ namespace EtiquetadoBultos
         {
             tbOperario.Clear();
             gbOperario.Text = "Operario *";
-        }      
-        
+        }
+
         private void cargarPersonal(string perNum)
         {
             TextBox tbPersonal = new TextBox();
@@ -346,15 +344,18 @@ namespace EtiquetadoBultos
                 if (auxiliar != null)
                 {
                     gbPersonal.Text = auxiliar.Nombre + " " + auxiliar.Apellido;
-                    if (perNum == "00") { 
+                    if (perNum == "00")
+                    {
                         operadores[1] = auxiliar.Legajo.ToString();
                         operadoresNomApe[1] = auxiliar.Nombre + " " + auxiliar.Apellido;
                     }
-                    if (perNum == "01") { 
+                    if (perNum == "01")
+                    {
                         operadores[2] = auxiliar.Legajo.ToString();
                         operadoresNomApe[2] = auxiliar.Nombre + " " + auxiliar.Apellido;
                     }
-                    if (perNum == "02") { 
+                    if (perNum == "02")
+                    {
                         operadores[3] = auxiliar.Legajo.ToString();
                         operadoresNomApe[3] = auxiliar.Nombre + " " + auxiliar.Apellido;
                     }
@@ -404,8 +405,8 @@ namespace EtiquetadoBultos
         {
             tbAuxiliar01.Clear();
             gbAuxiliar01.Text = "Auxiliar";
-        }      
-        
+        }
+
         private void ibtnAuxiliar02Limpiar_Click(object sender, EventArgs e)
         {
             tbAuxiliar02.Clear();
@@ -430,7 +431,7 @@ namespace EtiquetadoBultos
         {
             var respuesta = 0;
             var buscarBob = bobinasOp.FirstOrDefault(bob => bob.indice == idBobina) == null ? mySqlConexion.buscarBobina(idBobina.ToString(), datosOp[9], bobinaSector) : bobinasOp.FirstOrDefault(bob => bob.indice == idBobina);
-            var totalMtsRemanentes = mySqlConexion.comprobarTc(buscarBob,bobinaSector);
+            var totalMtsRemanentes = mySqlConexion.comprobarTc(buscarBob, bobinaSector);
             if (totalMtsRemanentes != -1) respuesta = comprobarPallet(totalMtsRemanentes, buscarBob);
             if (respuesta == -1) return;
 
@@ -462,12 +463,7 @@ namespace EtiquetadoBultos
         private int comprobarPallet(int totalMtsRemanentes, Bobina buscarBob)
         {
             var respuesta = -1;
-            var porcentaje_al_10 = (totalMtsRemanentes * 10) / 100;
-            if (totalMtsRemanentes <= porcentaje_al_10  )
-            {
-                mySqlConexion.bajaLogicaTc(buscarBob.idNTIntermedio);
-            }
-
+            mySqlConexion.bajaLogicaTc(buscarBob.idNTIntermedio);
             if (totalMtsRemanentes == 0)
             {
                 if (buscarBob.idNTIntermedio != -1) mySqlConexion.bajaLogicaTc(buscarBob.idNTIntermedio);
@@ -478,7 +474,7 @@ namespace EtiquetadoBultos
             if (totalMtsRemanentes < calc.porUnPaquete)
             {
                 if (calc.porUnPaquete == 0) calc.porUnPaquete = double.Parse(tbCantidadBolsas.Text) * double.Parse(datosOp[2]);
-                if (buscarBob.idNTIntermedio!=-1) mySqlConexion.bajaLogicaTc(buscarBob.idNTIntermedio);
+                if (buscarBob.idNTIntermedio != -1) mySqlConexion.bajaLogicaTc(buscarBob.idNTIntermedio);
                 respuesta = 0;
                 bobinasRemanentes.Clear();
                 bobinasXPallet = mySqlConexion.buscarPalletBobinas(buscarBob, bobinaSector);
@@ -487,7 +483,7 @@ namespace EtiquetadoBultos
                 if (bobinasRemanentes.Count != 0)
                 {
                     foreach (Bobina bobina in bobinasRemanentes)
-                    {                     
+                    {
                         var bobinaEncontrada = bobinasOp.FirstOrDefault(bob => bob.indice == bobina.indice);
                         if (bobinaEncontrada == null)
                         {
@@ -497,13 +493,14 @@ namespace EtiquetadoBultos
                             tbSumMetros.Text = sumatoriaMtsBobinas.ToString();
                             tbRegistrarBobina.Text = "";
                         }
-                        else {
+                        else
+                        {
                             sumatoriaMtsBobinas += bobina.mtsRemanentesRollo;
                             dgvBobinasRegistradas.Rows.Add(bobina.indice, bobina.numRollo, bobina.longitudRollo, bobina.neto, bobina.mtsRemanentesRollo);
                             tbSumMetros.Text = sumatoriaMtsBobinas.ToString();
                             tbRegistrarBobina.Text = "";
                         }
-                        
+
                     }
                 }
                 else tbRegistrarBobina.Text = "";
@@ -514,12 +511,13 @@ namespace EtiquetadoBultos
 
         private void tbCantPaquetes_TextChanged(object sender, EventArgs e)
         {
-            if (tbCantidadBolsas.Text == "") {
+            if (tbCantidadBolsas.Text == "")
+            {
                 tbCantidadBolsas.Focus();
                 MessageBox.Show("Debe ingresar cantidad de bolsas por paquete.", "Precaución", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return; 
+                return;
             }
-            
+
             if (tbCantidadBolsas.Enabled == true)
             {
                 if (!string.IsNullOrEmpty(tbCantPaquetes.Text) & !string.IsNullOrEmpty(tbCantidadBolsas.Text) & tbCantPaquetes.Text.All(char.IsDigit) & tbCantidadBolsas.Text.All(char.IsDigit) & tbCantPaquetes.Text != "0")
@@ -564,6 +562,7 @@ namespace EtiquetadoBultos
             //Si se apreta El boton Enter se ejecuta
             if (e.KeyChar == (char)Keys.Enter)
             {
+                if (string.IsNullOrEmpty(tbRegistrarBobina.Text)) return;
                 var regBobina = tbRegistrarBobina.Text.Replace(" ", string.Empty);
                 var sector = regBobina.FirstOrDefault().ToString();
                 if (regBobina.Count() > 1 & (sector == "e" | sector == "E" | sector == "i" | sector == "I") & regBobina.Remove(0, 1).All(char.IsDigit))
@@ -616,7 +615,7 @@ namespace EtiquetadoBultos
         {
             if (ibtnHabilitarCantBosas.IconChar == IconChar.ToggleOff)
             {
-                MessageBox.Show("No se puede limpiar el valor establecido.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);            
+                MessageBox.Show("No se puede limpiar el valor establecido.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else tbCantidadBolsas.Clear();
         }
@@ -632,15 +631,6 @@ namespace EtiquetadoBultos
                 tbCantidadBolsas.Text = nuevoTexto;
                 tbCantidadBolsas.SelectionStart = cursorPosition - 1;
             }
-
-            //if (!string.IsNullOrEmpty(tbCantidadBolsas.Text) & !string.IsNullOrEmpty(tbCantPaquetes.Text) & tbCantidadBolsas.Text.All(char.IsDigit) & tbCantPaquetes.Text.All(char.IsDigit))
-            //{
-            //    calcularMts(int.Parse(tbCantidadBolsas.Text));
-            //    calc.porUnPaquete = double.Parse(tbCantidadBolsas.Text) * double.Parse(datosOp[2]);
-            //    var totalBolsas = int.Parse(tbCantidadBolsas.Text) * int.Parse(tbCantPaquetes.Text);
-            //    tbTotalBolsas.Text = totalBolsas.ToString();
-            //}
-            //else tbSumPaquetes.Text = "";
         }
 
         private void calcularMts(int numero)
@@ -654,7 +644,7 @@ namespace EtiquetadoBultos
 
         private void tbSumPaquetes_TextChanged(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(tbCantPaquetes.Text)|| tbCantPaquetes.Text=="0")
+            if (string.IsNullOrEmpty(tbCantPaquetes.Text) || tbCantPaquetes.Text == "0")
             {
                 btnEtiquetar.Enabled = false;
                 return;
@@ -666,16 +656,19 @@ namespace EtiquetadoBultos
                 else btnEtiquetar.Enabled = false;
             }
         }
-        string ZPLEtiquetaMuestreo = "";
         private void btnEtiquetar_Click(object sender, EventArgs e)
         {
+            //Se calcula por un paquete, si no viene por sistema se toma el tbCantidadBolsas.
+            var idMaquina = (int)mySqlConexion.GetIdMaquina(datosOp[6]);
             if (calc.porUnPaquete == 0) calc.porUnPaquete = double.Parse(tbCantidadBolsas.Text) * double.Parse(datosOp[2]);
             bolsasConfeccionadas = 0;
             var numBulto = mySqlConexion.buscarUltimoBulto(int.Parse(datosOp[11]));
             var desde = numBulto;
             string sqlActualizarMtsRemanentesP1 = "";
             string sqlActualizarMtsRemanentesP2 = "where indice in (";
-            string sqlAgregarBultos = "insert into bultos(Id_Orden, Num_Bulto, Creado, Legajo, Cant_Bolsas, IdOrigen1, SectorOrigen) values ";
+            string sqlAgregarBultos = "insert into bultos(Id_Orden,Num_Bulto,Creado,Legajo,Cant_Bolsas,IdOrigen1,SectorOrigen,idmaq) values ";
+            string sqlModificarMuestreoP1 = "UPDATE bultos SET muestreado = (CASE";
+            string sqlModificarMuestreoP2 = "WHERE id_orden = " + datosOp[11] + ";";
             calc.mtsRestantes = 0.0;
             if (string.IsNullOrEmpty(tbOperario.Text))
             {
@@ -699,7 +692,7 @@ namespace EtiquetadoBultos
             if (bobinaSector == "e" | bobinaSector == "E")
             {
                 sqlActualizarMtsRemanentesP1 = "update extrusiones set metrosremanentes = (case";
-                
+
             }
             var bolsas = tbCantidadBolsas.Enabled != true ? datosOp[12] : tbCantidadBolsas.Text;
             string operarios;
@@ -723,12 +716,15 @@ namespace EtiquetadoBultos
                 }
                 break;
             } while (true);
-            var contador = 0;
+
+            var proximos = mySqlConexion.GetProximoMayor(101);
+
+            var contador = 0.0;
             var oper = "'" + operarios + "'";
             var total = 0.0;
             var totalRestar = double.Parse(tbSumPaquetes.Text);
             foreach (DataGridViewRow row in dgvBobinasRegistradas.Rows)
-            {           
+            {
                 totalRestar = totalRestar - double.Parse(row.Cells[mtsDisponibles].Value.ToString());
                 double restaTotal = double.Parse(row.Cells[mtsDisponibles].Value.ToString());
 
@@ -736,18 +732,20 @@ namespace EtiquetadoBultos
                 if (calc.mtsRestantes == 0 && double.Parse(row.Cells[mtsDisponibles].Value.ToString()) < calc.porUnPaquete) calc.mtsRestantes = double.Parse(row.Cells[mtsDisponibles].Value.ToString());
                 while (restaTotal >= calc.porUnPaquete)
                 {
-                    
+
                     if (contador == int.Parse(tbCantPaquetes.Text)) break;
                     if (total == double.Parse(tbSumPaquetes.Text)) break;
                     restaTotal = restaTotal - calc.porUnPaquete;
                     calc.mtsRestantes = restaTotal;
                     total = total + calc.porUnPaquete;
 
-                   
-                    
-
-                    sqlAgregarBultos = sqlAgregarBultos + "(" + datosOp[11] + "," + numBulto + ",current_timestamp," + oper + "," + bolsas + "," + row.Cells[identificador].Value.ToString() + "," + "'" + bobinaSector + "'" + "),";
+                    sqlAgregarBultos = sqlAgregarBultos + "(" + datosOp[11] + "," + numBulto + ",current_timestamp," + oper + "," + bolsas + "," + row.Cells[identificador].Value.ToString() + "," + "'" + bobinaSector + "'" + "," + idMaquina + "),";
                     bolsasConfeccionadas = bolsasConfeccionadas + int.Parse(bolsas);
+
+                    if (proximos.Skip(2).Contains(numBulto))
+                    {
+                        sqlModificarMuestreoP1 = sqlModificarMuestreoP1 + " when num_bulto = " + numBulto + " then " + 1 + " ";
+                    }
                     numBulto++;
                     contador++;
                 }
@@ -766,24 +764,27 @@ namespace EtiquetadoBultos
                     if (total == double.Parse(tbSumPaquetes.Text)) break;
                 }
             }
-
+            sqlModificarMuestreoP1 = sqlModificarMuestreoP1 + "end) ";
+            sqlModificarMuestreoP1 = sqlModificarMuestreoP1 + sqlModificarMuestreoP2;
             sqlActualizarMtsRemanentesP1 = sqlActualizarMtsRemanentesP1 + "end) ";
             sqlActualizarMtsRemanentesP2 = sqlActualizarMtsRemanentesP2.TrimEnd(',') + ");";
             sqlAgregarBultos = sqlAgregarBultos.TrimEnd(',') + ";";
             sqlActualizarMtsRemanentesP1 = sqlActualizarMtsRemanentesP1 + sqlActualizarMtsRemanentesP2;
 
-
-
             //Update bobinas involucradas en el dgv
             if (mySqlConexion.sqlSimpleQuery(sqlActualizarMtsRemanentesP1, sqlAgregarBultos))
             {
+                if (!sqlModificarMuestreoP1.Contains("(CASEend)"))
+                {
+                    var pep = mySqlConexion.UpdateBultosMuestreo(sqlModificarMuestreoP1);
+                }
                 List<string> datosPlanificacion = new List<string>();
                 datosPlanificacion.Add(datosOp[orden]);
                 datosPlanificacion.Add(datosOp[codigo]);
                 datosPlanificacion.Add(datosOp[0]);//Cliente
                 datosPlanificacion.Add(datosOp[1]);//Ancho
                 datosPlanificacion.Add(datosOp[3]);//Espesor
-                var lar = tbLargoBolsa.Text.Replace("cm","");
+                var lar = tbLargoBolsa.Text.Replace("cm", "");
                 datosPlanificacion.Add(lar);//Largo
                 datosPlanificacion.Add(bolsasConfeccionadas.ToString());//CantidadBolsas
                 datosPlanificacion.Add(gbOperario.Text);//Operario
@@ -798,9 +799,10 @@ namespace EtiquetadoBultos
                 tbSumMetros.Text = "0";
                 sumatoriaMtsBobinas = 0;
                 bobinasOp = mySqlConexion.buscarBobinas(datosOp[orden], datosOp[codigo], bobinaSector);
-                tbCantPaquetes.Text = "0";            
+                tbCantPaquetes.Text = "0";
 
-                if (mySqlConexion.modificarCantidadConfeccionada(datosPlanificacion) != -1) {
+                if (mySqlConexion.modificarCantidadConfeccionada(datosPlanificacion) != -1)
+                {
                     tbBolsasSolicitadas.Text = datosOp[7] + "|" + mySqlConexion.totalBolsasCreadas(datosOp[11]);
                 }
 
@@ -825,6 +827,7 @@ namespace EtiquetadoBultos
             var cliente = datosOp[0];
             var ancho = datosOp[1];
             var largo = double.Parse(datosOp[2]) * 100;
+            var numVersion = datosOp[21];
             var contadorImpresiones = 0;
             //var espesor = datosOp[3];
             if (datosOp[0] == "ALGODONERA ACONCAGUA S. A.") contadorImpresiones = 2;
@@ -863,13 +866,13 @@ namespace EtiquetadoBultos
                     if (datosOp[17] == "2")
                     {
                         writer.WriteLine("^FO330,145^A0,30^FD" + "O " + datosOp[8] + "^FS");
-                        writer.WriteLine("^FO460,145^A0,30^FD" + "P " + datosOp[9] + "^FS");
+                        writer.WriteLine("^FO460,145^A0,30^FD" + "P " + datosOp[9] + "." + numVersion + "^FS");
                         writer.WriteLine("^FO330,185^A0,30^FDProducto de EXPORTACION^FS");
                     }
                     else
                     {
                         writer.WriteLine("^FO435,145^A0,30^FD" + "O " + datosOp[8] + "^FS");
-                        writer.WriteLine("^FO435,185^A0,30^FD" + "P " + datosOp[9] + "^FS");
+                        writer.WriteLine("^FO435,185^A0,30^FD" + "P " + datosOp[9] + "." + numVersion + "^FS");
                     }
                     writer.WriteLine("^FO65,143^BCN,70,Y,N,N,N^FD" + "P" + bultoImprimir.idBulto + "^FS");
                     writer.WriteLine("^XZ");
@@ -877,18 +880,22 @@ namespace EtiquetadoBultos
                     if (proximos.Skip(2).Contains(bultoImprimir.numBulto))
                     {
                         writer.WriteLine("^XA");
-                        writer.WriteLine($@"^CI28");
-                        writer.WriteLine($@"^FWN");
-                        writer.WriteLine($@"^FO120,50^A0,40^FB540,3,0,C^FDPAQUETE DE MUESTREÓ CALIDAD\&^FS");
-                        writer.WriteLine($@"^FO50,145^A0,40^FB160,3,0,C^FD{bultoImprimir.numBulto}\&^FS");
-                        writer.WriteLine($@"^FO25,200^A0,30^FB200,3,0,C^FDNUM\&^FS");
-                        writer.WriteLine($@"^FO600,145^A0,40^FB160,3,0,C^FD{datosOp[11]}\&^FS");
-                        writer.WriteLine($@"^FO585,200^A0,30^FB200,3,0,C^FDORDEN\&^FS");
-                        writer.WriteLine($@"^XZ");
+                        writer.WriteLine("^CI28");
+                        writer.WriteLine("^FWN");
+                        writer.WriteLine($@"^FO120,20^A0,40^FB540,3,0,C^FDPAQUETE DE MUESTREÓ CALIDAD\&^FS");
+                        writer.WriteLine($@"^FO120,109^A0,25^FB600,3,0,C^FD{cliente + "|" + DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss")}\&^FS");
+                        writer.WriteLine($@"^FO5,145^A0,40^FB160,3,0,C^FD{bultoImprimir.numBulto}\&^FS");
+                        writer.WriteLine($@"^FO5,200^A0,30^FB160,3,0,C^FDNUM\&^FS");
+                        writer.WriteLine($@"^FO200,145^A0,40^FB160,3,0,C^FD{bultoImprimir.legajo}\&^FS");
+                        writer.WriteLine($@"^FO200,200^A0,30^FB160,3,0,C^FDLEG\&^FS");
+                        writer.WriteLine($@"^FO400,145^A0,40^FB160,3,0,C^FD{datosOp[8]}\&^FS");
+                        writer.WriteLine($@"^FO400,200^A0,30^FB160,3,0,C^FDORDEN\&^FS");
+                        writer.WriteLine($@"^FO630,145^A0,40^FB160,3,0,C^FD{datosOp[9]}.{numVersion}\&^FS");
+                        writer.WriteLine($@"^FO630,200^A0,30^FB160,3,0,C^FDCODIGO\&^FS");
+                        writer.WriteLine("^XZ");
                     }
                 }
             }
-            writer.WriteLine(ZPLEtiquetaMuestreo);
             writer.Close();
             ejecutarZPLBAT(numeroBultos);
         }
@@ -903,7 +910,7 @@ namespace EtiquetadoBultos
         {
             var contador = 1;
             if (numeroBultos.Count != 0)
-            {             
+            {
                 Process proc = new Process();
                 try
                 {
@@ -1114,7 +1121,7 @@ namespace EtiquetadoBultos
         }
 
         private void formPrincipal_Activated(object sender, EventArgs e)
-        {           
+        {
             lblOp.Select();
         }
 
@@ -1153,7 +1160,7 @@ namespace EtiquetadoBultos
                 {
                     MessageBox.Show("Error" + ex);
                 }
-            }          
+            }
         }
 
         private void itemQuitar_Click(object sender, EventArgs e)
@@ -1163,9 +1170,9 @@ namespace EtiquetadoBultos
                 try
                 {
                     if (!string.IsNullOrEmpty(tbSumMetros.Text))
-                    {                
+                    {
                         sumatoriaMtsBobinas = sumatoriaMtsBobinas - int.Parse(dgvBobinasRegistradas.SelectedRows[0].Cells[mtsDisponibles].Value.ToString());
-                        tbSumMetros.Text = sumatoriaMtsBobinas.ToString();            
+                        tbSumMetros.Text = sumatoriaMtsBobinas.ToString();
                         dgvBobinasRegistradas.Rows.RemoveAt(dgvBobinasRegistradas.SelectedRows[0].Index);
                     }
                 }
@@ -1193,6 +1200,47 @@ namespace EtiquetadoBultos
             formGenerarFason formFason = new formGenerarFason();
             formFason.ShowDialog();
             if (fasonCantidad != "0") tbBolsasSolicitadas.Text = fasonCantidad;
+        }
+
+        private void btnAgregarScrap_Click(object sender, EventArgs e)
+        {
+            Process proc = new Process();
+            var legOP = operadores[0];
+            var legEnc = operadores[1];
+    
+                //string batDir = string.Format(@"D:\Fuente_sis\Produccion\Modulo_9\ScrapEtiquetado");
+                //proc.StartInfo.WorkingDirectory = batDir;
+                proc.StartInfo.FileName = @"D:\Fuente_sis\Produccion\Modulo_9\ScrapEtiquetado\ScrapKP.exe";
+            proc.StartInfo.Arguments = $"{datosOp[8]} {datosOp[9]} {datosOp[6]} {legEnc} {legOP} CON";
+            proc.StartInfo.UseShellExecute = false;
+            proc.StartInfo.RedirectStandardOutput = true;
+            proc.StartInfo.RedirectStandardError = true;
+            proc.StartInfo.CreateNoWindow = true;
+
+            try
+            {
+                // Iniciar el proceso
+                proc.Start();
+
+                // Leer la salida del proceso (opcional)
+                string output = proc.StandardOutput.ReadToEnd();
+                string errors = proc.StandardError.ReadToEnd();
+
+                // Esperar a que el proceso termine
+                proc.WaitForExit();
+
+                // Mostrar la salida y los errores (opcional)
+                Console.WriteLine(output);
+                if (!string.IsNullOrEmpty(errors))
+                {
+                    Console.WriteLine("Errores: " + errors);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Ocurrió un error: " + ex.Message);
+            }
+
         }
     }
 }

@@ -216,23 +216,23 @@ namespace EtiquetadoBultos
         private void btnImprimir_Click(object sender, EventArgs e)
         {
             //TODO VERVER
-            var requeridas = mySqlConexion.VerificarMuestreo(formPrincipal.instancia.datosOp[11], formPrincipal.instancia.datosOp[7]);
-            if (!formPrincipal.instancia.datosOp[0].Contains("RHEEM"))
-            {
-                if (!(bool)requeridas[2])
-                {
-                    try
-                    {
-                        formMuestras formMuestras = new formMuestras(Convert.ToInt32(requeridas[0]), Convert.ToInt32(requeridas[1]));
-                        formMuestras.ShowDialog();
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Error" + ex);
-                    }
-                    return;
-                }
-            }
+            //var requeridas = mySqlConexion.VerificarMuestreo(formPrincipal.instancia.datosOp[11], formPrincipal.instancia.datosOp[7]);
+            //if (!formPrincipal.instancia.datosOp[0].Contains("RHEEM"))
+            //{
+            //    if (!(bool)requeridas[2])
+            //    {
+            //        try
+            //        {
+            //            formMuestras formMuestras = new formMuestras(Convert.ToInt32(requeridas[0]), Convert.ToInt32(requeridas[1]));
+            //            formMuestras.ShowDialog();
+            //        }
+            //        catch (Exception ex)
+            //        {
+            //            MessageBox.Show("Error" + ex);
+            //        }
+            //        return;
+            //    }
+            //}
 
             if (dgvBultosRegistrados.Rows.Count == 0) return;
             var resp = false;

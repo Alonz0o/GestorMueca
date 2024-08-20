@@ -799,7 +799,8 @@ namespace EtiquetadoBultos
             //cambiar
             IList<string> datos = new List<string>();
             var numCliente = "";
-            string mySqlQuery = "select ct.Razon_Social, c.Ancho, c.Largo, c.Espesor, c.Tipo, c.Soldadura, c.Maquina, pc.Cantidad_Bolsa_conf, pc.NumeroORden, pc.CodigoOrden, pc.FechaEntrega, pc.CantidadDeproduccion, c.BolsasPorPaquete, c.Peso_Millar , pc.cantidad_realizada, c.id_embalaje, num_cliente " +
+            var numVersion = 0;
+            string mySqlQuery = "select ct.Razon_Social, c.Ancho, c.Largo, c.Espesor, c.Tipo, c.Soldadura, c.Maquina, pc.Cantidad_Bolsa_conf, pc.NumeroORden, pc.CodigoOrden, pc.FechaEntrega, pc.CantidadDeproduccion, c.BolsasPorPaquete, c.Peso_Millar , pc.cantidad_realizada, c.id_embalaje, num_cliente,pc.version " +
                 "from Produccion_Confeccion pc join confeccion c on pc.CodigoOrden = c.idCodigo join clientes_total ct on ct.num_cliente = c.numeroCliente " +
                 "where NumeroOrden = @cmdOrder and CodigoOrden = @cmdCodigo;";
 
@@ -833,6 +834,7 @@ namespace EtiquetadoBultos
                     datos.Add(res.GetDouble(14).ToString()); //CantidadRealizada
                     datos.Add(res.GetInt32(15).ToString()); //IdEmbalaje
                     numCliente = res.GetInt32(16).ToString();
+                    numVersion = Convert.ToInt32(res.GetInt32(17).ToString());
                 }
                 conexion.Close();
                 if (datos.Count != 0) {
@@ -843,6 +845,8 @@ namespace EtiquetadoBultos
                     datos.Add(numCliente); //[18]numero de cliente
                     datos.Add(datosExcedentes[0]);//[19]excedenteMin
                     datos.Add(datosExcedentes[1]);//[20]excedenteMax
+                    datos.Add(numVersion.ToString());  //VERSION
+
                 }
             }
             return datos;
@@ -1085,7 +1089,20 @@ namespace EtiquetadoBultos
 
             return extrusionDatos;
         }
-       
+
+        internal int UpdateBultosMuestreo(string qry1)
+        {
+            using (var conexion = new MySqlConnection("server = localhost; port=3306; userid=root; password=kamila; database=sistemaindustrial;"))
+            {
+                conexion.Open();
+                using (var command = conexion.CreateCommand())
+                {
+                    command.CommandText = qry1;
+                    return command.ExecuteNonQuery();
+                }
+            }
+        }
+
         public bool sqlSimpleQuery(string sql01, string sql02)
         {
             conexion.Open();
@@ -1320,6 +1337,19 @@ namespace EtiquetadoBultos
                 conexion.Close();
             }
             return respuesta;
+        }
+
+        internal int GetIdMaquina(string maqina)
+        {
+            using (var conexion = new MySqlConnection("server = localhost; port=3306; userid=root; password=kamila; database=sistemaindustrial;"))
+            {
+                conexion.Open();
+                using (var command = conexion.CreateCommand())
+                {
+                    command.CommandText = "SELECT id FROM maquinas WHERE nombre =" + "'"+maqina+"'" + ";";
+                    return command.ExecuteScalar() != DBNull.Value ? Convert.ToInt32(command.ExecuteScalar()) : 0;
+                }
+            }
         }
     }
 }
