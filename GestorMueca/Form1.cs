@@ -1207,10 +1207,10 @@ namespace EtiquetadoBultos
             Process proc = new Process();
             var legOP = operadores[0];
             var legEnc = operadores[1];
-    
-                //string batDir = string.Format(@"D:\Fuente_sis\Produccion\Modulo_9\ScrapEtiquetado");
-                //proc.StartInfo.WorkingDirectory = batDir;
-                proc.StartInfo.FileName = @"D:\Fuente_sis\Produccion\Modulo_9\ScrapEtiquetado\ScrapKP.exe";
+
+            //string batDir = string.Format(@"D:\Fuente_sis\Produccion\Modulo_9\ScrapEtiquetado");
+            //proc.StartInfo.WorkingDirectory = batDir;
+            proc.StartInfo.FileName = @"D:\Fuente_sis\Produccion\Modulo_9\ScrapEtiquetado\ScrapKP.exe";
             proc.StartInfo.Arguments = $"{datosOp[8]} {datosOp[9]} {datosOp[6]} {legEnc} {legOP} CON";
             proc.StartInfo.UseShellExecute = false;
             proc.StartInfo.RedirectStandardOutput = true;
@@ -1241,6 +1241,27 @@ namespace EtiquetadoBultos
                 Console.WriteLine("Ocurrió un error: " + ex.Message);
             }
 
+        }
+        private void btnAgregarMuestreo_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var maquina = maquinaSeleccionada != "" ? maquinaSeleccionada : datosOp[6];
+                string rutaAplicacion = @"D:\Fuente_Sis\Borre\ProtocoloDE\Release\Protocolo_User_DataEntry.exe";
+                string parametros = $"confeccion {datosOp[8]} {datosOp[9]} {maquina}";
+
+                ProcessStartInfo infoProceso = new ProcessStartInfo
+                {
+                    FileName = rutaAplicacion,
+                    Arguments = parametros
+                };
+                Process.Start(infoProceso);
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("No se pudo abrir DATAENTRY");
+            }
         }
     }
 }
