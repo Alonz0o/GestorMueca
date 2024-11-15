@@ -48,33 +48,33 @@ namespace EtiquetadoBultos
         {
             InitializeComponent();
             cargarDatosEnTextBox();
-            if (Program.argumentos.Count != 0)
-            {
-                bobinaSector = mySqlConexion.comprobarSector(Program.argumentos[1]);
-                datosOp = mySqlConexion.buscarOp(Program.argumentos[0], Program.argumentos[1]);
-                if (datosOp.Count == 0) return;
-                bobinasOp = mySqlConexion.buscarBobinas(Program.argumentos[0], Program.argumentos[1], bobinaSector);
+            //if (Program.argumentos.Count != 0)
+            //{
+            //    bobinaSector = mySqlConexion.comprobarSector(Program.argumentos[1]);
+            //    datosOp = mySqlConexion.buscarOp(Program.argumentos[0], Program.argumentos[1]);
+            //    if (datosOp.Count == 0) return;
+            //    bobinasOp = mySqlConexion.buscarBobinas(Program.argumentos[0], Program.argumentos[1], bobinaSector);
 
-                if (Program.argumentos[2] != "0")
-                {
-                    cargarEncargado(Program.argumentos[2]);
-                }
-                if (Program.argumentos[3] != "0")
-                {
-                    tbOperario.Text = Program.argumentos[3];
-                    if (!string.IsNullOrEmpty(tbOperario.Text)) cargarPersonal("00");
-                }
-                if (Program.argumentos[4] != "0")
-                {
-                    maquinaSeleccionada = mySqlConexion.buscarMaquinaPorId(Program.argumentos[4]);
-                }
-                if (maquinaSeleccionada == "FASON")
-                {
-                    btnEtiquetar.Visible = false;
-                    btnGenerarFason.Visible = true;
-                }
-                cambiarDatos();
-            }
+            //    if (Program.argumentos[2] != "0")
+            //    {
+            //        cargarEncargado(Program.argumentos[2]);
+            //    }
+            //    if (Program.argumentos[3] != "0")
+            //    {
+            //        tbOperario.Text = Program.argumentos[3];
+            //        if (!string.IsNullOrEmpty(tbOperario.Text)) cargarPersonal("00");
+            //    }
+            //    if (Program.argumentos[4] != "0")
+            //    {
+            //        maquinaSeleccionada = mySqlConexion.buscarMaquinaPorId(Program.argumentos[4]);
+            //    }
+            //    if (maquinaSeleccionada == "FASON")
+            //    {
+            //        btnEtiquetar.Visible = false;
+            //        btnGenerarFason.Visible = true;
+            //    }
+            //    cambiarDatos();
+            //}
 
             instancia = this;
             dgvBobinasRegistradas.AllowUserToAddRows = false;
@@ -207,7 +207,6 @@ namespace EtiquetadoBultos
             tbAuxiliar02.AutoCompleteCustomSource = autoCompleteCollection;
         }
 
-        //KeyDown Componente tbOperario, tbAuxiliar01 y tbAuxiliar02
         private void tbOperario_KeyDown(object sender, KeyEventArgs e)
         {
             var componente = (TextBox)sender;
