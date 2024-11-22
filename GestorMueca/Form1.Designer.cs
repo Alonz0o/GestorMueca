@@ -124,7 +124,6 @@
             this.btnSalir = new EtiquetadoBultos.AFControles.AFButton();
             this.label4 = new System.Windows.Forms.Label();
             this.lblOperariosEncargado = new System.Windows.Forms.Label();
-            this.btnAgregarMuestreo = new EtiquetadoBultos.AFControles.AFButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBobinasRegistradas)).BeginInit();
             this.tlpBobinadoCabezera.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -1388,19 +1387,18 @@
             // 
             this.tlpPie.BackColor = System.Drawing.Color.Transparent;
             this.tlpPie.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Outset;
-            this.tlpPie.ColumnCount = 6;
-            this.tlpPie.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tlpPie.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tlpPie.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tlpPie.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tlpPie.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tlpPie.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tlpPie.Controls.Add(this.btnAgregarMuestreo, 4, 0);
+            this.tlpPie.ColumnCount = 5;
+            this.tlpPie.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tlpPie.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tlpPie.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tlpPie.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tlpPie.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tlpPie.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tlpPie.Controls.Add(this.btnAgregarScrap, 3, 0);
             this.tlpPie.Controls.Add(this.btnIp, 2, 0);
             this.tlpPie.Controls.Add(this.btnReEtiquetar, 1, 0);
             this.tlpPie.Controls.Add(this.panel1, 0, 0);
-            this.tlpPie.Controls.Add(this.btnSalir, 5, 0);
+            this.tlpPie.Controls.Add(this.btnSalir, 4, 0);
             this.tlpPie.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.tlpPie.Location = new System.Drawing.Point(0, 537);
             this.tlpPie.Name = "tlpPie";
@@ -1422,9 +1420,9 @@
             this.btnAgregarScrap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregarScrap.Font = new System.Drawing.Font("Roboto Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregarScrap.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(94)))), ((int)(((byte)(215)))));
-            this.btnAgregarScrap.Location = new System.Drawing.Point(455, 5);
+            this.btnAgregarScrap.Location = new System.Drawing.Point(548, 5);
             this.btnAgregarScrap.Name = "btnAgregarScrap";
-            this.btnAgregarScrap.Size = new System.Drawing.Size(142, 46);
+            this.btnAgregarScrap.Size = new System.Drawing.Size(173, 46);
             this.btnAgregarScrap.TabIndex = 6;
             this.btnAgregarScrap.Text = "Generar SCRAP";
             this.btnAgregarScrap.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(94)))), ((int)(((byte)(215)))));
@@ -1444,9 +1442,9 @@
             this.btnIp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnIp.Font = new System.Drawing.Font("Roboto Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(94)))), ((int)(((byte)(215)))));
-            this.btnIp.Location = new System.Drawing.Point(305, 5);
+            this.btnIp.Location = new System.Drawing.Point(367, 5);
             this.btnIp.Name = "btnIp";
-            this.btnIp.Size = new System.Drawing.Size(142, 46);
+            this.btnIp.Size = new System.Drawing.Size(173, 46);
             this.btnIp.TabIndex = 1;
             this.btnIp.Text = "Generar IP";
             this.btnIp.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(94)))), ((int)(((byte)(215)))));
@@ -1466,9 +1464,9 @@
             this.btnReEtiquetar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReEtiquetar.Font = new System.Drawing.Font("Roboto Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReEtiquetar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(94)))), ((int)(((byte)(215)))));
-            this.btnReEtiquetar.Location = new System.Drawing.Point(155, 5);
+            this.btnReEtiquetar.Location = new System.Drawing.Point(186, 5);
             this.btnReEtiquetar.Name = "btnReEtiquetar";
-            this.btnReEtiquetar.Size = new System.Drawing.Size(142, 46);
+            this.btnReEtiquetar.Size = new System.Drawing.Size(173, 46);
             this.btnReEtiquetar.TabIndex = 4;
             this.btnReEtiquetar.Text = "Reetiquetar";
             this.btnReEtiquetar.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(94)))), ((int)(((byte)(215)))));
@@ -1482,7 +1480,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(5, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(142, 46);
+            this.panel1.Size = new System.Drawing.Size(173, 46);
             this.panel1.TabIndex = 5;
             // 
             // btnGenerarFason
@@ -1500,7 +1498,7 @@
             this.btnGenerarFason.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(94)))), ((int)(((byte)(215)))));
             this.btnGenerarFason.Location = new System.Drawing.Point(0, 0);
             this.btnGenerarFason.Name = "btnGenerarFason";
-            this.btnGenerarFason.Size = new System.Drawing.Size(142, 46);
+            this.btnGenerarFason.Size = new System.Drawing.Size(173, 46);
             this.btnGenerarFason.TabIndex = 3;
             this.btnGenerarFason.Text = "Generar Fasón";
             this.btnGenerarFason.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(94)))), ((int)(((byte)(215)))));
@@ -1524,7 +1522,7 @@
             this.btnEtiquetar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(94)))), ((int)(((byte)(215)))));
             this.btnEtiquetar.Location = new System.Drawing.Point(0, 0);
             this.btnEtiquetar.Name = "btnEtiquetar";
-            this.btnEtiquetar.Size = new System.Drawing.Size(142, 46);
+            this.btnEtiquetar.Size = new System.Drawing.Size(173, 46);
             this.btnEtiquetar.TabIndex = 2;
             this.btnEtiquetar.Text = "Etiquetar";
             this.btnEtiquetar.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(94)))), ((int)(((byte)(215)))));
@@ -1544,9 +1542,9 @@
             this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalir.Font = new System.Drawing.Font("Roboto Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalir.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(45)))), ((int)(((byte)(59)))));
-            this.btnSalir.Location = new System.Drawing.Point(755, 5);
+            this.btnSalir.Location = new System.Drawing.Point(729, 5);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(147, 46);
+            this.btnSalir.Size = new System.Drawing.Size(173, 46);
             this.btnSalir.TabIndex = 3;
             this.btnSalir.Text = "Salir";
             this.btnSalir.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(45)))), ((int)(((byte)(59)))));
@@ -1583,28 +1581,6 @@
             this.lblOperariosEncargado.TabIndex = 21;
             this.lblOperariosEncargado.Text = "Operarios";
             this.lblOperariosEncargado.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // btnAgregarMuestreo
-            // 
-            this.btnAgregarMuestreo.BackColor = System.Drawing.Color.Transparent;
-            this.btnAgregarMuestreo.BackgroundColor = System.Drawing.Color.Transparent;
-            this.btnAgregarMuestreo.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(94)))), ((int)(((byte)(215)))));
-            this.btnAgregarMuestreo.BorderRadius = 4;
-            this.btnAgregarMuestreo.BorderSize = 2;
-            this.btnAgregarMuestreo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAgregarMuestreo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnAgregarMuestreo.FlatAppearance.BorderSize = 0;
-            this.btnAgregarMuestreo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregarMuestreo.Font = new System.Drawing.Font("Roboto Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarMuestreo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(94)))), ((int)(((byte)(215)))));
-            this.btnAgregarMuestreo.Location = new System.Drawing.Point(605, 5);
-            this.btnAgregarMuestreo.Name = "btnAgregarMuestreo";
-            this.btnAgregarMuestreo.Size = new System.Drawing.Size(142, 46);
-            this.btnAgregarMuestreo.TabIndex = 7;
-            this.btnAgregarMuestreo.Text = "Generar Muestra";
-            this.btnAgregarMuestreo.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(94)))), ((int)(((byte)(215)))));
-            this.btnAgregarMuestreo.UseVisualStyleBackColor = false;
-            this.btnAgregarMuestreo.Click += new System.EventHandler(this.btnAgregarMuestreo_Click);
             // 
             // formPrincipal
             // 
@@ -1780,7 +1756,6 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.TextBox tbTotalBolsas;
         private AFControles.AFButton btnAgregarScrap;
-        private AFControles.AFButton btnAgregarMuestreo;
     }
 }
 

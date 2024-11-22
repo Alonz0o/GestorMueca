@@ -48,33 +48,33 @@ namespace EtiquetadoBultos
         {
             InitializeComponent();
             cargarDatosEnTextBox();
-            //if (Program.argumentos.Count != 0)
-            //{
-            //    bobinaSector = mySqlConexion.comprobarSector(Program.argumentos[1]);
-            //    datosOp = mySqlConexion.buscarOp(Program.argumentos[0], Program.argumentos[1]);
-            //    if (datosOp.Count == 0) return;
-            //    bobinasOp = mySqlConexion.buscarBobinas(Program.argumentos[0], Program.argumentos[1], bobinaSector);
+            if (Program.argumentos.Count != 0)
+            {
+                bobinaSector = mySqlConexion.comprobarSector(Program.argumentos[1]);
+                datosOp = mySqlConexion.buscarOp(Program.argumentos[0], Program.argumentos[1]);
+                if (datosOp.Count == 0) return;
+                bobinasOp = mySqlConexion.buscarBobinas(Program.argumentos[0], Program.argumentos[1], bobinaSector);
 
-            //    if (Program.argumentos[2] != "0")
-            //    {
-            //        cargarEncargado(Program.argumentos[2]);
-            //    }
-            //    if (Program.argumentos[3] != "0")
-            //    {
-            //        tbOperario.Text = Program.argumentos[3];
-            //        if (!string.IsNullOrEmpty(tbOperario.Text)) cargarPersonal("00");
-            //    }
-            //    if (Program.argumentos[4] != "0")
-            //    {
-            //        maquinaSeleccionada = mySqlConexion.buscarMaquinaPorId(Program.argumentos[4]);
-            //    }
-            //    if (maquinaSeleccionada == "FASON")
-            //    {
-            //        btnEtiquetar.Visible = false;
-            //        btnGenerarFason.Visible = true;
-            //    }
-            //    cambiarDatos();
-            //}
+                if (Program.argumentos[2] != "0")
+                {
+                    cargarEncargado(Program.argumentos[2]);
+                }
+                if (Program.argumentos[3] != "0")
+                {
+                    tbOperario.Text = Program.argumentos[3];
+                    if (!string.IsNullOrEmpty(tbOperario.Text)) cargarPersonal("00");
+                }
+                if (Program.argumentos[4] != "0")
+                {
+                    maquinaSeleccionada = mySqlConexion.buscarMaquinaPorId(Program.argumentos[4]);
+                }
+                if (maquinaSeleccionada == "FASON")
+                {
+                    btnEtiquetar.Visible = false;
+                    btnGenerarFason.Visible = true;
+                }
+                cambiarDatos();
+            }
 
             instancia = this;
             dgvBobinasRegistradas.AllowUserToAddRows = false;
@@ -657,6 +657,11 @@ namespace EtiquetadoBultos
         }
         private void btnEtiquetar_Click(object sender, EventArgs e)
         {
+            var op = datosOp[8] + "/" + datosOp[9];
+            var muestrasTotales = mySqlConexion.VerificarMuestreo(op, datosOp[7]);
+            if (muestrasTotales.Solicitadas < muestrasTotales.Requeridas) {
+                MessageBox.Show("Actualmente se encuentran un total de "+muestrasTotales.Solicitadas+ " muestras. Se solicitaran muestras de largo y ancho cada " + muestrasTotales.PedirCada + "paquetes hasta un total de " +muestrasTotales.Requeridas+".", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
             //Se calcula por un paquete, si no viene por sistema se toma el tbCantidadBolsas.
             var idMaquina = (int)mySqlConexion.GetIdMaquina(datosOp[6]);
             if (calc.porUnPaquete == 0) calc.porUnPaquete = double.Parse(tbCantidadBolsas.Text) * double.Parse(datosOp[2]);
@@ -741,6 +746,30 @@ namespace EtiquetadoBultos
                     sqlAgregarBultos = sqlAgregarBultos + "(" + datosOp[11] + "," + numBulto + ",current_timestamp," + oper + "," + bolsas + "," + row.Cells[identificador].Value.ToString() + "," + "'" + bobinaSector + "'" + "," + idMaquina + "),";
                     bolsasConfeccionadas = bolsasConfeccionadas + int.Parse(bolsas);
 
+                    if (numBulto % muestrasTotales.PedirCada == 0)
+                    {
+                        try
+                        {
+                            string maquina = string.IsNullOrEmpty(maquinaSeleccionada) ? datosOp[6] : maquinaSeleccionada;
+                            string rutaAplicacion = @"D:\Fuente_Sis\Borre\ProtocoloDE\Release\Protocolo_User_DataEntry.exe";
+                            string parametros = $"confeccion {datosOp[8]} {datosOp[9]} {maquina}";
+
+                            var infoProceso = new ProcessStartInfo
+                            {
+                                FileName = rutaAplicacion,
+                                Arguments = parametros
+                            };
+
+                            using (Process process = Process.Start(infoProceso)) if (process != null) process.WaitForExit();
+                        }
+                        catch
+                        {
+                            MessageBox.Show("No se pudo abrir el cargado de muestras debido a un error técnico.");
+                            return;
+                        }
+                    }
+
+
                     if (proximos.Skip(2).Contains(numBulto))
                     {
                         sqlModificarMuestreoP1 = sqlModificarMuestreoP1 + " when num_bulto = " + numBulto + " then " + 1 + " ";
@@ -763,6 +792,7 @@ namespace EtiquetadoBultos
                     if (total == double.Parse(tbSumPaquetes.Text)) break;
                 }
             }
+
             sqlModificarMuestreoP1 = sqlModificarMuestreoP1 + "end) ";
             sqlModificarMuestreoP1 = sqlModificarMuestreoP1 + sqlModificarMuestreoP2;
             sqlActualizarMtsRemanentesP1 = sqlActualizarMtsRemanentesP1 + "end) ";
@@ -777,22 +807,24 @@ namespace EtiquetadoBultos
                 {
                     var pep = mySqlConexion.UpdateBultosMuestreo(sqlModificarMuestreoP1);
                 }
-                List<string> datosPlanificacion = new List<string>();
-                datosPlanificacion.Add(datosOp[orden]);
-                datosPlanificacion.Add(datosOp[codigo]);
-                datosPlanificacion.Add(datosOp[0]);//Cliente
-                datosPlanificacion.Add(datosOp[1]);//Ancho
-                datosPlanificacion.Add(datosOp[3]);//Espesor
                 var lar = tbLargoBolsa.Text.Replace("cm", "");
-                datosPlanificacion.Add(lar);//Largo
-                datosPlanificacion.Add(bolsasConfeccionadas.ToString());//CantidadBolsas
-                datosPlanificacion.Add(gbOperario.Text);//Operario
-                datosPlanificacion.Add(gbAuxiliar01.Text != "Auxiliar" ? gbAuxiliar01.Text : "No Hay, Auxiliar");//Legajo01
-                datosPlanificacion.Add(gbAuxiliar02.Text != "Auxiliar" ? gbAuxiliar02.Text : "No Hay, Auxiliar");//Legajo02
-                datosPlanificacion.Add(encargadoNomApe != "" ? encargadoNomApe : "Sin Encargado");//Encargado
-                datosPlanificacion.Add(tbSumPaquetes.Text);//Metros
-                datosPlanificacion.Add(datosOp[6]);//Maquina
-                datosPlanificacion.Add(datosOp[10]);//FechaEntrega
+                List<string> datosPlanificacion = new List<string>
+                {
+                    datosOp[orden],
+                    datosOp[codigo],
+                    datosOp[0],//Cliente
+                    datosOp[1],//Ancho
+                    datosOp[3],//Espesor                
+                    lar,//Largo
+                    bolsasConfeccionadas.ToString(),//CantidadBolsas
+                    gbOperario.Text,//Operario
+                    gbAuxiliar01.Text != "Auxiliar" ? gbAuxiliar01.Text : "No Hay, Auxiliar",//Legajo01
+                    gbAuxiliar02.Text != "Auxiliar" ? gbAuxiliar02.Text : "No Hay, Auxiliar",//Legajo02
+                    encargadoNomApe != "" ? encargadoNomApe : "Sin Encargado",//Encargado
+                    tbSumPaquetes.Text,//Metros
+                    datosOp[6],//Maquina
+                    datosOp[10]//FechaEntrega
+                };
 
                 dgvBobinasRegistradas.Rows.Clear();
                 tbSumMetros.Text = "0";

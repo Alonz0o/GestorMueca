@@ -333,28 +333,33 @@ namespace EtiquetadoBultos
             return encargadosNomApe;
         }
 
-        internal ArrayList VerificarMuestreo(string idOrden, string aConfeccionar)
+        internal Muestreo VerificarMuestreo(string idOrden, string aConfeccionar)
         {
-            ArrayList res = new ArrayList();
+            Muestreo m = new Muestreo();
             using (var conexion = new MySqlConnection("server = localhost; port = 3306; userid = root; password = kamila; database = sistemaindustrial; "))
             using (var command = new MySqlCommand())
             {
                 conexion.Open();
                 command.Connection = conexion;
-                command.CommandText = @"select count(idop) as valor from muestra where (idop=@pIdOrden) group by idop;";
+                command.CommandText = @"SELECT count(op) AS valor FROM formato_ensayo WHERE op=@pIdOrden GROUP BY op;";
                 command.Parameters.Add("@pIdOrden", MySqlDbType.Int32).Value = idOrden;
                 var muestrasTotales = command.ExecuteScalar() != DBNull.Value ? Convert.ToInt32(command.ExecuteScalar()) : 0;
                              
-                command.CommandText = @"select muestras from cantidadmuestreo where @pCantidadDeBosasRequeridas between desde and hasta and sector = 'c';";
+                command.CommandText = @"select muestras,desde,hasta,pedir_cada from cantidadmuestreo where @pCantidadDeBosasRequeridas between desde and hasta and sector = 'c';";
                 command.Parameters.Add("@pCantidadDeBosasRequeridas", MySqlDbType.Int32).Value = aConfeccionar;
-                var muestrasRequeridas = (command.ExecuteScalar() as int?) ?? 0;
-              
-                res.Add(muestrasTotales);
-                res.Add(muestrasRequeridas);
-                if (muestrasTotales < muestrasRequeridas) res.Add(false);
-                else res.Add(true);
+                using (var reader = command.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        m.Requeridas = reader.IsDBNull(0) ? 0 : reader.GetInt32(0);
+                        m.Desde = reader.IsDBNull(1) ? 0 : reader.GetInt32(1);
+                        m.Hasta = reader.IsDBNull(2) ? 0 : reader.GetInt32(2);
+                        m.PedirCada = reader.IsDBNull(3) ? 0 : reader.GetInt32(3);
+                        m.Solicitadas = muestrasTotales;
+                    }
+                }
             }
-            return res;
+            return m;
         }
 
         internal IList<Bulto> buscarBultos(string idOrden)

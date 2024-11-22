@@ -121,9 +121,9 @@ namespace EtiquetadoBultos
                 tbLargoTotal.Text = "";
                 cbBobina.SelectedIndex = -1;
 
-                var muestrasTotales = mySqlConexion.VerificarMuestreo(formPrincipal.instancia.datosOp[11], formPrincipal.instancia.datosOp[7]);
-                lblAlerta.Text = "No es posible generar un IP sin las muestras requeridas." + "\n" + "Creadas: " + muestrasTotales[0] + "\n" + "Requeridas: " + muestrasTotales[1];
-                if (Convert.ToInt32(muestrasTotales[0]) == Convert.ToInt32(muestrasTotales[1])) Close();
+                //var muestrasTotales = mySqlConexion.VerificarMuestreo(formPrincipal.instancia.datosOp[11], formPrincipal.instancia.datosOp[7]);
+                //lblAlerta.Text = "No es posible generar un IP sin las muestras requeridas." + "\n" + "Creadas: " + muestrasTotales[0] + "\n" + "Requeridas: " + muestrasTotales[1];
+                //if (Convert.ToInt32(muestrasTotales[0]) == Convert.ToInt32(muestrasTotales[1])) Close();
 
             }
             else MessageBox.Show("Error al agregar muestra.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Warning);

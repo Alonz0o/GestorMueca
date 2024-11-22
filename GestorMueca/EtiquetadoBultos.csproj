@@ -208,6 +208,7 @@
     <Compile Include="Models\Calculo.cs" />
     <Compile Include="Models\Insumo.cs" />
     <Compile Include="Models\MinMax.cs" />
+    <Compile Include="Models\Muestreo.cs" />
     <Compile Include="Models\NtIp.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Program.cs" />
