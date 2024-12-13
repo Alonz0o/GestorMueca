@@ -169,13 +169,13 @@
             this.tbAnchoBolsa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(63)))), ((int)(((byte)(159)))));
             this.tbAnchoBolsa.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbAnchoBolsa.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tbAnchoBolsa.Font = new System.Drawing.Font("Roboto Black", 12F, System.Drawing.FontStyle.Bold);
+            this.tbAnchoBolsa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.tbAnchoBolsa.ForeColor = System.Drawing.Color.White;
             this.tbAnchoBolsa.Location = new System.Drawing.Point(0, 0);
             this.tbAnchoBolsa.Margin = new System.Windows.Forms.Padding(0);
             this.tbAnchoBolsa.Name = "tbAnchoBolsa";
             this.tbAnchoBolsa.ReadOnly = true;
-            this.tbAnchoBolsa.Size = new System.Drawing.Size(296, 20);
+            this.tbAnchoBolsa.Size = new System.Drawing.Size(296, 19);
             this.tbAnchoBolsa.TabIndex = 2;
             this.tbAnchoBolsa.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -184,20 +184,20 @@
             this.tbBolsasSolicitadas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(63)))), ((int)(((byte)(159)))));
             this.tbBolsasSolicitadas.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbBolsasSolicitadas.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbBolsasSolicitadas.Font = new System.Drawing.Font("Roboto Black", 12F, System.Drawing.FontStyle.Bold);
+            this.tbBolsasSolicitadas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.tbBolsasSolicitadas.ForeColor = System.Drawing.Color.White;
             this.tbBolsasSolicitadas.Location = new System.Drawing.Point(0, 0);
             this.tbBolsasSolicitadas.Margin = new System.Windows.Forms.Padding(0);
             this.tbBolsasSolicitadas.Name = "tbBolsasSolicitadas";
             this.tbBolsasSolicitadas.ReadOnly = true;
-            this.tbBolsasSolicitadas.Size = new System.Drawing.Size(148, 20);
+            this.tbBolsasSolicitadas.Size = new System.Drawing.Size(148, 19);
             this.tbBolsasSolicitadas.TabIndex = 2;
             this.tbBolsasSolicitadas.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label11
             // 
             this.label11.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label11.Font = new System.Drawing.Font("Roboto Black", 10F, System.Drawing.FontStyle.Bold);
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.label11.ForeColor = System.Drawing.Color.DimGray;
             this.label11.Location = new System.Drawing.Point(0, 23);
             this.label11.Name = "label11";
@@ -211,13 +211,13 @@
             this.tbSumMetros.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(63)))), ((int)(((byte)(159)))));
             this.tbSumMetros.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbSumMetros.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tbSumMetros.Font = new System.Drawing.Font("Roboto Black", 12F, System.Drawing.FontStyle.Bold);
+            this.tbSumMetros.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.tbSumMetros.ForeColor = System.Drawing.Color.White;
             this.tbSumMetros.Location = new System.Drawing.Point(0, 0);
             this.tbSumMetros.Margin = new System.Windows.Forms.Padding(0);
             this.tbSumMetros.Name = "tbSumMetros";
             this.tbSumMetros.ReadOnly = true;
-            this.tbSumMetros.Size = new System.Drawing.Size(296, 20);
+            this.tbSumMetros.Size = new System.Drawing.Size(296, 19);
             this.tbSumMetros.TabIndex = 2;
             this.tbSumMetros.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.tbSumMetros.TextChanged += new System.EventHandler(this.tbSumMetros_TextChanged);
@@ -225,7 +225,7 @@
             // lblDatosMtsBobinas
             // 
             this.lblDatosMtsBobinas.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lblDatosMtsBobinas.Font = new System.Drawing.Font("Roboto Black", 10F, System.Drawing.FontStyle.Bold);
+            this.lblDatosMtsBobinas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.lblDatosMtsBobinas.ForeColor = System.Drawing.Color.DimGray;
             this.lblDatosMtsBobinas.Location = new System.Drawing.Point(0, 23);
             this.lblDatosMtsBobinas.Name = "lblDatosMtsBobinas";
@@ -239,13 +239,13 @@
             this.tbSumPaquetes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(63)))), ((int)(((byte)(159)))));
             this.tbSumPaquetes.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbSumPaquetes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tbSumPaquetes.Font = new System.Drawing.Font("Roboto Black", 12F, System.Drawing.FontStyle.Bold);
+            this.tbSumPaquetes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.tbSumPaquetes.ForeColor = System.Drawing.Color.White;
             this.tbSumPaquetes.Location = new System.Drawing.Point(0, 0);
             this.tbSumPaquetes.Margin = new System.Windows.Forms.Padding(0);
             this.tbSumPaquetes.Name = "tbSumPaquetes";
             this.tbSumPaquetes.ReadOnly = true;
-            this.tbSumPaquetes.Size = new System.Drawing.Size(296, 20);
+            this.tbSumPaquetes.Size = new System.Drawing.Size(296, 19);
             this.tbSumPaquetes.TabIndex = 2;
             this.tbSumPaquetes.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.tbSumPaquetes.TextChanged += new System.EventHandler(this.tbSumPaquetes_TextChanged);
@@ -253,7 +253,7 @@
             // label5
             // 
             this.label5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label5.Font = new System.Drawing.Font("Roboto Black", 10F, System.Drawing.FontStyle.Bold);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.label5.ForeColor = System.Drawing.Color.DimGray;
             this.label5.Location = new System.Drawing.Point(0, 23);
             this.label5.Name = "label5";
@@ -353,7 +353,7 @@
             this.groupBox2.Controls.Add(this.ibtnCantPaquetesLimpiar);
             this.groupBox2.Controls.Add(this.tbCantPaquetes);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.Font = new System.Drawing.Font("Roboto Black", 11F, System.Drawing.FontStyle.Bold);
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
             this.groupBox2.ForeColor = System.Drawing.Color.DarkBlue;
             this.groupBox2.Location = new System.Drawing.Point(49, 3);
             this.groupBox2.Name = "groupBox2";
@@ -383,11 +383,11 @@
             // 
             this.tbCantPaquetes.BackColor = System.Drawing.SystemColors.Info;
             this.tbCantPaquetes.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbCantPaquetes.Location = new System.Drawing.Point(3, 21);
+            this.tbCantPaquetes.Location = new System.Drawing.Point(3, 20);
             this.tbCantPaquetes.Margin = new System.Windows.Forms.Padding(0);
             this.tbCantPaquetes.MaxLength = 4;
             this.tbCantPaquetes.Name = "tbCantPaquetes";
-            this.tbCantPaquetes.Size = new System.Drawing.Size(173, 25);
+            this.tbCantPaquetes.Size = new System.Drawing.Size(173, 24);
             this.tbCantPaquetes.TabIndex = 1;
             this.tbCantPaquetes.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.tbCantPaquetes.TextChanged += new System.EventHandler(this.tbCantPaquetes_TextChanged);
@@ -417,7 +417,7 @@
             this.groupBox1.Controls.Add(this.ibtnCantidadBolsasLimpiar);
             this.groupBox1.Controls.Add(this.tbCantidadBolsas);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Font = new System.Drawing.Font("Roboto Black", 11F, System.Drawing.FontStyle.Bold);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
             this.groupBox1.ForeColor = System.Drawing.Color.DarkBlue;
             this.groupBox1.Location = new System.Drawing.Point(45, 0);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(0);
@@ -483,11 +483,11 @@
             // 
             this.tbCantidadBolsas.BackColor = System.Drawing.SystemColors.Info;
             this.tbCantidadBolsas.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbCantidadBolsas.Location = new System.Drawing.Point(3, 21);
+            this.tbCantidadBolsas.Location = new System.Drawing.Point(3, 20);
             this.tbCantidadBolsas.Margin = new System.Windows.Forms.Padding(0);
             this.tbCantidadBolsas.MaxLength = 4;
             this.tbCantidadBolsas.Name = "tbCantidadBolsas";
-            this.tbCantidadBolsas.Size = new System.Drawing.Size(174, 25);
+            this.tbCantidadBolsas.Size = new System.Drawing.Size(174, 24);
             this.tbCantidadBolsas.TabIndex = 1;
             this.tbCantidadBolsas.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.tbCantidadBolsas.TextChanged += new System.EventHandler(this.tbCantidadBolsas_TextChanged);
@@ -536,7 +536,7 @@
             this.gbRegistroBob.Controls.Add(this.ibtnLimpiarRegistroBobina);
             this.gbRegistroBob.Controls.Add(this.tbRegistrarBobina);
             this.gbRegistroBob.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gbRegistroBob.Font = new System.Drawing.Font("Roboto Black", 11F, System.Drawing.FontStyle.Bold);
+            this.gbRegistroBob.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
             this.gbRegistroBob.ForeColor = System.Drawing.Color.DarkBlue;
             this.gbRegistroBob.Location = new System.Drawing.Point(48, 3);
             this.gbRegistroBob.Name = "gbRegistroBob";
@@ -566,11 +566,11 @@
             // 
             this.tbRegistrarBobina.BackColor = System.Drawing.SystemColors.Info;
             this.tbRegistrarBobina.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbRegistrarBobina.Location = new System.Drawing.Point(3, 21);
+            this.tbRegistrarBobina.Location = new System.Drawing.Point(3, 20);
             this.tbRegistrarBobina.Margin = new System.Windows.Forms.Padding(0);
             this.tbRegistrarBobina.MaxLength = 11;
             this.tbRegistrarBobina.Name = "tbRegistrarBobina";
-            this.tbRegistrarBobina.Size = new System.Drawing.Size(168, 25);
+            this.tbRegistrarBobina.Size = new System.Drawing.Size(168, 24);
             this.tbRegistrarBobina.TabIndex = 1;
             this.tbRegistrarBobina.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.tbRegistrarBobina.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbRegistrarBobina_KeyPress);
@@ -581,7 +581,7 @@
             this.groupBox3.BackColor = System.Drawing.Color.Transparent;
             this.groupBox3.Controls.Add(this.tbTotalBolsas);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox3.Font = new System.Drawing.Font("Roboto Black", 11F, System.Drawing.FontStyle.Bold);
+            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
             this.groupBox3.ForeColor = System.Drawing.Color.DarkBlue;
             this.groupBox3.Location = new System.Drawing.Point(789, 6);
             this.groupBox3.Name = "groupBox3";
@@ -595,11 +595,11 @@
             this.tbTotalBolsas.BackColor = System.Drawing.SystemColors.Info;
             this.tbTotalBolsas.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbTotalBolsas.Enabled = false;
-            this.tbTotalBolsas.Location = new System.Drawing.Point(3, 21);
+            this.tbTotalBolsas.Location = new System.Drawing.Point(3, 20);
             this.tbTotalBolsas.Margin = new System.Windows.Forms.Padding(0);
             this.tbTotalBolsas.MaxLength = 4;
             this.tbTotalBolsas.Name = "tbTotalBolsas";
-            this.tbTotalBolsas.Size = new System.Drawing.Size(106, 25);
+            this.tbTotalBolsas.Size = new System.Drawing.Size(106, 24);
             this.tbTotalBolsas.TabIndex = 1;
             this.tbTotalBolsas.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -667,7 +667,7 @@
             this.gbAuxiliar02.Controls.Add(this.ibtnAuxiliar02Limpiar);
             this.gbAuxiliar02.Controls.Add(this.tbAuxiliar02);
             this.gbAuxiliar02.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gbAuxiliar02.Font = new System.Drawing.Font("Roboto Black", 11F, System.Drawing.FontStyle.Bold);
+            this.gbAuxiliar02.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
             this.gbAuxiliar02.ForeColor = System.Drawing.Color.DarkBlue;
             this.gbAuxiliar02.Location = new System.Drawing.Point(608, 6);
             this.gbAuxiliar02.Name = "gbAuxiliar02";
@@ -714,11 +714,11 @@
             // 
             this.tbAuxiliar02.BackColor = System.Drawing.SystemColors.Info;
             this.tbAuxiliar02.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tbAuxiliar02.Location = new System.Drawing.Point(3, 21);
+            this.tbAuxiliar02.Location = new System.Drawing.Point(3, 20);
             this.tbAuxiliar02.Margin = new System.Windows.Forms.Padding(0);
             this.tbAuxiliar02.MaxLength = 4;
             this.tbAuxiliar02.Name = "tbAuxiliar02";
-            this.tbAuxiliar02.Size = new System.Drawing.Size(287, 25);
+            this.tbAuxiliar02.Size = new System.Drawing.Size(287, 24);
             this.tbAuxiliar02.TabIndex = 1;
             this.tbAuxiliar02.TextChanged += new System.EventHandler(this.tbOperario_TextChanged);
             this.tbAuxiliar02.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbOperario_KeyDown);
@@ -731,7 +731,7 @@
             this.gbAuxiliar01.Controls.Add(this.ibtnAuxiliar01Limpiar);
             this.gbAuxiliar01.Controls.Add(this.tbAuxiliar01);
             this.gbAuxiliar01.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gbAuxiliar01.Font = new System.Drawing.Font("Roboto Black", 11F, System.Drawing.FontStyle.Bold);
+            this.gbAuxiliar01.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
             this.gbAuxiliar01.ForeColor = System.Drawing.Color.DarkBlue;
             this.gbAuxiliar01.Location = new System.Drawing.Point(307, 6);
             this.gbAuxiliar01.Name = "gbAuxiliar01";
@@ -778,11 +778,11 @@
             // 
             this.tbAuxiliar01.BackColor = System.Drawing.SystemColors.Info;
             this.tbAuxiliar01.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tbAuxiliar01.Location = new System.Drawing.Point(3, 21);
+            this.tbAuxiliar01.Location = new System.Drawing.Point(3, 20);
             this.tbAuxiliar01.Margin = new System.Windows.Forms.Padding(0);
             this.tbAuxiliar01.MaxLength = 4;
             this.tbAuxiliar01.Name = "tbAuxiliar01";
-            this.tbAuxiliar01.Size = new System.Drawing.Size(286, 25);
+            this.tbAuxiliar01.Size = new System.Drawing.Size(286, 24);
             this.tbAuxiliar01.TabIndex = 1;
             this.tbAuxiliar01.TextChanged += new System.EventHandler(this.tbOperario_TextChanged);
             this.tbAuxiliar01.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbOperario_KeyDown);
@@ -795,7 +795,7 @@
             this.gbOperario.Controls.Add(this.ibtnOperarioLimpiar);
             this.gbOperario.Controls.Add(this.tbOperario);
             this.gbOperario.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gbOperario.Font = new System.Drawing.Font("Roboto Black", 11F, System.Drawing.FontStyle.Bold);
+            this.gbOperario.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
             this.gbOperario.ForeColor = System.Drawing.Color.DarkBlue;
             this.gbOperario.Location = new System.Drawing.Point(6, 6);
             this.gbOperario.Name = "gbOperario";
@@ -842,11 +842,11 @@
             // 
             this.tbOperario.BackColor = System.Drawing.SystemColors.Info;
             this.tbOperario.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tbOperario.Location = new System.Drawing.Point(3, 21);
+            this.tbOperario.Location = new System.Drawing.Point(3, 20);
             this.tbOperario.Margin = new System.Windows.Forms.Padding(0);
             this.tbOperario.MaxLength = 4;
             this.tbOperario.Name = "tbOperario";
-            this.tbOperario.Size = new System.Drawing.Size(286, 25);
+            this.tbOperario.Size = new System.Drawing.Size(286, 24);
             this.tbOperario.TabIndex = 1;
             this.tbOperario.TextChanged += new System.EventHandler(this.tbOperario_TextChanged);
             this.tbOperario.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbOperario_KeyDown);
@@ -888,7 +888,7 @@
             // lblDatosSoladura
             // 
             this.lblDatosSoladura.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lblDatosSoladura.Font = new System.Drawing.Font("Roboto Black", 10F, System.Drawing.FontStyle.Bold);
+            this.lblDatosSoladura.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.lblDatosSoladura.ForeColor = System.Drawing.Color.DimGray;
             this.lblDatosSoladura.Location = new System.Drawing.Point(0, 33);
             this.lblDatosSoladura.Name = "lblDatosSoladura";
@@ -900,7 +900,7 @@
             // lblSoldadura
             // 
             this.lblSoldadura.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblSoldadura.Font = new System.Drawing.Font("Roboto Medium", 12F, System.Drawing.FontStyle.Bold);
+            this.lblSoldadura.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.lblSoldadura.Location = new System.Drawing.Point(0, 0);
             this.lblSoldadura.Name = "lblSoldadura";
             this.lblSoldadura.Size = new System.Drawing.Size(221, 23);
@@ -923,7 +923,7 @@
             // lblDatosMaquina
             // 
             this.lblDatosMaquina.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lblDatosMaquina.Font = new System.Drawing.Font("Roboto Black", 10F, System.Drawing.FontStyle.Bold);
+            this.lblDatosMaquina.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.lblDatosMaquina.ForeColor = System.Drawing.Color.DimGray;
             this.lblDatosMaquina.Location = new System.Drawing.Point(0, 33);
             this.lblDatosMaquina.Name = "lblDatosMaquina";
@@ -935,7 +935,7 @@
             // lblMaquina
             // 
             this.lblMaquina.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblMaquina.Font = new System.Drawing.Font("Roboto Medium", 12F, System.Drawing.FontStyle.Bold);
+            this.lblMaquina.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.lblMaquina.Location = new System.Drawing.Point(0, 0);
             this.lblMaquina.Name = "lblMaquina";
             this.lblMaquina.Size = new System.Drawing.Size(221, 23);
@@ -959,7 +959,7 @@
             // lblDatosCliente
             // 
             this.lblDatosCliente.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lblDatosCliente.Font = new System.Drawing.Font("Roboto Black", 10F, System.Drawing.FontStyle.Bold);
+            this.lblDatosCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.lblDatosCliente.ForeColor = System.Drawing.Color.DimGray;
             this.lblDatosCliente.Location = new System.Drawing.Point(0, 33);
             this.lblDatosCliente.Name = "lblDatosCliente";
@@ -973,13 +973,13 @@
             this.tbCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
             this.tbCliente.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbCliente.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tbCliente.Font = new System.Drawing.Font("Roboto Black", 12F, System.Drawing.FontStyle.Bold);
+            this.tbCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.tbCliente.ForeColor = System.Drawing.Color.DarkBlue;
             this.tbCliente.Location = new System.Drawing.Point(0, 0);
             this.tbCliente.Name = "tbCliente";
             this.tbCliente.ReadOnly = true;
             this.tbCliente.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.tbCliente.Size = new System.Drawing.Size(221, 20);
+            this.tbCliente.Size = new System.Drawing.Size(221, 19);
             this.tbCliente.TabIndex = 2;
             this.tbCliente.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -999,7 +999,7 @@
             // lblDatosOP
             // 
             this.lblDatosOP.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lblDatosOP.Font = new System.Drawing.Font("Roboto Black", 10F, System.Drawing.FontStyle.Bold);
+            this.lblDatosOP.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.lblDatosOP.ForeColor = System.Drawing.Color.DimGray;
             this.lblDatosOP.Location = new System.Drawing.Point(0, 33);
             this.lblDatosOP.Name = "lblDatosOP";
@@ -1012,7 +1012,7 @@
             // 
             this.lblOp.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblOp.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblOp.Font = new System.Drawing.Font("Roboto Black", 12F, System.Drawing.FontStyle.Bold);
+            this.lblOp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.lblOp.Location = new System.Drawing.Point(0, 0);
             this.lblOp.Name = "lblOp";
             this.lblOp.Size = new System.Drawing.Size(221, 23);
@@ -1099,7 +1099,7 @@
             // lblEmpresa
             // 
             this.lblEmpresa.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblEmpresa.Font = new System.Drawing.Font("Roboto Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEmpresa.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEmpresa.ForeColor = System.Drawing.Color.White;
             this.lblEmpresa.Location = new System.Drawing.Point(0, 0);
             this.lblEmpresa.Name = "lblEmpresa";
@@ -1134,7 +1134,7 @@
             // 
             this.pnlDgvBobinas.Controls.Add(this.dgvBobinasRegistradas);
             this.pnlDgvBobinas.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlDgvBobinas.Font = new System.Drawing.Font("Roboto Black", 10F, System.Drawing.FontStyle.Bold);
+            this.pnlDgvBobinas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.pnlDgvBobinas.ForeColor = System.Drawing.Color.DimGray;
             this.pnlDgvBobinas.Location = new System.Drawing.Point(0, 328);
             this.pnlDgvBobinas.Name = "pnlDgvBobinas";
@@ -1195,13 +1195,13 @@
             this.tbCantBolsasMax.BackColor = System.Drawing.Color.Brown;
             this.tbCantBolsasMax.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbCantBolsasMax.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbCantBolsasMax.Font = new System.Drawing.Font("Roboto Black", 12F, System.Drawing.FontStyle.Bold);
+            this.tbCantBolsasMax.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.tbCantBolsasMax.ForeColor = System.Drawing.Color.White;
             this.tbCantBolsasMax.Location = new System.Drawing.Point(222, 0);
             this.tbCantBolsasMax.Margin = new System.Windows.Forms.Padding(0);
             this.tbCantBolsasMax.Name = "tbCantBolsasMax";
             this.tbCantBolsasMax.ReadOnly = true;
-            this.tbCantBolsasMax.Size = new System.Drawing.Size(75, 20);
+            this.tbCantBolsasMax.Size = new System.Drawing.Size(75, 19);
             this.tbCantBolsasMax.TabIndex = 4;
             this.tbCantBolsasMax.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -1210,13 +1210,13 @@
             this.tbCantBolsasMin.BackColor = System.Drawing.Color.SeaGreen;
             this.tbCantBolsasMin.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbCantBolsasMin.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbCantBolsasMin.Font = new System.Drawing.Font("Roboto Black", 12F, System.Drawing.FontStyle.Bold);
+            this.tbCantBolsasMin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.tbCantBolsasMin.ForeColor = System.Drawing.Color.White;
             this.tbCantBolsasMin.Location = new System.Drawing.Point(0, 0);
             this.tbCantBolsasMin.Margin = new System.Windows.Forms.Padding(0);
             this.tbCantBolsasMin.Name = "tbCantBolsasMin";
             this.tbCantBolsasMin.ReadOnly = true;
-            this.tbCantBolsasMin.Size = new System.Drawing.Size(74, 20);
+            this.tbCantBolsasMin.Size = new System.Drawing.Size(74, 19);
             this.tbCantBolsasMin.TabIndex = 3;
             this.tbCantBolsasMin.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -1295,20 +1295,20 @@
             this.tbEspesorBolsa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(63)))), ((int)(((byte)(159)))));
             this.tbEspesorBolsa.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbEspesorBolsa.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tbEspesorBolsa.Font = new System.Drawing.Font("Roboto Black", 12F, System.Drawing.FontStyle.Bold);
+            this.tbEspesorBolsa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.tbEspesorBolsa.ForeColor = System.Drawing.Color.White;
             this.tbEspesorBolsa.Location = new System.Drawing.Point(0, 0);
             this.tbEspesorBolsa.Margin = new System.Windows.Forms.Padding(0);
             this.tbEspesorBolsa.Name = "tbEspesorBolsa";
             this.tbEspesorBolsa.ReadOnly = true;
-            this.tbEspesorBolsa.Size = new System.Drawing.Size(297, 20);
+            this.tbEspesorBolsa.Size = new System.Drawing.Size(297, 19);
             this.tbEspesorBolsa.TabIndex = 4;
             this.tbEspesorBolsa.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblDatosEspesor
             // 
             this.lblDatosEspesor.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lblDatosEspesor.Font = new System.Drawing.Font("Roboto Black", 10F, System.Drawing.FontStyle.Bold);
+            this.lblDatosEspesor.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.lblDatosEspesor.ForeColor = System.Drawing.Color.DimGray;
             this.lblDatosEspesor.Location = new System.Drawing.Point(0, 22);
             this.lblDatosEspesor.Name = "lblDatosEspesor";
@@ -1336,20 +1336,20 @@
             this.tbLargoBolsa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(63)))), ((int)(((byte)(159)))));
             this.tbLargoBolsa.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbLargoBolsa.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tbLargoBolsa.Font = new System.Drawing.Font("Roboto Black", 12F, System.Drawing.FontStyle.Bold);
+            this.tbLargoBolsa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.tbLargoBolsa.ForeColor = System.Drawing.Color.White;
             this.tbLargoBolsa.Location = new System.Drawing.Point(0, 0);
             this.tbLargoBolsa.Margin = new System.Windows.Forms.Padding(0);
             this.tbLargoBolsa.Name = "tbLargoBolsa";
             this.tbLargoBolsa.ReadOnly = true;
-            this.tbLargoBolsa.Size = new System.Drawing.Size(296, 20);
+            this.tbLargoBolsa.Size = new System.Drawing.Size(296, 19);
             this.tbLargoBolsa.TabIndex = 4;
             this.tbLargoBolsa.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblDatosLargo
             // 
             this.lblDatosLargo.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lblDatosLargo.Font = new System.Drawing.Font("Roboto Black", 10F, System.Drawing.FontStyle.Bold);
+            this.lblDatosLargo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.lblDatosLargo.ForeColor = System.Drawing.Color.DimGray;
             this.lblDatosLargo.Location = new System.Drawing.Point(0, 22);
             this.lblDatosLargo.Name = "lblDatosLargo";
@@ -1374,7 +1374,7 @@
             // lblDatosAncho
             // 
             this.lblDatosAncho.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lblDatosAncho.Font = new System.Drawing.Font("Roboto Black", 10F, System.Drawing.FontStyle.Bold);
+            this.lblDatosAncho.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.lblDatosAncho.ForeColor = System.Drawing.Color.DimGray;
             this.lblDatosAncho.Location = new System.Drawing.Point(0, 23);
             this.lblDatosAncho.Name = "lblDatosAncho";
@@ -1418,7 +1418,7 @@
             this.btnAgregarScrap.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnAgregarScrap.FlatAppearance.BorderSize = 0;
             this.btnAgregarScrap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregarScrap.Font = new System.Drawing.Font("Roboto Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarScrap.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregarScrap.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(94)))), ((int)(((byte)(215)))));
             this.btnAgregarScrap.Location = new System.Drawing.Point(548, 5);
             this.btnAgregarScrap.Name = "btnAgregarScrap";
@@ -1440,7 +1440,7 @@
             this.btnIp.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnIp.FlatAppearance.BorderSize = 0;
             this.btnIp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnIp.Font = new System.Drawing.Font("Roboto Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIp.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(94)))), ((int)(((byte)(215)))));
             this.btnIp.Location = new System.Drawing.Point(367, 5);
             this.btnIp.Name = "btnIp";
@@ -1462,7 +1462,7 @@
             this.btnReEtiquetar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnReEtiquetar.FlatAppearance.BorderSize = 0;
             this.btnReEtiquetar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReEtiquetar.Font = new System.Drawing.Font("Roboto Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReEtiquetar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReEtiquetar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(94)))), ((int)(((byte)(215)))));
             this.btnReEtiquetar.Location = new System.Drawing.Point(186, 5);
             this.btnReEtiquetar.Name = "btnReEtiquetar";
@@ -1494,7 +1494,7 @@
             this.btnGenerarFason.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnGenerarFason.FlatAppearance.BorderSize = 0;
             this.btnGenerarFason.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGenerarFason.Font = new System.Drawing.Font("Roboto Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGenerarFason.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGenerarFason.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(94)))), ((int)(((byte)(215)))));
             this.btnGenerarFason.Location = new System.Drawing.Point(0, 0);
             this.btnGenerarFason.Name = "btnGenerarFason";
@@ -1518,7 +1518,7 @@
             this.btnEtiquetar.Enabled = false;
             this.btnEtiquetar.FlatAppearance.BorderSize = 0;
             this.btnEtiquetar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEtiquetar.Font = new System.Drawing.Font("Roboto Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEtiquetar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEtiquetar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(94)))), ((int)(((byte)(215)))));
             this.btnEtiquetar.Location = new System.Drawing.Point(0, 0);
             this.btnEtiquetar.Name = "btnEtiquetar";
@@ -1540,7 +1540,7 @@
             this.btnSalir.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnSalir.FlatAppearance.BorderSize = 0;
             this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSalir.Font = new System.Drawing.Font("Roboto Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalir.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(45)))), ((int)(((byte)(59)))));
             this.btnSalir.Location = new System.Drawing.Point(729, 5);
             this.btnSalir.Name = "btnSalir";
@@ -1556,7 +1556,7 @@
             this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
             this.label4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label4.Font = new System.Drawing.Font("Roboto Black", 12F, System.Drawing.FontStyle.Bold);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.label4.ForeColor = System.Drawing.Color.AliceBlue;
             this.label4.Location = new System.Drawing.Point(0, 179);
             this.label4.Margin = new System.Windows.Forms.Padding(0);
@@ -1572,7 +1572,7 @@
             this.lblOperariosEncargado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
             this.lblOperariosEncargado.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblOperariosEncargado.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblOperariosEncargado.Font = new System.Drawing.Font("Roboto Black", 12F, System.Drawing.FontStyle.Bold);
+            this.lblOperariosEncargado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.lblOperariosEncargado.ForeColor = System.Drawing.Color.AliceBlue;
             this.lblOperariosEncargado.Location = new System.Drawing.Point(0, 73);
             this.lblOperariosEncargado.Margin = new System.Windows.Forms.Padding(0);
@@ -1584,13 +1584,13 @@
             // 
             // formPrincipal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(909, 661);
             this.Controls.Add(this.pnlPrincipal);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Font = new System.Drawing.Font("Roboto Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.DarkBlue;
             this.FormStyle = MaterialSkin.Controls.MaterialForm.FormStyles.ActionBar_None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

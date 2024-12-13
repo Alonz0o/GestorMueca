@@ -657,6 +657,12 @@ namespace EtiquetadoBultos
         }
         private void btnEtiquetar_Click(object sender, EventArgs e)
         {
+            var cantPaquetes = Convert.ToInt32(tbCantPaquetes.Text);
+            if (cantPaquetes > 0) {
+                MessageBox.Show("Se pueden etiquetar hasta un máximo de 5 paquetes.");
+                return;
+            }
+            
             var op = datosOp[8] + "/" + datosOp[9];
             var muestrasTotales = mySqlConexion.VerificarMuestreo(op, datosOp[7]);
             if (muestrasTotales.Solicitadas < muestrasTotales.Requeridas) {
