@@ -15,7 +15,7 @@ namespace EtiquetadoBultos
     public class ConexionMySql
     {
         // Sql connection
-        MySqlConnection conexion = new MySqlConnection("server = 192.168.1.1; port=3306; userid=root; password=kamila; database=sistemaindustrial;");
+        MySqlConnection conexion = new MySqlConnection("server = localhost; port=3306; userid=root; password=kamila; database=sistemaindustrial;");
         MySqlConnection conexionSanlufilm_db = new MySqlConnection("server = localhost; port=3306; userid=root; password=kamila; database=sanlufilm_db;");
 
         public IList<Usuario> buscarPersonal()

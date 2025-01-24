@@ -658,12 +658,13 @@ namespace EtiquetadoBultos
         private void btnEtiquetar_Click(object sender, EventArgs e)
         {
             var cantPaquetes = Convert.ToInt32(tbCantPaquetes.Text);
-            if (cantPaquetes > 0) {
-                MessageBox.Show("Se pueden etiquetar hasta un máximo de 5 paquetes.");
-                return;
-            }
+            //if (cantPaquetes > 5) {
+            //    MessageBox.Show("Se pueden etiquetar hasta un máximo de 5 paquetes.");
+            //    tbCantPaquetes.Select();
+            //    return;
+            //}
             
-            var op = datosOp[8] + "/" + datosOp[9];
+            var op = datosOp[11];
             var muestrasTotales = mySqlConexion.VerificarMuestreo(op, datosOp[7]);
             if (muestrasTotales.Solicitadas < muestrasTotales.Requeridas) {
                 MessageBox.Show("Actualmente se encuentran un total de "+muestrasTotales.Solicitadas+ " muestras. Se solicitaran muestras de largo y ancho cada " + muestrasTotales.PedirCada + "paquetes hasta un total de " +muestrasTotales.Requeridas+".", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -758,7 +759,7 @@ namespace EtiquetadoBultos
                         {
                             string maquina = string.IsNullOrEmpty(maquinaSeleccionada) ? datosOp[6] : maquinaSeleccionada;
                             string rutaAplicacion = @"D:\Fuente_Sis\Borre\ProtocoloDE\Release\Protocolo_User_DataEntry.exe";
-                            string parametros = $"confeccion {datosOp[8]} {datosOp[9]} {maquina}";
+                            string parametros = $"confeccion {datosOp[8]} {datosOp[9]} {maquina} {op} {datosOp[7]}";
 
                             var infoProceso = new ProcessStartInfo
                             {
@@ -1298,6 +1299,30 @@ namespace EtiquetadoBultos
             catch (Exception)
             {
                 MessageBox.Show("No se pudo abrir DATAENTRY");
+            }
+        }
+
+        private void btnAgregarMuestras_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var op = datosOp[11];
+                string maquina = string.IsNullOrEmpty(maquinaSeleccionada) ? datosOp[6] : maquinaSeleccionada;
+                string rutaAplicacion = @"D:\Fuente_Sis\Borre\ProtocoloDE\Release\Protocolo_User_DataEntry.exe";
+                string parametros = $"confeccion {datosOp[8]} {datosOp[9]} {maquina} {op} {datosOp[7]}";
+
+                var infoProceso = new ProcessStartInfo
+                {
+                    FileName = rutaAplicacion,
+                    Arguments = parametros
+                };
+
+                using (Process process = Process.Start(infoProceso)) if (process != null) process.WaitForExit();
+            }
+            catch
+            {
+                MessageBox.Show("No se pudo abrir el cargado de muestras debido a un error técnico.");
+                return;
             }
         }
     }
