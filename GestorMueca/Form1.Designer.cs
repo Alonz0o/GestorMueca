@@ -115,16 +115,16 @@
             this.panel12 = new System.Windows.Forms.Panel();
             this.lblDatosAncho = new System.Windows.Forms.Label();
             this.tlpPie = new System.Windows.Forms.TableLayoutPanel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.lblOperariosEncargado = new System.Windows.Forms.Label();
+            this.btnAgregarMuestras = new EtiquetadoBultos.AFControles.AFButton();
             this.btnAgregarScrap = new EtiquetadoBultos.AFControles.AFButton();
             this.btnIp = new EtiquetadoBultos.AFControles.AFButton();
             this.btnReEtiquetar = new EtiquetadoBultos.AFControles.AFButton();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.btnGenerarFason = new EtiquetadoBultos.AFControles.AFButton();
             this.btnEtiquetar = new EtiquetadoBultos.AFControles.AFButton();
             this.btnSalir = new EtiquetadoBultos.AFControles.AFButton();
-            this.btnAgregarMuestras = new EtiquetadoBultos.AFControles.AFButton();
+            this.label4 = new System.Windows.Forms.Label();
+            this.lblOperariosEncargado = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBobinasRegistradas)).BeginInit();
             this.tlpBobinadoCabezera.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -1409,46 +1409,27 @@
             this.tlpPie.Size = new System.Drawing.Size(907, 56);
             this.tlpPie.TabIndex = 40;
             // 
-            // panel1
+            // btnAgregarMuestras
             // 
-            this.panel1.Controls.Add(this.btnGenerarFason);
-            this.panel1.Controls.Add(this.btnEtiquetar);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(5, 5);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(142, 46);
-            this.panel1.TabIndex = 5;
-            // 
-            // label4
-            // 
-            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
-            this.label4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.label4.ForeColor = System.Drawing.Color.AliceBlue;
-            this.label4.Location = new System.Drawing.Point(0, 179);
-            this.label4.Margin = new System.Windows.Forms.Padding(0);
-            this.label4.Name = "label4";
-            this.label4.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.label4.Size = new System.Drawing.Size(907, 34);
-            this.label4.TabIndex = 22;
-            this.label4.Text = "Bobinado";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblOperariosEncargado
-            // 
-            this.lblOperariosEncargado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
-            this.lblOperariosEncargado.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblOperariosEncargado.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblOperariosEncargado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.lblOperariosEncargado.ForeColor = System.Drawing.Color.AliceBlue;
-            this.lblOperariosEncargado.Location = new System.Drawing.Point(0, 73);
-            this.lblOperariosEncargado.Margin = new System.Windows.Forms.Padding(0);
-            this.lblOperariosEncargado.Name = "lblOperariosEncargado";
-            this.lblOperariosEncargado.Size = new System.Drawing.Size(907, 34);
-            this.lblOperariosEncargado.TabIndex = 21;
-            this.lblOperariosEncargado.Text = "Operarios";
-            this.lblOperariosEncargado.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnAgregarMuestras.BackColor = System.Drawing.Color.Transparent;
+            this.btnAgregarMuestras.BackgroundColor = System.Drawing.Color.Transparent;
+            this.btnAgregarMuestras.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(94)))), ((int)(((byte)(215)))));
+            this.btnAgregarMuestras.BorderRadius = 4;
+            this.btnAgregarMuestras.BorderSize = 2;
+            this.btnAgregarMuestras.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAgregarMuestras.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnAgregarMuestras.FlatAppearance.BorderSize = 0;
+            this.btnAgregarMuestras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarMuestras.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarMuestras.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(94)))), ((int)(((byte)(215)))));
+            this.btnAgregarMuestras.Location = new System.Drawing.Point(605, 5);
+            this.btnAgregarMuestras.Name = "btnAgregarMuestras";
+            this.btnAgregarMuestras.Size = new System.Drawing.Size(142, 46);
+            this.btnAgregarMuestras.TabIndex = 7;
+            this.btnAgregarMuestras.Text = "Generar Muestras";
+            this.btnAgregarMuestras.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(94)))), ((int)(((byte)(215)))));
+            this.btnAgregarMuestras.UseVisualStyleBackColor = false;
+            this.btnAgregarMuestras.Click += new System.EventHandler(this.btnAgregarMuestras_Click);
             // 
             // btnAgregarScrap
             // 
@@ -1515,6 +1496,16 @@
             this.btnReEtiquetar.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(94)))), ((int)(((byte)(215)))));
             this.btnReEtiquetar.UseVisualStyleBackColor = false;
             this.btnReEtiquetar.Click += new System.EventHandler(this.btnReEtiquetar_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.btnGenerarFason);
+            this.panel1.Controls.Add(this.btnEtiquetar);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(5, 5);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(142, 46);
+            this.panel1.TabIndex = 5;
             // 
             // btnGenerarFason
             // 
@@ -1584,27 +1575,36 @@
             this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.ibtnSalir_Click);
             // 
-            // btnAgregarMuestras
+            // label4
             // 
-            this.btnAgregarMuestras.BackColor = System.Drawing.Color.Transparent;
-            this.btnAgregarMuestras.BackgroundColor = System.Drawing.Color.Transparent;
-            this.btnAgregarMuestras.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(94)))), ((int)(((byte)(215)))));
-            this.btnAgregarMuestras.BorderRadius = 4;
-            this.btnAgregarMuestras.BorderSize = 2;
-            this.btnAgregarMuestras.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAgregarMuestras.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnAgregarMuestras.FlatAppearance.BorderSize = 0;
-            this.btnAgregarMuestras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregarMuestras.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarMuestras.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(94)))), ((int)(((byte)(215)))));
-            this.btnAgregarMuestras.Location = new System.Drawing.Point(605, 5);
-            this.btnAgregarMuestras.Name = "btnAgregarMuestras";
-            this.btnAgregarMuestras.Size = new System.Drawing.Size(142, 46);
-            this.btnAgregarMuestras.TabIndex = 7;
-            this.btnAgregarMuestras.Text = "Generar Muestras";
-            this.btnAgregarMuestras.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(94)))), ((int)(((byte)(215)))));
-            this.btnAgregarMuestras.UseVisualStyleBackColor = false;
-            this.btnAgregarMuestras.Click += new System.EventHandler(this.btnAgregarMuestras_Click);
+            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
+            this.label4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.label4.ForeColor = System.Drawing.Color.AliceBlue;
+            this.label4.Location = new System.Drawing.Point(0, 179);
+            this.label4.Margin = new System.Windows.Forms.Padding(0);
+            this.label4.Name = "label4";
+            this.label4.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.label4.Size = new System.Drawing.Size(907, 34);
+            this.label4.TabIndex = 22;
+            this.label4.Text = "Bobinado";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblOperariosEncargado
+            // 
+            this.lblOperariosEncargado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
+            this.lblOperariosEncargado.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblOperariosEncargado.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblOperariosEncargado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.lblOperariosEncargado.ForeColor = System.Drawing.Color.AliceBlue;
+            this.lblOperariosEncargado.Location = new System.Drawing.Point(0, 73);
+            this.lblOperariosEncargado.Margin = new System.Windows.Forms.Padding(0);
+            this.lblOperariosEncargado.Name = "lblOperariosEncargado";
+            this.lblOperariosEncargado.Size = new System.Drawing.Size(907, 34);
+            this.lblOperariosEncargado.TabIndex = 21;
+            this.lblOperariosEncargado.Text = "Operarios";
+            this.lblOperariosEncargado.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // formPrincipal
             // 

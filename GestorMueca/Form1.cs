@@ -759,13 +759,15 @@ namespace EtiquetadoBultos
                         {
                             string maquina = string.IsNullOrEmpty(maquinaSeleccionada) ? datosOp[6] : maquinaSeleccionada;
                             string rutaAplicacion = @"D:\Fuente_Sis\Borre\ProtocoloDE\Release\Protocolo_User_DataEntry.exe";
-                            string parametros = $"confeccion {datosOp[8]} {datosOp[9]} {maquina} {op} {datosOp[7]}";
+                            string parametros = $"confeccion {datosOp[8]} {datosOp[9]} {maquina} {op} {datosOp[7]} {row.Cells[identificador].Value.ToString()}";
+                            Cursor.Current = Cursors.WaitCursor;
 
                             var infoProceso = new ProcessStartInfo
                             {
                                 FileName = rutaAplicacion,
-                                Arguments = parametros
+                                Arguments = parametros      
                             };
+                            Cursor.Current = Cursors.Default;
 
                             using (Process process = Process.Start(infoProceso)) if (process != null) process.WaitForExit();
                         }
