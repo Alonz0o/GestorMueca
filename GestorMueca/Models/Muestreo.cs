@@ -13,7 +13,7 @@ namespace EtiquetadoBultos.Models
         public int Desde { get; set; }
         public int Hasta { get; set; }
         public int PedirCada { get; set; }    
-        public int Solicitadas { get; set; }
+        public int Realizadas { get; set; }
 
 
     }

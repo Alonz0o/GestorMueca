@@ -25,7 +25,7 @@ namespace EtiquetadoBultos
         const int cantidadDeBolsas = 12;
         //Variables
         public static formPrincipal instancia;
-        ConexionMySql mySqlConexion = new ConexionMySql();
+        public ConexionMySql mySqlConexion = new ConexionMySql();
         private double sumatoriaMtsBobinas;
         IList<Usuario> personal = new List<Usuario>();
         public IList<string> datosOp = new List<string>();
@@ -135,6 +135,7 @@ namespace EtiquetadoBultos
             tbCliente.Text = datosOp[0];
             lblMaquina.Text = maquinaSeleccionada != "" ? maquinaSeleccionada : datosOp[6];
             lblSoldadura.Text = datosOp[5];
+            lblMillar.Text = Math.Round(Convert.ToDouble(datosOp[13]) * 1000, 2).ToString()+" gr" + " ∓ 2";
 
             tbAnchoBolsa.Text = datosOp[1] + "cm";
             tbLargoBolsa.Text = largoMostrar.ToString() + "cm";
@@ -666,9 +667,9 @@ namespace EtiquetadoBultos
             
             var op = datosOp[11];
             var muestrasTotales = mySqlConexion.VerificarMuestreo(op, datosOp[7]);
-            if (muestrasTotales.Solicitadas < muestrasTotales.Requeridas) {
-                MessageBox.Show("Actualmente se encuentran un total de "+muestrasTotales.Solicitadas+ " muestras. Se solicitaran muestras de largo y ancho cada " + muestrasTotales.PedirCada + "paquetes hasta un total de " +muestrasTotales.Requeridas+".", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+            //if (muestrasTotales.Realizadas < muestrasTotales.Requeridas) {
+            //    MessageBox.Show("Actualmente se encuentran un total de "+muestrasTotales.Realizadas+ " muestras. Se solicitaran muestras de largo y ancho cada " + muestrasTotales.PedirCada + "paquetes hasta un total de " +muestrasTotales.Requeridas+".", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //}
             //Se calcula por un paquete, si no viene por sistema se toma el tbCantidadBolsas.
             var idMaquina = (int)mySqlConexion.GetIdMaquina(datosOp[6]);
             if (calc.porUnPaquete == 0) calc.porUnPaquete = double.Parse(tbCantidadBolsas.Text) * double.Parse(datosOp[2]);
@@ -753,31 +754,35 @@ namespace EtiquetadoBultos
                     sqlAgregarBultos = sqlAgregarBultos + "(" + datosOp[11] + "," + numBulto + ",current_timestamp," + oper + "," + bolsas + "," + row.Cells[identificador].Value.ToString() + "," + "'" + bobinaSector + "'" + "," + idMaquina + "),";
                     bolsasConfeccionadas = bolsasConfeccionadas + int.Parse(bolsas);
 
-                    if (numBulto % muestrasTotales.PedirCada == 0)
+                    if (mySqlConexion.VerificarMuestreoRealizadas(op) < muestrasTotales.Requeridas)
                     {
-                        try
+                        if (numBulto % muestrasTotales.PedirCada == 0)
                         {
-                            string maquina = string.IsNullOrEmpty(maquinaSeleccionada) ? datosOp[6] : maquinaSeleccionada;
-                            string rutaAplicacion = @"D:\Fuente_Sis\Borre\ProtocoloDE\Release\Protocolo_User_DataEntry.exe";
-                            string parametros = $"confeccion {datosOp[8]} {datosOp[9]} {maquina} {op} {datosOp[7]} {row.Cells[identificador].Value.ToString()}";
-                            Cursor.Current = Cursors.WaitCursor;
-
-                            var infoProceso = new ProcessStartInfo
+                            try
                             {
-                                FileName = rutaAplicacion,
-                                Arguments = parametros      
-                            };
-                            Cursor.Current = Cursors.Default;
+                                var operario = operadores[1];
 
-                            using (Process process = Process.Start(infoProceso)) if (process != null) process.WaitForExit();
-                        }
-                        catch
-                        {
-                            MessageBox.Show("No se pudo abrir el cargado de muestras debido a un error técnico.");
-                            return;
+                                string maquina = string.IsNullOrEmpty(maquinaSeleccionada) ? datosOp[6] : maquinaSeleccionada;
+                                string rutaAplicacion = @"D:\Fuente_Sis\Borre\ProtocoloDE\Release\Protocolo_User_DataEntry.exe";
+                                string parametros = $"confeccion {datosOp[8]} {datosOp[9]} {maquina} {op} {datosOp[7]} {row.Cells[identificador].Value.ToString()} {operario}";
+                                Cursor.Current = Cursors.WaitCursor;
+
+                                var infoProceso = new ProcessStartInfo
+                                {
+                                    FileName = rutaAplicacion,
+                                    Arguments = parametros
+                                };
+                                using (Process process = Process.Start(infoProceso)) if (process != null) process.WaitForExit();
+                                Cursor.Current = Cursors.Default;
+
+                            }
+                            catch
+                            {
+                                MessageBox.Show("No se pudo abrir el cargado de muestras debido a un error técnico.");
+                                return;
+                            }
                         }
                     }
-
 
                     if (proximos.Skip(2).Contains(numBulto))
                     {
@@ -1311,7 +1316,8 @@ namespace EtiquetadoBultos
                 var op = datosOp[11];
                 string maquina = string.IsNullOrEmpty(maquinaSeleccionada) ? datosOp[6] : maquinaSeleccionada;
                 string rutaAplicacion = @"D:\Fuente_Sis\Borre\ProtocoloDE\Release\Protocolo_User_DataEntry.exe";
-                string parametros = $"confeccion {datosOp[8]} {datosOp[9]} {maquina} {op} {datosOp[7]}";
+                string parametros = $"auditor {datosOp[8]} {datosOp[9]} {maquina} {op} {datosOp[7]} 0 0";
+                Cursor.Current = Cursors.WaitCursor;
 
                 var infoProceso = new ProcessStartInfo
                 {
@@ -1320,11 +1326,26 @@ namespace EtiquetadoBultos
                 };
 
                 using (Process process = Process.Start(infoProceso)) if (process != null) process.WaitForExit();
+                Cursor.Current = Cursors.Default;
+
             }
             catch
             {
                 MessageBox.Show("No se pudo abrir el cargado de muestras debido a un error técnico.");
                 return;
+            }
+        }
+
+        private void btnGenerarParada_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                formParada form = new formParada();
+                form.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error" + ex);
             }
         }
     }

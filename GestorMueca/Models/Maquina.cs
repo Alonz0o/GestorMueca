@@ -6,16 +6,14 @@ using System.Threading.Tasks;
 
 namespace EtiquetadoBultos.Models
 {
-    public class Usuario
+    internal class Maquina
     {
-        public int Id { get; set; }
+        public string Sector { get; set; }
         public string Nombre { get; set; }
-        public string Apellido { get; set; }
-        public string Area { get; set; }
-        public int Legajo { get; set; }
         public override string ToString()
         {
-            return Legajo + " " + Apellido + " " + Nombre;
+            return Nombre;
         }
+
     }
 }

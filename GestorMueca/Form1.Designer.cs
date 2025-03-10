@@ -37,7 +37,6 @@
             this.lblDatosMtsBobinas = new System.Windows.Forms.Label();
             this.tbSumPaquetes = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.ibtnManualBobinado = new FontAwesome.Sharp.IconButton();
             this.dgvBobinasRegistradas = new System.Windows.Forms.DataGridView();
             this.tlpBobinadoCabezera = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -59,8 +58,6 @@
             this.tbRegistrarBobina = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.tbTotalBolsas = new System.Windows.Forms.TextBox();
-            this.ibtnSeleccionarEti = new FontAwesome.Sharp.IconButton();
-            this.ibtnCambiarEncargado = new FontAwesome.Sharp.IconButton();
             this.tlpAuxiliares = new System.Windows.Forms.TableLayoutPanel();
             this.gbAuxiliar02 = new System.Windows.Forms.GroupBox();
             this.ibtnAuxiliar02Ok = new FontAwesome.Sharp.IconButton();
@@ -75,6 +72,9 @@
             this.ibtnOperarioLimpiar = new FontAwesome.Sharp.IconButton();
             this.tbOperario = new System.Windows.Forms.TextBox();
             this.tlpDatos = new System.Windows.Forms.TableLayoutPanel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblMillar = new System.Windows.Forms.Label();
             this.pnlDatosSoldadura = new System.Windows.Forms.Panel();
             this.lblDatosSoladura = new System.Windows.Forms.Label();
             this.lblSoldadura = new System.Windows.Forms.Label();
@@ -114,17 +114,20 @@
             this.lblDatosLargo = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
             this.lblDatosAncho = new System.Windows.Forms.Label();
+            this.ibtnManualBobinado = new FontAwesome.Sharp.IconButton();
+            this.ibtnSeleccionarEti = new FontAwesome.Sharp.IconButton();
             this.tlpPie = new System.Windows.Forms.TableLayoutPanel();
-            this.btnAgregarMuestras = new EtiquetadoBultos.AFControles.AFButton();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.ibtnCambiarEncargado = new FontAwesome.Sharp.IconButton();
+            this.lblOperariosEncargado = new System.Windows.Forms.Label();
+            this.btnGenerarParada = new EtiquetadoBultos.AFControles.AFButton();
             this.btnAgregarScrap = new EtiquetadoBultos.AFControles.AFButton();
             this.btnIp = new EtiquetadoBultos.AFControles.AFButton();
             this.btnReEtiquetar = new EtiquetadoBultos.AFControles.AFButton();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.btnGenerarFason = new EtiquetadoBultos.AFControles.AFButton();
             this.btnEtiquetar = new EtiquetadoBultos.AFControles.AFButton();
             this.btnSalir = new EtiquetadoBultos.AFControles.AFButton();
-            this.label4 = new System.Windows.Forms.Label();
-            this.lblOperariosEncargado = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBobinasRegistradas)).BeginInit();
             this.tlpBobinadoCabezera.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -142,6 +145,7 @@
             this.gbAuxiliar01.SuspendLayout();
             this.gbOperario.SuspendLayout();
             this.tlpDatos.SuspendLayout();
+            this.panel6.SuspendLayout();
             this.pnlDatosSoldadura.SuspendLayout();
             this.pnlDatosMaquina.SuspendLayout();
             this.pnlDatosCliente.SuspendLayout();
@@ -262,25 +266,6 @@
             this.label5.TabIndex = 0;
             this.label5.Text = "Mts por paquetes";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // ibtnManualBobinado
-            // 
-            this.ibtnManualBobinado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ibtnManualBobinado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
-            this.ibtnManualBobinado.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ibtnManualBobinado.Enabled = false;
-            this.ibtnManualBobinado.FlatAppearance.BorderSize = 0;
-            this.ibtnManualBobinado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ibtnManualBobinado.IconChar = FontAwesome.Sharp.IconChar.QuestionCircle;
-            this.ibtnManualBobinado.IconColor = System.Drawing.Color.AliceBlue;
-            this.ibtnManualBobinado.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.ibtnManualBobinado.IconSize = 25;
-            this.ibtnManualBobinado.Location = new System.Drawing.Point(869, 185);
-            this.ibtnManualBobinado.Name = "ibtnManualBobinado";
-            this.ibtnManualBobinado.Size = new System.Drawing.Size(29, 27);
-            this.ibtnManualBobinado.TabIndex = 19;
-            this.ibtnManualBobinado.UseVisualStyleBackColor = false;
-            this.ibtnManualBobinado.Click += new System.EventHandler(this.ibtnManualBobinado_Click);
             // 
             // dgvBobinasRegistradas
             // 
@@ -604,44 +589,6 @@
             this.tbTotalBolsas.TabIndex = 1;
             this.tbTotalBolsas.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // ibtnSeleccionarEti
-            // 
-            this.ibtnSeleccionarEti.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ibtnSeleccionarEti.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
-            this.ibtnSeleccionarEti.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ibtnSeleccionarEti.FlatAppearance.BorderSize = 0;
-            this.ibtnSeleccionarEti.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ibtnSeleccionarEti.IconChar = FontAwesome.Sharp.IconChar.Print;
-            this.ibtnSeleccionarEti.IconColor = System.Drawing.Color.AliceBlue;
-            this.ibtnSeleccionarEti.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.ibtnSeleccionarEti.IconSize = 25;
-            this.ibtnSeleccionarEti.Location = new System.Drawing.Point(872, 77);
-            this.ibtnSeleccionarEti.Name = "ibtnSeleccionarEti";
-            this.ibtnSeleccionarEti.Size = new System.Drawing.Size(29, 27);
-            this.ibtnSeleccionarEti.TabIndex = 20;
-            this.ibtnSeleccionarEti.UseVisualStyleBackColor = false;
-            this.ibtnSeleccionarEti.Click += new System.EventHandler(this.ibtnSeleccionarEti_Click);
-            // 
-            // ibtnCambiarEncargado
-            // 
-            this.ibtnCambiarEncargado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
-            this.ibtnCambiarEncargado.BackgroundImage = global::EtiquetadoBultos.Properties.Resources.cambio;
-            this.ibtnCambiarEncargado.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ibtnCambiarEncargado.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ibtnCambiarEncargado.FlatAppearance.BorderSize = 0;
-            this.ibtnCambiarEncargado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ibtnCambiarEncargado.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.ibtnCambiarEncargado.IconColor = System.Drawing.SystemColors.Highlight;
-            this.ibtnCambiarEncargado.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.ibtnCambiarEncargado.IconSize = 20;
-            this.ibtnCambiarEncargado.Location = new System.Drawing.Point(835, 73);
-            this.ibtnCambiarEncargado.Name = "ibtnCambiarEncargado";
-            this.ibtnCambiarEncargado.Size = new System.Drawing.Size(32, 32);
-            this.ibtnCambiarEncargado.TabIndex = 6;
-            this.ibtnCambiarEncargado.UseVisualStyleBackColor = false;
-            this.ibtnCambiarEncargado.Visible = false;
-            this.ibtnCambiarEncargado.Click += new System.EventHandler(this.ibtnCambiarEncargado_Click);
-            // 
             // tlpAuxiliares
             // 
             this.tlpAuxiliares.BackColor = System.Drawing.Color.Transparent;
@@ -856,11 +803,13 @@
             // tlpDatos
             // 
             this.tlpDatos.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.InsetDouble;
-            this.tlpDatos.ColumnCount = 4;
-            this.tlpDatos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tlpDatos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tlpDatos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tlpDatos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tlpDatos.ColumnCount = 5;
+            this.tlpDatos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tlpDatos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tlpDatos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tlpDatos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tlpDatos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tlpDatos.Controls.Add(this.panel6, 4, 0);
             this.tlpDatos.Controls.Add(this.pnlDatosSoldadura, 3, 0);
             this.tlpDatos.Controls.Add(this.pnlDatosMaquina, 2, 0);
             this.tlpDatos.Controls.Add(this.pnlDatosCliente, 1, 0);
@@ -873,6 +822,41 @@
             this.tlpDatos.Size = new System.Drawing.Size(907, 73);
             this.tlpDatos.TabIndex = 13;
             // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
+            this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel6.Controls.Add(this.label1);
+            this.panel6.Controls.Add(this.lblMillar);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel6.Location = new System.Drawing.Point(723, 3);
+            this.panel6.Margin = new System.Windows.Forms.Padding(0);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(181, 67);
+            this.panel6.TabIndex = 4;
+            // 
+            // label1
+            // 
+            this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.Color.DimGray;
+            this.label1.Location = new System.Drawing.Point(0, 33);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(179, 32);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Peso Bolsa";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblMillar
+            // 
+            this.lblMillar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblMillar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.lblMillar.Location = new System.Drawing.Point(0, 0);
+            this.lblMillar.Name = "lblMillar";
+            this.lblMillar.Size = new System.Drawing.Size(179, 23);
+            this.lblMillar.TabIndex = 0;
+            this.lblMillar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // pnlDatosSoldadura
             // 
             this.pnlDatosSoldadura.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
@@ -880,10 +864,10 @@
             this.pnlDatosSoldadura.Controls.Add(this.lblDatosSoladura);
             this.pnlDatosSoldadura.Controls.Add(this.lblSoldadura);
             this.pnlDatosSoldadura.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlDatosSoldadura.Location = new System.Drawing.Point(681, 3);
+            this.pnlDatosSoldadura.Location = new System.Drawing.Point(543, 3);
             this.pnlDatosSoldadura.Margin = new System.Windows.Forms.Padding(0);
             this.pnlDatosSoldadura.Name = "pnlDatosSoldadura";
-            this.pnlDatosSoldadura.Size = new System.Drawing.Size(223, 67);
+            this.pnlDatosSoldadura.Size = new System.Drawing.Size(177, 67);
             this.pnlDatosSoldadura.TabIndex = 3;
             // 
             // lblDatosSoladura
@@ -893,7 +877,7 @@
             this.lblDatosSoladura.ForeColor = System.Drawing.Color.DimGray;
             this.lblDatosSoladura.Location = new System.Drawing.Point(0, 33);
             this.lblDatosSoladura.Name = "lblDatosSoladura";
-            this.lblDatosSoladura.Size = new System.Drawing.Size(221, 32);
+            this.lblDatosSoladura.Size = new System.Drawing.Size(175, 32);
             this.lblDatosSoladura.TabIndex = 6;
             this.lblDatosSoladura.Text = "Soldadura";
             this.lblDatosSoladura.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -904,7 +888,7 @@
             this.lblSoldadura.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.lblSoldadura.Location = new System.Drawing.Point(0, 0);
             this.lblSoldadura.Name = "lblSoldadura";
-            this.lblSoldadura.Size = new System.Drawing.Size(221, 23);
+            this.lblSoldadura.Size = new System.Drawing.Size(175, 23);
             this.lblSoldadura.TabIndex = 0;
             this.lblSoldadura.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -915,10 +899,10 @@
             this.pnlDatosMaquina.Controls.Add(this.lblDatosMaquina);
             this.pnlDatosMaquina.Controls.Add(this.lblMaquina);
             this.pnlDatosMaquina.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlDatosMaquina.Location = new System.Drawing.Point(455, 3);
+            this.pnlDatosMaquina.Location = new System.Drawing.Point(363, 3);
             this.pnlDatosMaquina.Margin = new System.Windows.Forms.Padding(0);
             this.pnlDatosMaquina.Name = "pnlDatosMaquina";
-            this.pnlDatosMaquina.Size = new System.Drawing.Size(223, 67);
+            this.pnlDatosMaquina.Size = new System.Drawing.Size(177, 67);
             this.pnlDatosMaquina.TabIndex = 2;
             // 
             // lblDatosMaquina
@@ -928,7 +912,7 @@
             this.lblDatosMaquina.ForeColor = System.Drawing.Color.DimGray;
             this.lblDatosMaquina.Location = new System.Drawing.Point(0, 33);
             this.lblDatosMaquina.Name = "lblDatosMaquina";
-            this.lblDatosMaquina.Size = new System.Drawing.Size(221, 32);
+            this.lblDatosMaquina.Size = new System.Drawing.Size(175, 32);
             this.lblDatosMaquina.TabIndex = 5;
             this.lblDatosMaquina.Text = "Maquina";
             this.lblDatosMaquina.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -939,7 +923,7 @@
             this.lblMaquina.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.lblMaquina.Location = new System.Drawing.Point(0, 0);
             this.lblMaquina.Name = "lblMaquina";
-            this.lblMaquina.Size = new System.Drawing.Size(221, 23);
+            this.lblMaquina.Size = new System.Drawing.Size(175, 23);
             this.lblMaquina.TabIndex = 0;
             this.lblMaquina.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -951,10 +935,10 @@
             this.pnlDatosCliente.Controls.Add(this.tbCliente);
             this.pnlDatosCliente.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlDatosCliente.ForeColor = System.Drawing.Color.DarkBlue;
-            this.pnlDatosCliente.Location = new System.Drawing.Point(229, 3);
+            this.pnlDatosCliente.Location = new System.Drawing.Point(183, 3);
             this.pnlDatosCliente.Margin = new System.Windows.Forms.Padding(0);
             this.pnlDatosCliente.Name = "pnlDatosCliente";
-            this.pnlDatosCliente.Size = new System.Drawing.Size(223, 67);
+            this.pnlDatosCliente.Size = new System.Drawing.Size(177, 67);
             this.pnlDatosCliente.TabIndex = 1;
             // 
             // lblDatosCliente
@@ -964,7 +948,7 @@
             this.lblDatosCliente.ForeColor = System.Drawing.Color.DimGray;
             this.lblDatosCliente.Location = new System.Drawing.Point(0, 33);
             this.lblDatosCliente.Name = "lblDatosCliente";
-            this.lblDatosCliente.Size = new System.Drawing.Size(221, 32);
+            this.lblDatosCliente.Size = new System.Drawing.Size(175, 32);
             this.lblDatosCliente.TabIndex = 4;
             this.lblDatosCliente.Text = "Cliente";
             this.lblDatosCliente.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -980,7 +964,7 @@
             this.tbCliente.Name = "tbCliente";
             this.tbCliente.ReadOnly = true;
             this.tbCliente.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.tbCliente.Size = new System.Drawing.Size(221, 19);
+            this.tbCliente.Size = new System.Drawing.Size(175, 19);
             this.tbCliente.TabIndex = 2;
             this.tbCliente.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -994,7 +978,7 @@
             this.pnlDatosOp.Location = new System.Drawing.Point(3, 3);
             this.pnlDatosOp.Margin = new System.Windows.Forms.Padding(0);
             this.pnlDatosOp.Name = "pnlDatosOp";
-            this.pnlDatosOp.Size = new System.Drawing.Size(223, 67);
+            this.pnlDatosOp.Size = new System.Drawing.Size(177, 67);
             this.pnlDatosOp.TabIndex = 0;
             // 
             // lblDatosOP
@@ -1004,7 +988,7 @@
             this.lblDatosOP.ForeColor = System.Drawing.Color.DimGray;
             this.lblDatosOP.Location = new System.Drawing.Point(0, 33);
             this.lblDatosOP.Name = "lblDatosOP";
-            this.lblDatosOP.Size = new System.Drawing.Size(221, 32);
+            this.lblDatosOP.Size = new System.Drawing.Size(175, 32);
             this.lblDatosOP.TabIndex = 5;
             this.lblDatosOP.Text = "O/P";
             this.lblDatosOP.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1016,7 +1000,7 @@
             this.lblOp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.lblOp.Location = new System.Drawing.Point(0, 0);
             this.lblOp.Name = "lblOp";
-            this.lblOp.Size = new System.Drawing.Size(221, 23);
+            this.lblOp.Size = new System.Drawing.Size(175, 23);
             this.lblOp.TabIndex = 0;
             this.lblOp.Text = "Ingresar OP";
             this.lblOp.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1384,6 +1368,43 @@
             this.lblDatosAncho.Text = "Ancho";
             this.lblDatosAncho.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // ibtnManualBobinado
+            // 
+            this.ibtnManualBobinado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ibtnManualBobinado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
+            this.ibtnManualBobinado.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ibtnManualBobinado.Enabled = false;
+            this.ibtnManualBobinado.FlatAppearance.BorderSize = 0;
+            this.ibtnManualBobinado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ibtnManualBobinado.IconChar = FontAwesome.Sharp.IconChar.QuestionCircle;
+            this.ibtnManualBobinado.IconColor = System.Drawing.Color.AliceBlue;
+            this.ibtnManualBobinado.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.ibtnManualBobinado.IconSize = 25;
+            this.ibtnManualBobinado.Location = new System.Drawing.Point(869, 185);
+            this.ibtnManualBobinado.Name = "ibtnManualBobinado";
+            this.ibtnManualBobinado.Size = new System.Drawing.Size(29, 27);
+            this.ibtnManualBobinado.TabIndex = 19;
+            this.ibtnManualBobinado.UseVisualStyleBackColor = false;
+            this.ibtnManualBobinado.Click += new System.EventHandler(this.ibtnManualBobinado_Click);
+            // 
+            // ibtnSeleccionarEti
+            // 
+            this.ibtnSeleccionarEti.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ibtnSeleccionarEti.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
+            this.ibtnSeleccionarEti.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ibtnSeleccionarEti.FlatAppearance.BorderSize = 0;
+            this.ibtnSeleccionarEti.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ibtnSeleccionarEti.IconChar = FontAwesome.Sharp.IconChar.Print;
+            this.ibtnSeleccionarEti.IconColor = System.Drawing.Color.AliceBlue;
+            this.ibtnSeleccionarEti.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.ibtnSeleccionarEti.IconSize = 25;
+            this.ibtnSeleccionarEti.Location = new System.Drawing.Point(872, 77);
+            this.ibtnSeleccionarEti.Name = "ibtnSeleccionarEti";
+            this.ibtnSeleccionarEti.Size = new System.Drawing.Size(29, 27);
+            this.ibtnSeleccionarEti.TabIndex = 20;
+            this.ibtnSeleccionarEti.UseVisualStyleBackColor = false;
+            this.ibtnSeleccionarEti.Click += new System.EventHandler(this.ibtnSeleccionarEti_Click);
+            // 
             // tlpPie
             // 
             this.tlpPie.BackColor = System.Drawing.Color.Transparent;
@@ -1395,7 +1416,7 @@
             this.tlpPie.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tlpPie.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tlpPie.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tlpPie.Controls.Add(this.btnAgregarMuestras, 4, 0);
+            this.tlpPie.Controls.Add(this.btnGenerarParada, 4, 0);
             this.tlpPie.Controls.Add(this.btnAgregarScrap, 3, 0);
             this.tlpPie.Controls.Add(this.btnIp, 2, 0);
             this.tlpPie.Controls.Add(this.btnReEtiquetar, 1, 0);
@@ -1409,27 +1430,88 @@
             this.tlpPie.Size = new System.Drawing.Size(907, 56);
             this.tlpPie.TabIndex = 40;
             // 
-            // btnAgregarMuestras
+            // panel1
             // 
-            this.btnAgregarMuestras.BackColor = System.Drawing.Color.Transparent;
-            this.btnAgregarMuestras.BackgroundColor = System.Drawing.Color.Transparent;
-            this.btnAgregarMuestras.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(94)))), ((int)(((byte)(215)))));
-            this.btnAgregarMuestras.BorderRadius = 4;
-            this.btnAgregarMuestras.BorderSize = 2;
-            this.btnAgregarMuestras.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAgregarMuestras.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnAgregarMuestras.FlatAppearance.BorderSize = 0;
-            this.btnAgregarMuestras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregarMuestras.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarMuestras.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(94)))), ((int)(((byte)(215)))));
-            this.btnAgregarMuestras.Location = new System.Drawing.Point(605, 5);
-            this.btnAgregarMuestras.Name = "btnAgregarMuestras";
-            this.btnAgregarMuestras.Size = new System.Drawing.Size(142, 46);
-            this.btnAgregarMuestras.TabIndex = 7;
-            this.btnAgregarMuestras.Text = "Generar Muestras";
-            this.btnAgregarMuestras.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(94)))), ((int)(((byte)(215)))));
-            this.btnAgregarMuestras.UseVisualStyleBackColor = false;
-            this.btnAgregarMuestras.Click += new System.EventHandler(this.btnAgregarMuestras_Click);
+            this.panel1.Controls.Add(this.btnGenerarFason);
+            this.panel1.Controls.Add(this.btnEtiquetar);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(5, 5);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(142, 46);
+            this.panel1.TabIndex = 5;
+            // 
+            // label4
+            // 
+            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
+            this.label4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.label4.ForeColor = System.Drawing.Color.AliceBlue;
+            this.label4.Location = new System.Drawing.Point(0, 179);
+            this.label4.Margin = new System.Windows.Forms.Padding(0);
+            this.label4.Name = "label4";
+            this.label4.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.label4.Size = new System.Drawing.Size(907, 34);
+            this.label4.TabIndex = 22;
+            this.label4.Text = "Bobinado";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // ibtnCambiarEncargado
+            // 
+            this.ibtnCambiarEncargado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
+            this.ibtnCambiarEncargado.BackgroundImage = global::EtiquetadoBultos.Properties.Resources.cambio;
+            this.ibtnCambiarEncargado.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.ibtnCambiarEncargado.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ibtnCambiarEncargado.FlatAppearance.BorderSize = 0;
+            this.ibtnCambiarEncargado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ibtnCambiarEncargado.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.ibtnCambiarEncargado.IconColor = System.Drawing.SystemColors.Highlight;
+            this.ibtnCambiarEncargado.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.ibtnCambiarEncargado.IconSize = 20;
+            this.ibtnCambiarEncargado.Location = new System.Drawing.Point(835, 73);
+            this.ibtnCambiarEncargado.Name = "ibtnCambiarEncargado";
+            this.ibtnCambiarEncargado.Size = new System.Drawing.Size(32, 32);
+            this.ibtnCambiarEncargado.TabIndex = 6;
+            this.ibtnCambiarEncargado.UseVisualStyleBackColor = false;
+            this.ibtnCambiarEncargado.Visible = false;
+            this.ibtnCambiarEncargado.Click += new System.EventHandler(this.ibtnCambiarEncargado_Click);
+            // 
+            // lblOperariosEncargado
+            // 
+            this.lblOperariosEncargado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
+            this.lblOperariosEncargado.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblOperariosEncargado.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblOperariosEncargado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.lblOperariosEncargado.ForeColor = System.Drawing.Color.AliceBlue;
+            this.lblOperariosEncargado.Location = new System.Drawing.Point(0, 73);
+            this.lblOperariosEncargado.Margin = new System.Windows.Forms.Padding(0);
+            this.lblOperariosEncargado.Name = "lblOperariosEncargado";
+            this.lblOperariosEncargado.Size = new System.Drawing.Size(907, 34);
+            this.lblOperariosEncargado.TabIndex = 21;
+            this.lblOperariosEncargado.Text = "Operarios";
+            this.lblOperariosEncargado.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnGenerarParada
+            // 
+            this.btnGenerarParada.BackColor = System.Drawing.Color.Transparent;
+            this.btnGenerarParada.BackgroundColor = System.Drawing.Color.Transparent;
+            this.btnGenerarParada.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(45)))), ((int)(((byte)(59)))));
+            this.btnGenerarParada.BorderRadius = 4;
+            this.btnGenerarParada.BorderSize = 2;
+            this.btnGenerarParada.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGenerarParada.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnGenerarParada.FlatAppearance.BorderSize = 0;
+            this.btnGenerarParada.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGenerarParada.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGenerarParada.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(45)))), ((int)(((byte)(59)))));
+            this.btnGenerarParada.Location = new System.Drawing.Point(605, 5);
+            this.btnGenerarParada.Name = "btnGenerarParada";
+            this.btnGenerarParada.Size = new System.Drawing.Size(142, 46);
+            this.btnGenerarParada.TabIndex = 7;
+            this.btnGenerarParada.Text = "Generar Parada";
+            this.btnGenerarParada.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(45)))), ((int)(((byte)(59)))));
+            this.btnGenerarParada.UseVisualStyleBackColor = false;
+            this.btnGenerarParada.Click += new System.EventHandler(this.btnGenerarParada_Click);
             // 
             // btnAgregarScrap
             // 
@@ -1496,16 +1578,6 @@
             this.btnReEtiquetar.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(94)))), ((int)(((byte)(215)))));
             this.btnReEtiquetar.UseVisualStyleBackColor = false;
             this.btnReEtiquetar.Click += new System.EventHandler(this.btnReEtiquetar_Click);
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.btnGenerarFason);
-            this.panel1.Controls.Add(this.btnEtiquetar);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(5, 5);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(142, 46);
-            this.panel1.TabIndex = 5;
             // 
             // btnGenerarFason
             // 
@@ -1575,37 +1647,6 @@
             this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.ibtnSalir_Click);
             // 
-            // label4
-            // 
-            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
-            this.label4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.label4.ForeColor = System.Drawing.Color.AliceBlue;
-            this.label4.Location = new System.Drawing.Point(0, 179);
-            this.label4.Margin = new System.Windows.Forms.Padding(0);
-            this.label4.Name = "label4";
-            this.label4.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.label4.Size = new System.Drawing.Size(907, 34);
-            this.label4.TabIndex = 22;
-            this.label4.Text = "Bobinado";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblOperariosEncargado
-            // 
-            this.lblOperariosEncargado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
-            this.lblOperariosEncargado.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblOperariosEncargado.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblOperariosEncargado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.lblOperariosEncargado.ForeColor = System.Drawing.Color.AliceBlue;
-            this.lblOperariosEncargado.Location = new System.Drawing.Point(0, 73);
-            this.lblOperariosEncargado.Margin = new System.Windows.Forms.Padding(0);
-            this.lblOperariosEncargado.Name = "lblOperariosEncargado";
-            this.lblOperariosEncargado.Size = new System.Drawing.Size(907, 34);
-            this.lblOperariosEncargado.TabIndex = 21;
-            this.lblOperariosEncargado.Text = "Operarios";
-            this.lblOperariosEncargado.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // formPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
@@ -1652,6 +1693,7 @@
             this.gbOperario.ResumeLayout(false);
             this.gbOperario.PerformLayout();
             this.tlpDatos.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
             this.pnlDatosSoldadura.ResumeLayout(false);
             this.pnlDatosMaquina.ResumeLayout(false);
             this.pnlDatosCliente.ResumeLayout(false);
@@ -1780,7 +1822,10 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.TextBox tbTotalBolsas;
         private AFControles.AFButton btnAgregarScrap;
-        private AFControles.AFButton btnAgregarMuestras;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblMillar;
+        private AFControles.AFButton btnGenerarParada;
     }
 }
 

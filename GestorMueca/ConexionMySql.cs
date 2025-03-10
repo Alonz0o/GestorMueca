@@ -15,9 +15,170 @@ namespace EtiquetadoBultos
     public class ConexionMySql
     {
         // Sql connection
-        MySqlConnection conexion = new MySqlConnection("server = localhost; port=3306; userid=root; password=kamila; database=sistemaindustrial;");
+        MySqlConnection conexion = new MySqlConnection("server = 192.168.1.1; port=3306; userid=root; password=kamila; database=sistemaindustrial;");
         MySqlConnection conexionSanlufilm_db = new MySqlConnection("server = localhost; port=3306; userid=root; password=kamila; database=sanlufilm_db;");
+        string connectionString = "server = 192.168.1.1; port=3306; userid=root; password=kamila; database=sistemaindustrial;";
 
+        internal List<Usuario> GetOperarios()
+        {
+            List<Usuario> us = new List<Usuario>();
+            using (var conexion = new MySqlConnection(connectionString))
+            using (var command = new MySqlCommand())
+            {
+                conexion.Open();
+                command.Connection = conexion;
+                command.CommandText = @"SELECT u.idusuario,u.legajo, u.nombre, u.apellido, u.area
+                                        FROM usuarios u 
+                                        WHERE u.baja = 0 AND (u.Modulo_9Ext = 1 or u.Modulo_9Imp = 1) AND u.area <> 'Encargado' AND u.area not like '%jefe%' AND u.area not like '%Mantenimiento%';";
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Usuario u = new Usuario
+                        {
+                            Id = reader.IsDBNull(0) ? 0 : reader.GetInt32(0),
+                            Legajo = reader.IsDBNull(1) ? 0 : reader.GetInt32(1),
+                            Nombre = reader.IsDBNull(2) ? "" : reader.GetString(2),
+                            Apellido = reader.IsDBNull(3) ? "" : reader.GetString(3),
+                        };
+                        us.Add(u);
+                    }
+                }
+            }
+            return us;
+        }
+        internal List<Rubro> GetRubros()
+        {
+            List<Rubro> rbs = new List<Rubro>();
+            using (var conexion = new MySqlConnection(connectionString))
+            using (var command = new MySqlCommand())
+            {
+                conexion.Open();
+                command.Connection = conexion;
+                command.CommandText = @"SELECT rubro FROM Rubro_Paradas WHERE confeccion = 1 ORDER BY rubro;";
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Rubro r = new Rubro
+                        {
+                            Nombre = reader.IsDBNull(0) ? "" : reader.GetString(0),
+                        };
+                        rbs.Add(r);
+                    }
+                }
+            }
+            return rbs;
+        }
+
+        internal List<Maquina> GetMaquinas()
+        {
+            List<Maquina> pis = new List<Maquina>();
+            using (var conexion = new MySqlConnection(connectionString))
+            using (var command = new MySqlCommand())
+            {
+                conexion.Open();
+                command.Connection = conexion;
+                command.CommandText = @"SELECT DISTINCT(MaquinaAlternativa)
+                                        FROM produccion_confeccion;";
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Maquina pi = new Maquina
+                        {
+                            Nombre = reader.IsDBNull(0) ? "" : reader.GetString(0),
+                        };
+                        pis.Add(pi);
+                    }
+                }
+            }
+            return pis;
+        }
+
+        internal List<Rubro> GetRubroDescripciones(string rubro)
+        {
+            List<Rubro> rbs = new List<Rubro>();
+            using (var conexion = new MySqlConnection(connectionString))
+            using (var command = new MySqlCommand())
+            {
+                conexion.Open();
+                command.Connection = conexion;
+                command.CommandText = @"SELECT Motivos_Paradas.Motivos
+                                        FROM Motivos_Paradas
+                                        WHERE Motivos_Paradas.Rubro = @pRubro AND Motivos_Paradas.Confeccion=True;";
+                command.Parameters.Add("@pRubro", MySqlDbType.String).Value = rubro;
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Rubro r = new Rubro
+                        {
+                            Nombre = reader.IsDBNull(0) ? "" : reader.GetString(0),
+                        };
+                        rbs.Add(r);
+                    }
+                }
+            }
+            return rbs;
+        }
+
+        internal List<Usuario> GetEncargados()
+        {
+            List<Usuario> us = new List<Usuario>();
+            using (var conexion = new MySqlConnection(connectionString))
+            using (var command = new MySqlCommand())
+            {
+                conexion.Open();
+                command.Connection = conexion;
+                command.CommandText = @"SELECT u.idusuario,u.legajo, u.nombre, u.apellido, u.area
+                                        FROM usuarios u 
+                                        WHERE u.baja = 0 AND (u.Modulo_9Ext = 1 or u.Modulo_9Imp = 1) AND (u.area = 'Encargado' Or u.area like '%jefe%');";
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Usuario u = new Usuario
+                        {
+                            Id = reader.IsDBNull(0) ? 0 : reader.GetInt32(0),
+                            Legajo = reader.IsDBNull(1) ? 0 : reader.GetInt32(1),
+                            Nombre = reader.IsDBNull(2) ? "" : reader.GetString(2),
+                            Apellido = reader.IsDBNull(3) ? "" : reader.GetString(3),
+                        };
+                        us.Add(u);
+                    }
+                }
+            }
+            return us;
+        }
+        internal List<Usuario> GetOperariosMantenimiento()
+        {
+            List<Usuario> us = new List<Usuario>();
+            using (var conexion = new MySqlConnection(connectionString))
+            using (var command = new MySqlCommand())
+            {
+                conexion.Open();
+                command.Connection = conexion;
+                command.CommandText = @"SELECT u.idusuario,u.legajo, u.nombre, u.apellido, u.area
+                                        FROM usuarios u 
+                                        WHERE u.area like '%Mantenimiento%';";
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Usuario u = new Usuario
+                        {
+                            Id = reader.IsDBNull(0) ? 0 : reader.GetInt32(0),
+                            Legajo = reader.IsDBNull(1) ? 0 : reader.GetInt32(1),
+                            Nombre = reader.IsDBNull(2) ? "" : reader.GetString(2),
+                            Apellido = reader.IsDBNull(3) ? "" : reader.GetString(3),
+                        };
+                        us.Add(u);
+                    }
+                }
+            }
+            return us;
+        }
         public IList<Usuario> buscarPersonal()
         {
             conexion.Open();
@@ -341,10 +502,10 @@ namespace EtiquetadoBultos
             {
                 conexion.Open();
                 command.Connection = conexion;
-                command.CommandText = @"SELECT count(op) AS valor FROM formato_ensayo WHERE op=@pIdOrden GROUP BY op;";
+                command.CommandText = @"SELECT count(id_op) AS valor FROM formato_ensayo WHERE id_op=@pIdOrden GROUP BY id_op;";
                 command.Parameters.Add("@pIdOrden", MySqlDbType.Int32).Value = idOrden;
                 var muestrasTotales = command.ExecuteScalar() != DBNull.Value ? Convert.ToInt32(command.ExecuteScalar()) : 0;
-                             
+
                 command.CommandText = @"select muestras,desde,hasta,pedir_cada from cantidadmuestreo where @pCantidadDeBosasRequeridas between desde and hasta and sector = 'c';";
                 command.Parameters.Add("@pCantidadDeBosasRequeridas", MySqlDbType.Int32).Value = aConfeccionar;
                 using (var reader = command.ExecuteReader())
@@ -355,11 +516,26 @@ namespace EtiquetadoBultos
                         m.Desde = reader.IsDBNull(1) ? 0 : reader.GetInt32(1);
                         m.Hasta = reader.IsDBNull(2) ? 0 : reader.GetInt32(2);
                         m.PedirCada = reader.IsDBNull(3) ? 0 : reader.GetInt32(3);
-                        m.Solicitadas = muestrasTotales;
+                        m.Realizadas = muestrasTotales;
                     }
                 }
             }
             return m;
+        }
+
+        internal int VerificarMuestreoRealizadas(string idOrden)
+        {
+            var muestrasTotales = 0;
+            using (var conexion = new MySqlConnection("server = localhost; port = 3306; userid = root; password = kamila; database = sistemaindustrial; "))
+            using (var command = new MySqlCommand())
+            {
+                conexion.Open();
+                command.Connection = conexion;
+                command.CommandText = @"SELECT count(id_op) AS valor FROM formato_ensayo WHERE id_op=@pIdOrden GROUP BY id_op;";
+                command.Parameters.Add("@pIdOrden", MySqlDbType.Int32).Value = idOrden;
+                muestrasTotales = command.ExecuteScalar() != DBNull.Value ? Convert.ToInt32(command.ExecuteScalar()) : 0;              
+            }
+            return muestrasTotales;
         }
 
         internal IList<Bulto> buscarBultos(string idOrden)

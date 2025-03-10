@@ -209,6 +209,12 @@
     <Compile Include="formPalletBobinas.Designer.cs">
       <DependentUpon>formPalletBobinas.cs</DependentUpon>
     </Compile>
+    <Compile Include="formParada.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formParada.Designer.cs">
+      <DependentUpon>formParada.cs</DependentUpon>
+    </Compile>
     <Compile Include="formReEtiquetar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -232,9 +238,11 @@
     <Compile Include="Models\bultoGrupo.cs" />
     <Compile Include="Models\Calculo.cs" />
     <Compile Include="Models\Insumo.cs" />
+    <Compile Include="Models\Maquina.cs" />
     <Compile Include="Models\MinMax.cs" />
     <Compile Include="Models\Muestreo.cs" />
     <Compile Include="Models\NtIp.cs" />
+    <Compile Include="Models\Rubro.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -277,6 +285,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="formPalletBobinas.resx">
       <DependentUpon>formPalletBobinas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formParada.resx">
+      <DependentUpon>formParada.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formReEtiquetar.resx">
       <DependentUpon>formReEtiquetar.cs</DependentUpon>
