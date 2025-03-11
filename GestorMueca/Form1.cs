@@ -28,6 +28,7 @@ namespace EtiquetadoBultos
         public ConexionMySql mySqlConexion = new ConexionMySql();
         private double sumatoriaMtsBobinas;
         IList<Usuario> personal = new List<Usuario>();
+        IList<Usuario> encargados = new List<Usuario>();
         public IList<string> datosOp = new List<string>();
         public IList<Bobina> bobinasOp = new List<Bobina>();
         Calculo calc = new Calculo();
@@ -190,24 +191,36 @@ namespace EtiquetadoBultos
 
         private void cargarDatosEnTextBox()
         {
-            AutoCompleteStringCollection autoCompleteCollection = new AutoCompleteStringCollection();
-            personal = mySqlConexion.buscarPersonal();
+            AutoCompleteStringCollection autoCompletoOperario = new AutoCompleteStringCollection();
+            AutoCompleteStringCollection autoCompletoEncargado = new AutoCompleteStringCollection();
 
+            personal = mySqlConexion.GetOperarios();
+            encargados = mySqlConexion.GetEncargados();
             foreach (Usuario u in personal)
             {
-                autoCompleteCollection.Add(u.Legajo.ToString());
+                autoCompletoOperario.Add(u.Legajo.ToString());
             }
+
+            foreach (Usuario u in encargados)
+            {
+                autoCompletoEncargado.Add(u.Legajo.ToString());
+            }
+
+            tbEncargado.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            tbEncargado.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            tbEncargado.AutoCompleteCustomSource = autoCompletoEncargado;
+
             tbOperario.AutoCompleteSource = AutoCompleteSource.CustomSource;
             tbOperario.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            tbOperario.AutoCompleteCustomSource = autoCompleteCollection;
+            tbOperario.AutoCompleteCustomSource = autoCompletoOperario;
 
             tbAuxiliar01.AutoCompleteSource = AutoCompleteSource.CustomSource;
             tbAuxiliar01.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            tbAuxiliar01.AutoCompleteCustomSource = autoCompleteCollection;
+            tbAuxiliar01.AutoCompleteCustomSource = autoCompletoOperario;
 
             tbAuxiliar02.AutoCompleteSource = AutoCompleteSource.CustomSource;
             tbAuxiliar02.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            tbAuxiliar02.AutoCompleteCustomSource = autoCompleteCollection;
+            tbAuxiliar02.AutoCompleteCustomSource = autoCompletoOperario;
         }
 
         private void tbOperario_KeyDown(object sender, KeyEventArgs e)
@@ -215,6 +228,26 @@ namespace EtiquetadoBultos
             var componente = (TextBox)sender;
             switch (componente.Name)
             {
+                case "tbEncargado":
+                    if (e.KeyData == Keys.Enter && tbEncargado.Text.All(char.IsDigit) & !string.IsNullOrEmpty(tbEncargado.Text))
+                    {
+                        var operario = encargados.SingleOrDefault(x => x.Legajo == Convert.ToInt32(tbEncargado.Text));
+                        if (operario != null)
+                        {
+                            gbEncargado.Text = operario.Nombre + " " + operario.Apellido;
+                            operadores[0] = operario.Legajo.ToString();
+                            operadoresNomApe[0] = operario.Nombre + " " + operario.Apellido;
+                        }
+                        else
+                        {
+                            MessageBox.Show("No existe el legajo " + tbEncargado.Text + " registrado en el sistema.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            gbEncargado.Text = "Encargado *";
+                            tbEncargado.Text = "";
+                            tbEncargado.Focus();
+                        }
+                    }
+                    break;
+
                 case "tbOperario":
                     if (e.KeyData == Keys.Enter && tbOperario.Text.All(char.IsDigit) & !string.IsNullOrEmpty(tbOperario.Text))
                     {
@@ -659,7 +692,7 @@ namespace EtiquetadoBultos
             }
         }
         public string maquinaAsignada = "", operarioAsignado = "";
-        public int bobinaMadre = 0;
+        public int bobinaMadre = 0,ultimoBulto=0;
 
         private void btnEtiquetar_Click(object sender, EventArgs e)
         {
@@ -669,7 +702,7 @@ namespace EtiquetadoBultos
                 return;
             }
             maquinaAsignada = string.IsNullOrEmpty(maquinaSeleccionada) ? datosOp[6] : maquinaSeleccionada;
-          
+
             var cantPaquetes = Convert.ToInt32(tbCantPaquetes.Text);
             //if (cantPaquetes > 5) {
             //    MessageBox.Show("Se pueden etiquetar hasta un máximo de 5 paquetes.");
@@ -686,8 +719,8 @@ namespace EtiquetadoBultos
             var idMaquina = (int)mySqlConexion.GetIdMaquina(datosOp[6]);
             if (calc.porUnPaquete == 0) calc.porUnPaquete = double.Parse(tbCantidadBolsas.Text) * double.Parse(datosOp[2]);
             bolsasConfeccionadas = 0;
-            var numBulto = mySqlConexion.buscarUltimoBulto(int.Parse(datosOp[11]));
-            var desde = numBulto;
+            ultimoBulto = mySqlConexion.buscarUltimoBulto(int.Parse(datosOp[11]));
+            var desde = ultimoBulto;
             string sqlActualizarMtsRemanentesP1 = "";
             string sqlActualizarMtsRemanentesP2 = "where indice in (";
             string sqlAgregarBultos = "insert into bultos(Id_Orden,Num_Bulto,Creado,Legajo,Cant_Bolsas,IdOrigen1,SectorOrigen,idmaq) values ";
@@ -762,15 +795,15 @@ namespace EtiquetadoBultos
                     calc.mtsRestantes = restaTotal;
                     total = total + calc.porUnPaquete;
 
-                    sqlAgregarBultos = sqlAgregarBultos + "(" + datosOp[11] + "," + numBulto + ",current_timestamp," + oper + "," + bolsas + "," + row.Cells[identificador].Value.ToString() + "," + "'" + bobinaSector + "'" + "," + idMaquina + "),";
+                    sqlAgregarBultos = sqlAgregarBultos + "(" + datosOp[11] + "," + ultimoBulto + ",current_timestamp," + oper + "," + bolsas + "," + row.Cells[identificador].Value.ToString() + "," + "'" + bobinaSector + "'" + "," + idMaquina + "),";
                     bolsasConfeccionadas = bolsasConfeccionadas + int.Parse(bolsas);
 
                     if (mySqlConexion.VerificarMuestreoRealizadas(op) < muestrasTotales.Requeridas)
                     {
-                        if (numBulto % muestrasTotales.PedirCada == 0)
+                        if (ultimoBulto % muestrasTotales.PedirCada == 0)
                         {
                             try
-                            {
+                            {                                
                                 operarioAsignado = operadores[1];
                                 bobinaMadre = Convert.ToInt32(row.Cells[identificador].Value);
                                 _formEnsayoProduccion?.ShowDialog();
@@ -782,11 +815,11 @@ namespace EtiquetadoBultos
                         }
                     }
 
-                    if (proximos.Skip(2).Contains(numBulto))
+                    if (proximos.Skip(2).Contains(ultimoBulto))
                     {
-                        sqlModificarMuestreoP1 = sqlModificarMuestreoP1 + " when num_bulto = " + numBulto + " then " + 1 + " ";
+                        sqlModificarMuestreoP1 = sqlModificarMuestreoP1 + " when num_bulto = " + ultimoBulto + " then " + 1 + " ";
                     }
-                    numBulto++;
+                    ultimoBulto++;
                     contador++;
                 }
 
@@ -849,7 +882,7 @@ namespace EtiquetadoBultos
                     tbBolsasSolicitadas.Text = datosOp[7] + "|" + mySqlConexion.totalBolsasCreadas(datosOp[11]);
                 }
 
-                crearArchivoZpl(desde, numBulto);
+                crearArchivoZpl(desde, ultimoBulto);
             }
             else
             {
@@ -1135,6 +1168,15 @@ namespace EtiquetadoBultos
             var componente = (TextBox)sender;
             switch (componente.Name)
             {
+                case "tbEncargado":
+                    if (!tbEncargado.Text.All(char.IsDigit))
+                    {
+                        tbEncargado.Clear();
+                        MessageBox.Show("Expresar legajo solo en números.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
+                    break;
+
                 case "tbOperario":
                     if (!tbOperario.Text.All(char.IsDigit))
                     {
@@ -1307,6 +1349,12 @@ namespace EtiquetadoBultos
             }
         }
 
+        private void ibtnEncargadoLimpiar_Click(object sender, EventArgs e)
+        {
+            tbEncargado.Clear();
+            gbEncargado.Text = "Encargado *";
+        }
+
         private void btnAgregarMuestras_Click(object sender, EventArgs e)
         {
             try
@@ -1336,6 +1384,21 @@ namespace EtiquetadoBultos
 
         private void btnGenerarParada_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(tbOperario.Text))
+            {
+                MessageBox.Show("Debe ingresar Operario");
+                tbOperario.Focus();
+                return;
+            }
+            if (string.IsNullOrEmpty(tbEncargado.Text))
+            {
+                MessageBox.Show("Debe ingresar Encargado");
+                tbEncargado.Focus();
+                return;
+            }
+
+            maquinaAsignada = string.IsNullOrEmpty(maquinaSeleccionada) ? datosOp[6] : maquinaSeleccionada;
+
             try
             {
                 formParada form = new formParada();

@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Forms;
 
 namespace EtiquetadoBultos
@@ -21,13 +22,20 @@ namespace EtiquetadoBultos
         private void formParada_Load(object sender, EventArgs e)
         {
             var operarios = formPrincipal.instancia.mySqlConexion.GetOperarios();
-            lueMaquina.Properties.DataSource = formPrincipal.instancia.mySqlConexion.GetMaquinas().OrderBy(m => m.Nombre);
-            lueEncargado.Properties.DataSource = formPrincipal.instancia.mySqlConexion.GetEncargados();
+            lblMaquina.Text = "Maquina: "+formPrincipal.instancia.maquinaAsignada;
+            lblEncargado.Text = "Encargado: " + formPrincipal.instancia.operadoresNomApe[0];
+            lblOperario.Text = "Operario: " + formPrincipal.instancia.operadoresNomApe[1];
+            lblOP.Text = "OP: " + formPrincipal.instancia.operadoresNomApe[1];
+
+            orden = Convert.ToInt32(formPrincipal.instancia.datosOp[8]);
+            codigo = Convert.ToInt32(formPrincipal.instancia.datosOp[9]);
+            //lueMaquina.Properties.DataSource = formPrincipal.instancia.mySqlConexion.GetMaquinas().OrderBy(m => m.Nombre);
+            //lueEncargado.Properties.DataSource = formPrincipal.instancia.mySqlConexion.GetEncargados();
             lueOperarioMantenimiento.Properties.DataSource = formPrincipal.instancia.mySqlConexion.GetOperariosMantenimiento();
-            lueOperario.Properties.DataSource = operarios;
-            lueAuxiliar01.Properties.DataSource = operarios;
-            lueAuxiliar02.Properties.DataSource = operarios;
-            lueAuxiliar03.Properties.DataSource = operarios;
+            //lueOperario.Properties.DataSource = operarios;
+            //lueAuxiliar01.Properties.DataSource = operarios;
+            //lueAuxiliar02.Properties.DataSource = operarios;
+            //lueAuxiliar03.Properties.DataSource = operarios;
 
             lueRubro.Properties.DataSource = formPrincipal.instancia.mySqlConexion.GetRubros();
         }
@@ -60,14 +68,7 @@ namespace EtiquetadoBultos
             var parada = new Parada();
             //parada.TurnoEncargado = GetTurno();
 
-            //VERIFICAR MAQUINA
-            var lueMaquinaA = lueMaquina.GetSelectedDataRow() as Maquina;
-            if (lueMaquinaA == null)
-            {
-                MessageBox.Show("Debe seleccionar maquina.");
-                return;
-            }
-            parada.Maquina = lueMaquinaA.Nombre;
+            parada.Maquina = lblMaquina.Text;
 
             if (dtpInicio.EditValue == null || dtpFin.EditValue == null) {
                 MessageBox.Show("Debe seleccionar hora inicio y hora fin.");
@@ -77,14 +78,7 @@ namespace EtiquetadoBultos
             parada.FechaComienzo = inicio;
             parada.FechaFin = fin;
 
-            //VERIFICAR OPERARIO
-            var lueOperarioA = lueOperario.GetSelectedDataRow() as Usuario;
-            if (lueOperarioA == null)
-            {
-                MessageBox.Show("Debe seleccionar operario.");
-                return;
-            }
-            parada.OperarioNombre = lueOperarioA.Nombre;
+            parada.OperarioNombre = lblOperario.Text;
 
             //VERIFICAR OPERARIO MANT
             var lueOperarioMantenimientoA = lueOperarioMantenimiento.GetSelectedDataRow() as Usuario;
@@ -94,15 +88,7 @@ namespace EtiquetadoBultos
                 return;
             }
             parada.OperadorMantenimiento = lueOperarioMantenimientoA.Nombre;
-
-            //VERIFICAR ENCARGADO
-            var lueEncargadoA = lueEncargado.GetSelectedDataRow() as Usuario;
-            if (lueEncargadoA == null)
-            {
-                MessageBox.Show("Debe seleccionar encargado.");
-                return;
-            }
-            parada.TurnoEncargado = lueEncargadoA.Nombre;
+            parada.TurnoEncargado = lblEncargado.Text;
 
             //VERIFICAR RUBRO
             var lueRubroA = lueRubro.GetSelectedDataRow() as Rubro;
@@ -115,22 +101,15 @@ namespace EtiquetadoBultos
             parada.TotalHora = $"{(int)diferencia.TotalHours} h {diferencia.Minutes}''";
             parada.Rubro = lueRubroA.Nombre;
             parada.Motivo = lueMotivo.Text;
-            parada.Auxiliar01 = lueAuxiliar01.Text;
-            parada.Auxiliar02 = lueAuxiliar02.Text;
-            parada.Auxiliar03 = lueAuxiliar03.Text;
+            //parada.Auxiliar01 = lueAuxiliar01.Text;
+            //parada.Auxiliar02 = lueAuxiliar02.Text;
             parada.LiberacionSanitaria = Convert.ToInt32(cbLiberacion.Checked);
             parada.Observacion = rtbObservacion.Text;
             parada.FechaReal = DateTime.Now;
             if (formPrincipal.instancia.mySqlConexion.InsertParada(parada))
             {
                 MessageBox.Show("Se agrego la parada correctamente");
-                lueMaquina.Text = string.Empty;
-                lueOperario.Text = string.Empty;
                 lueOperarioMantenimiento.Text = string.Empty;
-                lueEncargado.Text = string.Empty;
-                lueAuxiliar01.Text = string.Empty;
-                lueAuxiliar02.Text = string.Empty;
-                lueAuxiliar03.Text = string.Empty;
                 lblHorasParada.Text = "HORAS PARADA";
                 lueRubro.Text = string.Empty;
                 lueMotivo.Text = string.Empty;

@@ -1109,6 +1109,69 @@ namespace EtiquetadoBultos
             }
             return res;
         }
+        internal bool InsertEnsayoLote(List<ItemValor> valores, ProtocoloItem pi)
+        {
+            bool res = false;
+            using (var conexion = new MySqlConnection(connectionString))
+            {
+                conexion.Open();
+                using (var transaction = conexion.BeginTransaction())
+                {
+                    using (var command = conexion.CreateCommand())
+                    {
+                        command.Transaction = transaction;
+                        try
+                        {
+                            command.CommandText = @"INSERT INTO formato_ensayo (creado,turno,id_op,id_nt,legajo,paquete_numero) 
+                                                                        VALUES (@pCreado,@pTurno,@pIdOp,@pIdNt,@pLegajo,@pPaqueteNum); SELECT LAST_INSERT_ID();";
+                            command.Parameters.Add("@pCreado", MySqlDbType.Newdate).Value = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                            command.Parameters.Add("@pTurno", MySqlDbType.String).Value = pi.Turno;
+                            command.Parameters.Add("@pIdOp", MySqlDbType.String).Value = pi.OP;
+                            command.Parameters.Add("@pIdNt", MySqlDbType.Int32).Value = 0;
+                            command.Parameters.Add("@pLegajo", MySqlDbType.Int32).Value = pi.Legajo;
+                            command.Parameters.Add("@pPaqueteNum", MySqlDbType.Int32).Value = pi.PaqueteNum;
+
+                            var ultimoID = Convert.ToInt32(command.ExecuteScalar());
+
+                            if (ultimoID <= 0)
+                            {
+                                throw new Exception("Error al insertar ensayo");
+                            }
+                            command.CommandText = QryInsertarEnsayo(valores, ultimoID);
+
+                            if (command.ExecuteNonQuery() <= 0)
+                            {
+                                throw new Exception("Error al insertar ensayo");
+                            }
+
+                            transaction.Commit();
+                            res = true;
+                        }
+                        catch (Exception)
+                        {
+                            transaction.Rollback();
+                            res = false;
+                        }
+                    }
+                }
+            }
+            return res;
+        }
+
+        internal string QryInsertarEnsayo(List<ItemValor> valores, int idEnsayo)
+        {
+            string sqlInsertarProtocoloItem = "INSERT INTO formato_item_valor (id_item,valor,valor_constante,id_bobina_madre,id_ensayo) VALUES ";
+            string sqlInsertarProtocoloItem2 = "";
+
+            foreach (ItemValor item in valores)
+            {
+                sqlInsertarProtocoloItem2 = sqlInsertarProtocoloItem2 + $"('{item.IdItem}','{item.Valor}','{item.ValorConstante}','{item.IdBobinaMadre}','{idEnsayo}'),";
+            }
+            sqlInsertarProtocoloItem2 = sqlInsertarProtocoloItem2.TrimEnd(',') + ";";
+            sqlInsertarProtocoloItem = sqlInsertarProtocoloItem + sqlInsertarProtocoloItem2;
+
+            return sqlInsertarProtocoloItem;
+        }
 
         public IList<string> buscarOp(string orden, string codigo)
         {

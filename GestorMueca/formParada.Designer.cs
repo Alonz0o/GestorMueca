@@ -41,20 +41,9 @@
             this.lueMotivo = new DevExpress.XtraEditors.LookUpEdit();
             this.groupControl11 = new DevExpress.XtraEditors.GroupControl();
             this.lueRubro = new DevExpress.XtraEditors.LookUpEdit();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.groupControl5 = new DevExpress.XtraEditors.GroupControl();
-            this.lueAuxiliar03 = new DevExpress.XtraEditors.LookUpEdit();
-            this.groupControl7 = new DevExpress.XtraEditors.GroupControl();
-            this.lueAuxiliar02 = new DevExpress.XtraEditors.LookUpEdit();
-            this.groupControl8 = new DevExpress.XtraEditors.GroupControl();
-            this.lueAuxiliar01 = new DevExpress.XtraEditors.LookUpEdit();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.groupControl4 = new DevExpress.XtraEditors.GroupControl();
-            this.lueEncargado = new DevExpress.XtraEditors.LookUpEdit();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.lueOperarioMantenimiento = new DevExpress.XtraEditors.LookUpEdit();
-            this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
-            this.lueOperario = new DevExpress.XtraEditors.LookUpEdit();
             this.lblHorasParada = new DevExpress.XtraEditors.LabelControl();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
@@ -62,9 +51,15 @@
             this.gcLegAuditor = new DevExpress.XtraEditors.GroupControl();
             this.dtpInicio = new DevExpress.XtraEditors.DateTimeOffsetEdit();
             this.groupControl6 = new DevExpress.XtraEditors.GroupControl();
-            this.lueMaquina = new DevExpress.XtraEditors.LookUpEdit();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.lblEncargado = new DevExpress.XtraEditors.LabelControl();
+            this.lblMaquina = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.lblOperario = new DevExpress.XtraEditors.LabelControl();
+            this.lblAuxiliar01 = new DevExpress.XtraEditors.LabelControl();
+            this.lblAuxiliar02 = new DevExpress.XtraEditors.LabelControl();
+            this.lblOP = new DevExpress.XtraEditors.LabelControl();
             this.tlpRealizados.SuspendLayout();
             this.pnlPendientes.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
@@ -78,26 +73,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl11)).BeginInit();
             this.groupControl11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lueRubro.Properties)).BeginInit();
-            this.tableLayoutPanel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl5)).BeginInit();
-            this.groupControl5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.lueAuxiliar03.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl7)).BeginInit();
-            this.groupControl7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.lueAuxiliar02.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl8)).BeginInit();
-            this.groupControl8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.lueAuxiliar01.Properties)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl4)).BeginInit();
-            this.groupControl4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.lueEncargado.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lueOperarioMantenimiento.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).BeginInit();
-            this.groupControl3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.lueOperario.Properties)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
@@ -107,7 +86,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtpInicio.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl6)).BeginInit();
             this.groupControl6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.lueMaquina.Properties)).BeginInit();
+            this.tableLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // tlpRealizados
@@ -125,7 +104,7 @@
             this.tlpRealizados.Name = "tlpRealizados";
             this.tlpRealizados.RowCount = 1;
             this.tlpRealizados.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpRealizados.Size = new System.Drawing.Size(800, 615);
+            this.tlpRealizados.Size = new System.Drawing.Size(800, 646);
             this.tlpRealizados.TabIndex = 4;
             // 
             // pnlPendientes
@@ -135,7 +114,6 @@
             this.pnlPendientes.Controls.Add(this.tableLayoutPanel6);
             this.pnlPendientes.Controls.Add(this.tableLayoutPanel5);
             this.pnlPendientes.Controls.Add(this.tableLayoutPanel4);
-            this.pnlPendientes.Controls.Add(this.tableLayoutPanel3);
             this.pnlPendientes.Controls.Add(this.tableLayoutPanel1);
             this.pnlPendientes.Controls.Add(this.lblHorasParada);
             this.pnlPendientes.Controls.Add(this.tableLayoutPanel2);
@@ -144,7 +122,7 @@
             this.pnlPendientes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlPendientes.Location = new System.Drawing.Point(16, 3);
             this.pnlPendientes.Name = "pnlPendientes";
-            this.pnlPendientes.Size = new System.Drawing.Size(781, 609);
+            this.pnlPendientes.Size = new System.Drawing.Size(781, 640);
             this.pnlPendientes.TabIndex = 0;
             // 
             // tableLayoutPanel6
@@ -155,7 +133,7 @@
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel6.Controls.Add(this.btnAgregarParada, 0, 0);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(0, 566);
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(0, 597);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 1;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -190,7 +168,7 @@
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel5.Controls.Add(this.groupControl13, 0, 0);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(0, 431);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(0, 409);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -217,6 +195,8 @@
             // 
             this.cbLiberacion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cbLiberacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
+            this.cbLiberacion.Checked = true;
+            this.cbLiberacion.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbLiberacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
             this.cbLiberacion.Location = new System.Drawing.Point(600, 1);
             this.cbLiberacion.Name = "cbLiberacion";
@@ -243,7 +223,7 @@
             this.tableLayoutPanel4.Controls.Add(this.groupControl10, 1, 0);
             this.tableLayoutPanel4.Controls.Add(this.groupControl11, 0, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 361);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 339);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -323,191 +303,20 @@
             this.lueRubro.TabIndex = 65;
             this.lueRubro.EditValueChanged += new System.EventHandler(this.lueRubro_EditValueChanged);
             // 
-            // tableLayoutPanel3
-            // 
-            this.tableLayoutPanel3.ColumnCount = 3;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel3.Controls.Add(this.groupControl5, 2, 0);
-            this.tableLayoutPanel3.Controls.Add(this.groupControl7, 1, 0);
-            this.tableLayoutPanel3.Controls.Add(this.groupControl8, 0, 0);
-            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 291);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 1;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(781, 70);
-            this.tableLayoutPanel3.TabIndex = 77;
-            // 
-            // groupControl5
-            // 
-            this.groupControl5.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
-            this.groupControl5.Appearance.Options.UseBorderColor = true;
-            this.groupControl5.AppearanceCaption.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
-            this.groupControl5.AppearanceCaption.Options.UseFont = true;
-            this.groupControl5.Controls.Add(this.lueAuxiliar03);
-            this.groupControl5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupControl5.Location = new System.Drawing.Point(520, 0);
-            this.groupControl5.Margin = new System.Windows.Forms.Padding(0);
-            this.groupControl5.Name = "groupControl5";
-            this.groupControl5.Size = new System.Drawing.Size(261, 70);
-            this.groupControl5.TabIndex = 96;
-            this.groupControl5.Text = "Auxiliar03";
-            // 
-            // lueAuxiliar03
-            // 
-            this.lueAuxiliar03.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lueAuxiliar03.EditValue = "";
-            this.lueAuxiliar03.Location = new System.Drawing.Point(2, 23);
-            this.lueAuxiliar03.Name = "lueAuxiliar03";
-            this.lueAuxiliar03.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
-            this.lueAuxiliar03.Properties.Appearance.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.lueAuxiliar03.Properties.Appearance.Options.UseFont = true;
-            this.lueAuxiliar03.Properties.Appearance.Options.UseForeColor = true;
-            this.lueAuxiliar03.Properties.AutoHeight = false;
-            this.lueAuxiliar03.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lueAuxiliar03.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Nombre", "Nombre"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Apellido", "Apellido"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Legajo", "Legajo")});
-            this.lueAuxiliar03.Properties.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
-            this.lueAuxiliar03.Properties.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
-            this.lueAuxiliar03.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.lueAuxiliar03.Size = new System.Drawing.Size(257, 45);
-            this.lueAuxiliar03.TabIndex = 66;
-            // 
-            // groupControl7
-            // 
-            this.groupControl7.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
-            this.groupControl7.Appearance.Options.UseBorderColor = true;
-            this.groupControl7.AppearanceCaption.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
-            this.groupControl7.AppearanceCaption.Options.UseFont = true;
-            this.groupControl7.Controls.Add(this.lueAuxiliar02);
-            this.groupControl7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupControl7.Location = new System.Drawing.Point(260, 0);
-            this.groupControl7.Margin = new System.Windows.Forms.Padding(0);
-            this.groupControl7.Name = "groupControl7";
-            this.groupControl7.Size = new System.Drawing.Size(260, 70);
-            this.groupControl7.TabIndex = 95;
-            this.groupControl7.Text = "Auxiliar02";
-            // 
-            // lueAuxiliar02
-            // 
-            this.lueAuxiliar02.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lueAuxiliar02.EditValue = "";
-            this.lueAuxiliar02.Location = new System.Drawing.Point(2, 23);
-            this.lueAuxiliar02.Name = "lueAuxiliar02";
-            this.lueAuxiliar02.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
-            this.lueAuxiliar02.Properties.Appearance.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.lueAuxiliar02.Properties.Appearance.Options.UseFont = true;
-            this.lueAuxiliar02.Properties.Appearance.Options.UseForeColor = true;
-            this.lueAuxiliar02.Properties.AutoHeight = false;
-            this.lueAuxiliar02.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lueAuxiliar02.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Nombre", "Nombre"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Apellido", "Apellido"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Legajo", "Legajo")});
-            this.lueAuxiliar02.Properties.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
-            this.lueAuxiliar02.Properties.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
-            this.lueAuxiliar02.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.lueAuxiliar02.Size = new System.Drawing.Size(256, 45);
-            this.lueAuxiliar02.TabIndex = 66;
-            // 
-            // groupControl8
-            // 
-            this.groupControl8.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
-            this.groupControl8.Appearance.Options.UseBorderColor = true;
-            this.groupControl8.AppearanceCaption.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
-            this.groupControl8.AppearanceCaption.Options.UseFont = true;
-            this.groupControl8.Controls.Add(this.lueAuxiliar01);
-            this.groupControl8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupControl8.Location = new System.Drawing.Point(0, 0);
-            this.groupControl8.Margin = new System.Windows.Forms.Padding(0);
-            this.groupControl8.Name = "groupControl8";
-            this.groupControl8.Size = new System.Drawing.Size(260, 70);
-            this.groupControl8.TabIndex = 94;
-            this.groupControl8.Text = "Auxiliar01";
-            // 
-            // lueAuxiliar01
-            // 
-            this.lueAuxiliar01.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lueAuxiliar01.EditValue = "";
-            this.lueAuxiliar01.Location = new System.Drawing.Point(2, 23);
-            this.lueAuxiliar01.Name = "lueAuxiliar01";
-            this.lueAuxiliar01.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
-            this.lueAuxiliar01.Properties.Appearance.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.lueAuxiliar01.Properties.Appearance.Options.UseFont = true;
-            this.lueAuxiliar01.Properties.Appearance.Options.UseForeColor = true;
-            this.lueAuxiliar01.Properties.AutoHeight = false;
-            this.lueAuxiliar01.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lueAuxiliar01.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Nombre", "Nombre"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Apellido", "Apellido"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Legajo", "Legajo")});
-            this.lueAuxiliar01.Properties.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
-            this.lueAuxiliar01.Properties.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
-            this.lueAuxiliar01.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.lueAuxiliar01.Size = new System.Drawing.Size(256, 45);
-            this.lueAuxiliar01.TabIndex = 66;
-            // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.ColumnCount = 3;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.Controls.Add(this.groupControl4, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.groupControl2, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.groupControl3, 0, 0);
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Controls.Add(this.groupControl2, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 221);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 269);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(781, 70);
             this.tableLayoutPanel1.TabIndex = 76;
-            // 
-            // groupControl4
-            // 
-            this.groupControl4.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
-            this.groupControl4.Appearance.Options.UseBorderColor = true;
-            this.groupControl4.AppearanceCaption.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
-            this.groupControl4.AppearanceCaption.Options.UseFont = true;
-            this.groupControl4.Controls.Add(this.lueEncargado);
-            this.groupControl4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupControl4.Location = new System.Drawing.Point(520, 0);
-            this.groupControl4.Margin = new System.Windows.Forms.Padding(0);
-            this.groupControl4.Name = "groupControl4";
-            this.groupControl4.Size = new System.Drawing.Size(261, 70);
-            this.groupControl4.TabIndex = 96;
-            this.groupControl4.Text = "Encargado *";
-            // 
-            // lueEncargado
-            // 
-            this.lueEncargado.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lueEncargado.EditValue = "";
-            this.lueEncargado.Location = new System.Drawing.Point(2, 23);
-            this.lueEncargado.Name = "lueEncargado";
-            this.lueEncargado.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
-            this.lueEncargado.Properties.Appearance.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.lueEncargado.Properties.Appearance.Options.UseFont = true;
-            this.lueEncargado.Properties.Appearance.Options.UseForeColor = true;
-            this.lueEncargado.Properties.AutoHeight = false;
-            this.lueEncargado.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lueEncargado.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Nombre", "Nombre"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Apellido", "Apellido"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Legajo", "Legajo")});
-            this.lueEncargado.Properties.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
-            this.lueEncargado.Properties.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
-            this.lueEncargado.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.lueEncargado.Size = new System.Drawing.Size(257, 45);
-            this.lueEncargado.TabIndex = 66;
             // 
             // groupControl2
             // 
@@ -517,10 +326,10 @@
             this.groupControl2.AppearanceCaption.Options.UseFont = true;
             this.groupControl2.Controls.Add(this.lueOperarioMantenimiento);
             this.groupControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupControl2.Location = new System.Drawing.Point(260, 0);
+            this.groupControl2.Location = new System.Drawing.Point(0, 0);
             this.groupControl2.Margin = new System.Windows.Forms.Padding(0);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(260, 70);
+            this.groupControl2.Size = new System.Drawing.Size(781, 70);
             this.groupControl2.TabIndex = 95;
             this.groupControl2.Text = "OP. Mantenimiento";
             // 
@@ -544,59 +353,23 @@
             this.lueOperarioMantenimiento.Properties.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
             this.lueOperarioMantenimiento.Properties.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
             this.lueOperarioMantenimiento.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.lueOperarioMantenimiento.Size = new System.Drawing.Size(256, 45);
+            this.lueOperarioMantenimiento.Size = new System.Drawing.Size(777, 45);
             this.lueOperarioMantenimiento.TabIndex = 66;
-            // 
-            // groupControl3
-            // 
-            this.groupControl3.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
-            this.groupControl3.Appearance.Options.UseBorderColor = true;
-            this.groupControl3.AppearanceCaption.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
-            this.groupControl3.AppearanceCaption.Options.UseFont = true;
-            this.groupControl3.Controls.Add(this.lueOperario);
-            this.groupControl3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupControl3.Location = new System.Drawing.Point(0, 0);
-            this.groupControl3.Margin = new System.Windows.Forms.Padding(0);
-            this.groupControl3.Name = "groupControl3";
-            this.groupControl3.Size = new System.Drawing.Size(260, 70);
-            this.groupControl3.TabIndex = 94;
-            this.groupControl3.Text = "Operario *";
-            // 
-            // lueOperario
-            // 
-            this.lueOperario.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lueOperario.EditValue = "";
-            this.lueOperario.Location = new System.Drawing.Point(2, 23);
-            this.lueOperario.Name = "lueOperario";
-            this.lueOperario.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
-            this.lueOperario.Properties.Appearance.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.lueOperario.Properties.Appearance.Options.UseFont = true;
-            this.lueOperario.Properties.Appearance.Options.UseForeColor = true;
-            this.lueOperario.Properties.AutoHeight = false;
-            this.lueOperario.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lueOperario.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Nombre", "Nombre"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Apellido", "Apellido"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Legajo", "Legajo")});
-            this.lueOperario.Properties.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
-            this.lueOperario.Properties.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
-            this.lueOperario.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.lueOperario.Size = new System.Drawing.Size(256, 45);
-            this.lueOperario.TabIndex = 65;
             // 
             // lblHorasParada
             // 
-            this.lblHorasParada.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
+            this.lblHorasParada.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHorasParada.Appearance.ForeColor = System.Drawing.Color.Crimson;
             this.lblHorasParada.Appearance.Options.UseFont = true;
+            this.lblHorasParada.Appearance.Options.UseForeColor = true;
             this.lblHorasParada.Appearance.Options.UseTextOptions = true;
             this.lblHorasParada.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.lblHorasParada.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.lblHorasParada.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.lblHorasParada.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblHorasParada.Location = new System.Drawing.Point(0, 191);
+            this.lblHorasParada.Location = new System.Drawing.Point(0, 222);
             this.lblHorasParada.Name = "lblHorasParada";
-            this.lblHorasParada.Size = new System.Drawing.Size(781, 30);
+            this.lblHorasParada.Size = new System.Drawing.Size(781, 47);
             this.lblHorasParada.TabIndex = 96;
             this.lblHorasParada.Text = "HORAS PARADA";
             // 
@@ -608,7 +381,7 @@
             this.tableLayoutPanel2.Controls.Add(this.groupControl1, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.gcLegAuditor, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 121);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 152);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -690,35 +463,59 @@
             this.groupControl6.Appearance.Options.UseBorderColor = true;
             this.groupControl6.AppearanceCaption.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
             this.groupControl6.AppearanceCaption.Options.UseFont = true;
-            this.groupControl6.Controls.Add(this.lueMaquina);
+            this.groupControl6.Controls.Add(this.tableLayoutPanel3);
             this.groupControl6.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupControl6.Location = new System.Drawing.Point(0, 51);
             this.groupControl6.Margin = new System.Windows.Forms.Padding(0);
             this.groupControl6.Name = "groupControl6";
-            this.groupControl6.Size = new System.Drawing.Size(781, 70);
+            this.groupControl6.Size = new System.Drawing.Size(781, 101);
             this.groupControl6.TabIndex = 95;
-            this.groupControl6.Text = "Maquina *";
+            this.groupControl6.Text = "Datos cargados";
             // 
-            // lueMaquina
+            // tableLayoutPanel3
             // 
-            this.lueMaquina.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lueMaquina.EditValue = "";
-            this.lueMaquina.Location = new System.Drawing.Point(2, 23);
-            this.lueMaquina.Name = "lueMaquina";
-            this.lueMaquina.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
-            this.lueMaquina.Properties.Appearance.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.lueMaquina.Properties.Appearance.Options.UseFont = true;
-            this.lueMaquina.Properties.Appearance.Options.UseForeColor = true;
-            this.lueMaquina.Properties.AutoHeight = false;
-            this.lueMaquina.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lueMaquina.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Nombre", "Nombre")});
-            this.lueMaquina.Properties.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
-            this.lueMaquina.Properties.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
-            this.lueMaquina.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.lueMaquina.Size = new System.Drawing.Size(777, 45);
-            this.lueMaquina.TabIndex = 67;
+            this.tableLayoutPanel3.ColumnCount = 2;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.Controls.Add(this.lblOP, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.lblOperario, 0, 1);
+            this.tableLayoutPanel3.Controls.Add(this.lblAuxiliar01, 0, 2);
+            this.tableLayoutPanel3.Controls.Add(this.lblAuxiliar02, 1, 2);
+            this.tableLayoutPanel3.Controls.Add(this.lblEncargado, 1, 1);
+            this.tableLayoutPanel3.Controls.Add(this.lblMaquina, 1, 0);
+            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(2, 23);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 3;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(777, 76);
+            this.tableLayoutPanel3.TabIndex = 0;
+            // 
+            // lblEncargado
+            // 
+            this.lblEncargado.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
+            this.lblEncargado.Appearance.Options.UseFont = true;
+            this.lblEncargado.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.lblEncargado.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblEncargado.Location = new System.Drawing.Point(391, 28);
+            this.lblEncargado.Name = "lblEncargado";
+            this.lblEncargado.Size = new System.Drawing.Size(383, 19);
+            this.lblEncargado.TabIndex = 83;
+            this.lblEncargado.Text = "Encargado:";
+            // 
+            // lblMaquina
+            // 
+            this.lblMaquina.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
+            this.lblMaquina.Appearance.Options.UseFont = true;
+            this.lblMaquina.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.lblMaquina.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblMaquina.Location = new System.Drawing.Point(391, 3);
+            this.lblMaquina.Name = "lblMaquina";
+            this.lblMaquina.Size = new System.Drawing.Size(383, 19);
+            this.lblMaquina.TabIndex = 82;
+            this.lblMaquina.Text = "Maquina:";
             // 
             // labelControl1
             // 
@@ -741,15 +538,64 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(7, 609);
+            this.panel2.Size = new System.Drawing.Size(7, 640);
             this.panel2.TabIndex = 1;
+            // 
+            // lblOperario
+            // 
+            this.lblOperario.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
+            this.lblOperario.Appearance.Options.UseFont = true;
+            this.lblOperario.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.lblOperario.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblOperario.Location = new System.Drawing.Point(3, 28);
+            this.lblOperario.Name = "lblOperario";
+            this.lblOperario.Size = new System.Drawing.Size(382, 19);
+            this.lblOperario.TabIndex = 84;
+            this.lblOperario.Text = "Operario:";
+            // 
+            // lblAuxiliar01
+            // 
+            this.lblAuxiliar01.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
+            this.lblAuxiliar01.Appearance.Options.UseFont = true;
+            this.lblAuxiliar01.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.lblAuxiliar01.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblAuxiliar01.Location = new System.Drawing.Point(3, 53);
+            this.lblAuxiliar01.Name = "lblAuxiliar01";
+            this.lblAuxiliar01.Size = new System.Drawing.Size(382, 20);
+            this.lblAuxiliar01.TabIndex = 85;
+            this.lblAuxiliar01.Text = "Auxiliar01:";
+            // 
+            // lblAuxiliar02
+            // 
+            this.lblAuxiliar02.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
+            this.lblAuxiliar02.Appearance.Options.UseFont = true;
+            this.lblAuxiliar02.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.lblAuxiliar02.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblAuxiliar02.Location = new System.Drawing.Point(391, 53);
+            this.lblAuxiliar02.Name = "lblAuxiliar02";
+            this.lblAuxiliar02.Size = new System.Drawing.Size(383, 20);
+            this.lblAuxiliar02.TabIndex = 86;
+            this.lblAuxiliar02.Text = "Auxiliar02:";
+            // 
+            // lblOP
+            // 
+            this.lblOP.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
+            this.lblOP.Appearance.Options.UseFont = true;
+            this.lblOP.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.lblOP.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblOP.Location = new System.Drawing.Point(3, 3);
+            this.lblOP.Name = "lblOP";
+            this.lblOP.Size = new System.Drawing.Size(382, 19);
+            this.lblOP.TabIndex = 87;
+            this.lblOP.Text = "OP:";
             // 
             // formParada
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 615);
+            this.ClientSize = new System.Drawing.Size(800, 646);
             this.Controls.Add(this.tlpRealizados);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "formParada";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Paradas Confeccion";
@@ -767,26 +613,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl11)).EndInit();
             this.groupControl11.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.lueRubro.Properties)).EndInit();
-            this.tableLayoutPanel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl5)).EndInit();
-            this.groupControl5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.lueAuxiliar03.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl7)).EndInit();
-            this.groupControl7.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.lueAuxiliar02.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl8)).EndInit();
-            this.groupControl8.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.lueAuxiliar01.Properties)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl4)).EndInit();
-            this.groupControl4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.lueEncargado.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
             this.groupControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.lueOperarioMantenimiento.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).EndInit();
-            this.groupControl3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.lueOperario.Properties)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
@@ -796,7 +626,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtpInicio.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl6)).EndInit();
             this.groupControl6.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.lueMaquina.Properties)).EndInit();
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -816,29 +647,24 @@
         private DevExpress.XtraEditors.LookUpEdit lueMotivo;
         private DevExpress.XtraEditors.GroupControl groupControl11;
         private DevExpress.XtraEditors.LookUpEdit lueRubro;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private DevExpress.XtraEditors.GroupControl groupControl5;
-        private DevExpress.XtraEditors.GroupControl groupControl7;
-        private DevExpress.XtraEditors.GroupControl groupControl8;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private DevExpress.XtraEditors.GroupControl groupControl4;
         private DevExpress.XtraEditors.GroupControl groupControl2;
-        private DevExpress.XtraEditors.GroupControl groupControl3;
-        private DevExpress.XtraEditors.LookUpEdit lueOperario;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private DevExpress.XtraEditors.GroupControl groupControl1;
         private DevExpress.XtraEditors.DateTimeOffsetEdit dtpFin;
         private DevExpress.XtraEditors.GroupControl gcLegAuditor;
         private DevExpress.XtraEditors.DateTimeOffsetEdit dtpInicio;
         private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DevExpress.XtraEditors.LookUpEdit lueAuxiliar03;
-        private DevExpress.XtraEditors.LookUpEdit lueAuxiliar02;
-        private DevExpress.XtraEditors.LookUpEdit lueAuxiliar01;
-        private DevExpress.XtraEditors.LookUpEdit lueEncargado;
         private DevExpress.XtraEditors.LookUpEdit lueOperarioMantenimiento;
         private DevExpress.XtraEditors.GroupControl groupControl6;
-        private DevExpress.XtraEditors.LookUpEdit lueMaquina;
         private System.Windows.Forms.CheckBox cbLiberacion;
         private DevExpress.XtraEditors.LabelControl lblHorasParada;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private DevExpress.XtraEditors.LabelControl lblMaquina;
+        private DevExpress.XtraEditors.LabelControl lblEncargado;
+        private DevExpress.XtraEditors.LabelControl lblOP;
+        private DevExpress.XtraEditors.LabelControl lblOperario;
+        private DevExpress.XtraEditors.LabelControl lblAuxiliar01;
+        private DevExpress.XtraEditors.LabelControl lblAuxiliar02;
     }
 }

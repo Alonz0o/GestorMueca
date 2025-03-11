@@ -245,6 +245,7 @@
     <Compile Include="formSeleccionarEtiquetadora.Designer.cs">
       <DependentUpon>formSeleccionarEtiquetadora.cs</DependentUpon>
     </Compile>
+    <Compile Include="ItemValor.cs" />
     <Compile Include="manualDeUsuarioBobinado.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -262,6 +263,7 @@
     <Compile Include="Models\Muestreo.cs" />
     <Compile Include="Models\NtIp.cs" />
     <Compile Include="Models\Parada.cs" />
+    <Compile Include="Models\ProtocoloItem.cs" />
     <Compile Include="Models\Rubro.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Program.cs" />

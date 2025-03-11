@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace EtiquetadoBultos
@@ -25,6 +26,13 @@ namespace EtiquetadoBultos
         public static string maquina = formPrincipal.instancia.maquinaSeleccionada;
         public static string fechaEntrega = formPrincipal.instancia.datosOp[10];
         public static ConexionMySql mySqlConexion = new ConexionMySql();
+        public static string SOLONUMEROS = @"^-?\d+$";
+        public static string SOLO_LETRAS_NUMEROS_SOLO_UN_ESPACIO = @"^(?:[a-zA-Z0-9áéíóúÁÉÍÓÚüÜñÑ]+\s?)*[a-zA-Z0-9áéíóúÁÉÍÓÚüÜñÑ]+$";
+        public static string SOLO_LETRAS_NUMEROS_MUCHOS_ESPACIO = @"^(?:[a-zA-Z0-9áéíóúÁÉÍÓÚüÜñÑ]+(\s*?))*[a-zA-Z0-9áéíóúÁÉÍÓÚüÜñÑ]+$";
+        public static string SOLONUMODECIMAL = @"^\d+,\d{1,10}$|^\d+$";
+        public static string SOLO_NUMEROS_OP = @"^\d+\/\d+$";
+        public static string SOLOSIGNOA = @"^(ok|no ok|-)$";
+        public static string SOLONUMSIGNOA = @"^(?:\d+(?:,\d{1,10})?|ok|no ok|-)$";
         public static void crearArchivoZpl(int desde, int hasta)
         {
             List<string> numeroBultos = new List<string>();
@@ -131,5 +139,31 @@ namespace EtiquetadoBultos
             formAlertaReEtiquetado frm = new formAlertaReEtiquetado();
             frm.showAlert(msg, intervalo);
         }
+
+        public static bool IsSoloNumerico(string input)
+        {
+            return Regex.IsMatch(input, SOLONUMEROS);
+        }
+        public static bool IsSoloLetrasUnEspacio(string input)
+        {
+            return Regex.IsMatch(input, SOLO_LETRAS_NUMEROS_SOLO_UN_ESPACIO);
+        }
+        public static bool IsSoloLetrasMultipleEspacios(string input)
+        {
+            return Regex.IsMatch(input, SOLO_LETRAS_NUMEROS_MUCHOS_ESPACIO);
+        }
+        public static bool IsSoloNumODecimal(string input)
+        {
+            return Regex.IsMatch(input, SOLONUMODECIMAL);
+        }
+        public static bool IsSoloNumOP(string input)
+        {
+            return Regex.IsMatch(input, SOLO_NUMEROS_OP);
+        }
+        public static bool IsSoloSignoA(string input)
+        {
+            return Regex.IsMatch(input, SOLOSIGNOA);
+        }
+
     }
 }
