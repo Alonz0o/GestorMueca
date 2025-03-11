@@ -43,9 +43,11 @@ namespace EtiquetadoBultos
         public string fasonCantidad = "";
         public string maquinaSeleccionada = "";
         public Label lblInstanciaOP;
+        private formEnsayoProduccion _formEnsayoProduccion;
 
         public formPrincipal()
-        {
+        {          
+            _formEnsayoProduccion = new formEnsayoProduccion();
             InitializeComponent();
             cargarDatosEnTextBox();
             if (Program.argumentos.Count != 0)
@@ -656,8 +658,18 @@ namespace EtiquetadoBultos
                 else btnEtiquetar.Enabled = false;
             }
         }
+        public string maquinaAsignada = "", operarioAsignado = "";
+        public int bobinaMadre = 0;
+
         private void btnEtiquetar_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(tbOperario.Text)) {
+                MessageBox.Show("Debe ingresar al menos el oparario");
+                tbOperario.Focus();
+                return;
+            }
+            maquinaAsignada = string.IsNullOrEmpty(maquinaSeleccionada) ? datosOp[6] : maquinaSeleccionada;
+          
             var cantPaquetes = Convert.ToInt32(tbCantPaquetes.Text);
             //if (cantPaquetes > 5) {
             //    MessageBox.Show("Se pueden etiquetar hasta un máximo de 5 paquetes.");
@@ -744,7 +756,6 @@ namespace EtiquetadoBultos
                 if (calc.mtsRestantes == 0 && double.Parse(row.Cells[mtsDisponibles].Value.ToString()) < calc.porUnPaquete) calc.mtsRestantes = double.Parse(row.Cells[mtsDisponibles].Value.ToString());
                 while (restaTotal >= calc.porUnPaquete)
                 {
-
                     if (contador == int.Parse(tbCantPaquetes.Text)) break;
                     if (total == double.Parse(tbSumPaquetes.Text)) break;
                     restaTotal = restaTotal - calc.porUnPaquete;
@@ -760,26 +771,13 @@ namespace EtiquetadoBultos
                         {
                             try
                             {
-                                var operario = operadores[1];
-
-                                string maquina = string.IsNullOrEmpty(maquinaSeleccionada) ? datosOp[6] : maquinaSeleccionada;
-                                string rutaAplicacion = @"D:\Fuente_Sis\Borre\ProtocoloDE\Release\Protocolo_User_DataEntry.exe";
-                                string parametros = $"confeccion {datosOp[8]} {datosOp[9]} {maquina} {op} {datosOp[7]} {row.Cells[identificador].Value.ToString()} {operario}";
-                                Cursor.Current = Cursors.WaitCursor;
-
-                                var infoProceso = new ProcessStartInfo
-                                {
-                                    FileName = rutaAplicacion,
-                                    Arguments = parametros
-                                };
-                                using (Process process = Process.Start(infoProceso)) if (process != null) process.WaitForExit();
-                                Cursor.Current = Cursors.Default;
-
+                                operarioAsignado = operadores[1];
+                                bobinaMadre = Convert.ToInt32(row.Cells[identificador].Value);
+                                _formEnsayoProduccion?.ShowDialog();
                             }
-                            catch
+                            catch (Exception ex)
                             {
-                                MessageBox.Show("No se pudo abrir el cargado de muestras debido a un error técnico.");
-                                return;
+                                MessageBox.Show("Error: " + ex.Message);
                             }
                         }
                     }

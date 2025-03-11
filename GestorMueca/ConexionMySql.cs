@@ -16,7 +16,7 @@ namespace EtiquetadoBultos
     {
         // Sql connection
         MySqlConnection conexion = new MySqlConnection("server = 192.168.1.1; port=3306; userid=root; password=kamila; database=sistemaindustrial;");
-        MySqlConnection conexionSanlufilm_db = new MySqlConnection("server = localhost; port=3306; userid=root; password=kamila; database=sanlufilm_db;");
+        MySqlConnection conexionSanlufilm_db = new MySqlConnection("server = 192.168.1.1; port=3306; userid=root; password=kamila; database=sanlufilm_db;");
         string connectionString = "server = 192.168.1.1; port=3306; userid=root; password=kamila; database=sistemaindustrial;";
 
         internal List<Usuario> GetOperarios()
@@ -47,6 +47,141 @@ namespace EtiquetadoBultos
             }
             return us;
         }
+        internal Especificacion GetFichaTecnicaConfeccionLargo(int idCodigo)
+        {
+            Especificacion esp = new Especificacion();
+
+            using (var conexion = new MySqlConnection(connectionString))
+            using (var command = new MySqlCommand())
+            {
+                conexion.Open();
+                command.Connection = conexion;
+                command.CommandText = @"SELECT largo,largo_min,largo_max
+                                        FROM confeccion 
+                                        WHERE idcodigo = @pIdCodigo;";
+                command.Parameters.Add("@pIdCodigo", MySqlDbType.Double).Value = idCodigo;
+                using (var reader = command.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        esp.Medio = reader.IsDBNull(0) ? 0.0 : reader.GetDouble(0) * 10;
+                        esp.Minimo = reader.IsDBNull(1) ? 0.0 : reader.GetDouble(1) * 10;
+                        esp.Maximo = reader.IsDBNull(2) ? 0.0 : reader.GetDouble(2) * 10;
+                    }
+
+                }
+
+                return esp;
+            }
+        }
+
+        internal Especificacion GetFichaTecnicaConfeccionAncho(int idCodigo)
+        {
+            Especificacion esp = new Especificacion();
+
+            using (var conexion = new MySqlConnection(connectionString))
+            using (var command = new MySqlCommand())
+            {
+                conexion.Open();
+                command.Connection = conexion;
+                command.CommandText = @"SELECT ancho,ancho_min,ancho_max
+                                        FROM confeccion 
+                                        WHERE idcodigo = @pIdCodigo;";
+                command.Parameters.Add("@pIdCodigo", MySqlDbType.Double).Value = idCodigo;
+                using (var reader = command.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        esp.Medio = reader.IsDBNull(0) ? 0.0 : reader.GetDouble(0) * 10;
+                        esp.Minimo = reader.IsDBNull(1) ? 0.0 : reader.GetDouble(1) * 10;
+                        esp.Maximo = reader.IsDBNull(2) ? 0.0 : reader.GetDouble(2) * 10;
+                    }
+
+                }
+
+                return esp;
+            }
+        }
+
+        internal Muestreo VerificarMuestreo(int idOrden, int aConfeccionar)
+        {
+            Muestreo m = new Muestreo();
+            using (var conexion = new MySqlConnection(connectionString))
+            using (var command = new MySqlCommand())
+            {
+                conexion.Open();
+                command.Connection = conexion;
+                command.CommandText = @"SELECT count(id_op) AS valor FROM formato_ensayo WHERE id_op=@pIdOrden GROUP BY id_op;";
+                command.Parameters.Add("@pIdOrden", MySqlDbType.Int32).Value = idOrden;
+                var muestrasTotales = command.ExecuteScalar() != DBNull.Value ? Convert.ToInt32(command.ExecuteScalar()) : 0;
+
+                command.CommandText = @"select muestras,desde,hasta,pedir_cada from cantidadmuestreo where @pCantidadDeBosasRequeridas between desde and hasta and sector = 'c';";
+                command.Parameters.Add("@pCantidadDeBosasRequeridas", MySqlDbType.Int32).Value = aConfeccionar;
+                using (var reader = command.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        m.Requeridas = reader.IsDBNull(0) ? 0 : reader.GetInt32(0);
+                        m.Desde = reader.IsDBNull(1) ? 0 : reader.GetInt32(1);
+                        m.Hasta = reader.IsDBNull(2) ? 0 : reader.GetInt32(2);
+                        m.PedirCada = reader.IsDBNull(3) ? 0 : reader.GetInt32(3);
+                        m.Realizadas = muestrasTotales;
+                    }
+                }
+            }
+            return m;
+        }
+        internal bool InsertParada(Parada p)
+        {
+            bool res = false;
+            using (var conexion = new MySqlConnection(connectionString))
+            {
+                conexion.Open();
+                using (var transaction = conexion.BeginTransaction())
+                {
+                    using (var command = conexion.CreateCommand())
+                    {
+                        command.Transaction = transaction;
+                        try
+                        {
+                            command.CommandText = @"INSERT INTO paradasconfeccion(maquina,comienzo_hora,fin_hora,total_hora,operario_nombre,auxiliar,auxiliar2,auxiliar3,operador_mantenimiento,turno_encargado,motivo,rubro,liberacionsanitaria,observaciones,fecha_real,orden,codigo) 
+                                                    VALUES (@pMaquina,@pInicio,@pFin,@pTotalHora,@pOperario,@pAuxiliar01,@pAuxiliar02,@pAuxiliar03,@pOperarioMantenimiento,@pEncargado,@pMotivo,@pRubro,@pLiberacion,@pObservacion,@pFechaReal,@pOrden,@pCodigo);";
+                            command.Parameters.Add("@pMaquina", MySqlDbType.String).Value = p.Maquina;
+                            command.Parameters.Add("@pInicio", MySqlDbType.Newdate).Value =p.FechaComienzo;
+                            command.Parameters.Add("@pFin", MySqlDbType.Newdate).Value = p.FechaFin;
+                            command.Parameters.Add("@pTotalHora", MySqlDbType.String).Value = p.TotalHora;
+                            command.Parameters.Add("@pOperario", MySqlDbType.String).Value = p.OperarioNombre;
+                            command.Parameters.Add("@pAuxiliar01", MySqlDbType.String).Value = p.Auxiliar01;
+                            command.Parameters.Add("@pAuxiliar02", MySqlDbType.String).Value = p.Auxiliar02;
+                            command.Parameters.Add("@pAuxiliar03", MySqlDbType.String).Value = p.Auxiliar03;
+                            command.Parameters.Add("@pOperarioMantenimiento", MySqlDbType.String).Value = p.OperadorMantenimiento;
+                            command.Parameters.Add("@pEncargado", MySqlDbType.String).Value = p.TurnoEncargado;
+                            command.Parameters.Add("@pMotivo", MySqlDbType.String).Value = p.Motivo;
+                            command.Parameters.Add("@pRubro", MySqlDbType.String).Value = p.Rubro;
+                            command.Parameters.Add("@pLiberacion", MySqlDbType.Int32).Value = p.LiberacionSanitaria;
+                            command.Parameters.Add("@pObservacion", MySqlDbType.String).Value = p.Observacion;
+                            command.Parameters.Add("@pFechaReal", MySqlDbType.Newdate).Value = p.FechaReal;
+                            command.Parameters.Add("@pOrden", MySqlDbType.String).Value = p.Orden;
+                            command.Parameters.Add("@pCodigo", MySqlDbType.String).Value = p.Codigo;
+                            if (command.ExecuteNonQuery() <= 0)
+                            {
+                                throw new Exception("Error al insertar ensayo");
+                            }
+
+                            transaction.Commit();
+                            res = true;
+                        }
+                        catch (Exception)
+                        {
+                            transaction.Rollback();
+                            res = false;
+                        }
+                    }
+                }
+            }
+            return res;
+        }
+
         internal List<Rubro> GetRubros()
         {
             List<Rubro> rbs = new List<Rubro>();
@@ -497,7 +632,7 @@ namespace EtiquetadoBultos
         internal Muestreo VerificarMuestreo(string idOrden, string aConfeccionar)
         {
             Muestreo m = new Muestreo();
-            using (var conexion = new MySqlConnection("server = localhost; port = 3306; userid = root; password = kamila; database = sistemaindustrial; "))
+            using (var conexion = new MySqlConnection(connectionString))
             using (var command = new MySqlCommand())
             {
                 conexion.Open();
@@ -526,7 +661,7 @@ namespace EtiquetadoBultos
         internal int VerificarMuestreoRealizadas(string idOrden)
         {
             var muestrasTotales = 0;
-            using (var conexion = new MySqlConnection("server = localhost; port = 3306; userid = root; password = kamila; database = sistemaindustrial; "))
+            using (var conexion = new MySqlConnection(connectionString))
             using (var command = new MySqlCommand())
             {
                 conexion.Open();
@@ -1273,7 +1408,7 @@ namespace EtiquetadoBultos
 
         internal int UpdateBultosMuestreo(string qry1)
         {
-            using (var conexion = new MySqlConnection("server = localhost; port=3306; userid=root; password=kamila; database=sistemaindustrial;"))
+            using (var conexion = new MySqlConnection(connectionString))
             {
                 conexion.Open();
                 using (var command = conexion.CreateCommand())
@@ -1522,7 +1657,7 @@ namespace EtiquetadoBultos
 
         internal int GetIdMaquina(string maqina)
         {
-            using (var conexion = new MySqlConnection("server = localhost; port=3306; userid=root; password=kamila; database=sistemaindustrial;"))
+            using (var conexion = new MySqlConnection(connectionString))
             {
                 conexion.Open();
                 using (var command = conexion.CreateCommand())

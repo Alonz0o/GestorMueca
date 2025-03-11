@@ -117,17 +117,17 @@
             this.ibtnManualBobinado = new FontAwesome.Sharp.IconButton();
             this.ibtnSeleccionarEti = new FontAwesome.Sharp.IconButton();
             this.tlpPie = new System.Windows.Forms.TableLayoutPanel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.ibtnCambiarEncargado = new FontAwesome.Sharp.IconButton();
-            this.lblOperariosEncargado = new System.Windows.Forms.Label();
             this.btnGenerarParada = new EtiquetadoBultos.AFControles.AFButton();
             this.btnAgregarScrap = new EtiquetadoBultos.AFControles.AFButton();
             this.btnIp = new EtiquetadoBultos.AFControles.AFButton();
             this.btnReEtiquetar = new EtiquetadoBultos.AFControles.AFButton();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.btnGenerarFason = new EtiquetadoBultos.AFControles.AFButton();
             this.btnEtiquetar = new EtiquetadoBultos.AFControles.AFButton();
             this.btnSalir = new EtiquetadoBultos.AFControles.AFButton();
+            this.label4 = new System.Windows.Forms.Label();
+            this.ibtnCambiarEncargado = new FontAwesome.Sharp.IconButton();
+            this.lblOperariosEncargado = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBobinasRegistradas)).BeginInit();
             this.tlpBobinadoCabezera.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -1430,67 +1430,6 @@
             this.tlpPie.Size = new System.Drawing.Size(907, 56);
             this.tlpPie.TabIndex = 40;
             // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.btnGenerarFason);
-            this.panel1.Controls.Add(this.btnEtiquetar);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(5, 5);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(142, 46);
-            this.panel1.TabIndex = 5;
-            // 
-            // label4
-            // 
-            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
-            this.label4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.label4.ForeColor = System.Drawing.Color.AliceBlue;
-            this.label4.Location = new System.Drawing.Point(0, 179);
-            this.label4.Margin = new System.Windows.Forms.Padding(0);
-            this.label4.Name = "label4";
-            this.label4.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.label4.Size = new System.Drawing.Size(907, 34);
-            this.label4.TabIndex = 22;
-            this.label4.Text = "Bobinado";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // ibtnCambiarEncargado
-            // 
-            this.ibtnCambiarEncargado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
-            this.ibtnCambiarEncargado.BackgroundImage = global::EtiquetadoBultos.Properties.Resources.cambio;
-            this.ibtnCambiarEncargado.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ibtnCambiarEncargado.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ibtnCambiarEncargado.FlatAppearance.BorderSize = 0;
-            this.ibtnCambiarEncargado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ibtnCambiarEncargado.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.ibtnCambiarEncargado.IconColor = System.Drawing.SystemColors.Highlight;
-            this.ibtnCambiarEncargado.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.ibtnCambiarEncargado.IconSize = 20;
-            this.ibtnCambiarEncargado.Location = new System.Drawing.Point(835, 73);
-            this.ibtnCambiarEncargado.Name = "ibtnCambiarEncargado";
-            this.ibtnCambiarEncargado.Size = new System.Drawing.Size(32, 32);
-            this.ibtnCambiarEncargado.TabIndex = 6;
-            this.ibtnCambiarEncargado.UseVisualStyleBackColor = false;
-            this.ibtnCambiarEncargado.Visible = false;
-            this.ibtnCambiarEncargado.Click += new System.EventHandler(this.ibtnCambiarEncargado_Click);
-            // 
-            // lblOperariosEncargado
-            // 
-            this.lblOperariosEncargado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
-            this.lblOperariosEncargado.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblOperariosEncargado.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblOperariosEncargado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.lblOperariosEncargado.ForeColor = System.Drawing.Color.AliceBlue;
-            this.lblOperariosEncargado.Location = new System.Drawing.Point(0, 73);
-            this.lblOperariosEncargado.Margin = new System.Windows.Forms.Padding(0);
-            this.lblOperariosEncargado.Name = "lblOperariosEncargado";
-            this.lblOperariosEncargado.Size = new System.Drawing.Size(907, 34);
-            this.lblOperariosEncargado.TabIndex = 21;
-            this.lblOperariosEncargado.Text = "Operarios";
-            this.lblOperariosEncargado.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // btnGenerarParada
             // 
             this.btnGenerarParada.BackColor = System.Drawing.Color.Transparent;
@@ -1579,6 +1518,16 @@
             this.btnReEtiquetar.UseVisualStyleBackColor = false;
             this.btnReEtiquetar.Click += new System.EventHandler(this.btnReEtiquetar_Click);
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.btnGenerarFason);
+            this.panel1.Controls.Add(this.btnEtiquetar);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(5, 5);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(142, 46);
+            this.panel1.TabIndex = 5;
+            // 
             // btnGenerarFason
             // 
             this.btnGenerarFason.BackColor = System.Drawing.Color.Transparent;
@@ -1646,6 +1595,57 @@
             this.btnSalir.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(45)))), ((int)(((byte)(59)))));
             this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.ibtnSalir_Click);
+            // 
+            // label4
+            // 
+            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
+            this.label4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.label4.ForeColor = System.Drawing.Color.AliceBlue;
+            this.label4.Location = new System.Drawing.Point(0, 179);
+            this.label4.Margin = new System.Windows.Forms.Padding(0);
+            this.label4.Name = "label4";
+            this.label4.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.label4.Size = new System.Drawing.Size(907, 34);
+            this.label4.TabIndex = 22;
+            this.label4.Text = "Bobinado";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // ibtnCambiarEncargado
+            // 
+            this.ibtnCambiarEncargado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
+            this.ibtnCambiarEncargado.BackgroundImage = global::EtiquetadoBultos.Properties.Resources.cambio;
+            this.ibtnCambiarEncargado.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.ibtnCambiarEncargado.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ibtnCambiarEncargado.FlatAppearance.BorderSize = 0;
+            this.ibtnCambiarEncargado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ibtnCambiarEncargado.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.ibtnCambiarEncargado.IconColor = System.Drawing.SystemColors.Highlight;
+            this.ibtnCambiarEncargado.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.ibtnCambiarEncargado.IconSize = 20;
+            this.ibtnCambiarEncargado.Location = new System.Drawing.Point(835, 73);
+            this.ibtnCambiarEncargado.Name = "ibtnCambiarEncargado";
+            this.ibtnCambiarEncargado.Size = new System.Drawing.Size(32, 32);
+            this.ibtnCambiarEncargado.TabIndex = 6;
+            this.ibtnCambiarEncargado.UseVisualStyleBackColor = false;
+            this.ibtnCambiarEncargado.Visible = false;
+            this.ibtnCambiarEncargado.Click += new System.EventHandler(this.ibtnCambiarEncargado_Click);
+            // 
+            // lblOperariosEncargado
+            // 
+            this.lblOperariosEncargado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
+            this.lblOperariosEncargado.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblOperariosEncargado.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblOperariosEncargado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.lblOperariosEncargado.ForeColor = System.Drawing.Color.AliceBlue;
+            this.lblOperariosEncargado.Location = new System.Drawing.Point(0, 73);
+            this.lblOperariosEncargado.Margin = new System.Windows.Forms.Padding(0);
+            this.lblOperariosEncargado.Name = "lblOperariosEncargado";
+            this.lblOperariosEncargado.Size = new System.Drawing.Size(907, 34);
+            this.lblOperariosEncargado.TabIndex = 21;
+            this.lblOperariosEncargado.Text = "Operarios";
+            this.lblOperariosEncargado.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // formPrincipal
             // 
