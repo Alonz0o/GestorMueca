@@ -25,6 +25,7 @@ namespace EtiquetadoBultos
 
         private void formParada_Load(object sender, EventArgs e)
         {
+                  //eaeasdsadsaasaasdadd
             encargadoNomApe = formPrincipal.instancia.operadoresNomApe[0];
             operarioNomApe = formPrincipal.instancia.operadoresNomApe[1];
             auxiliar01NomApe =formPrincipal.instancia.operadoresNomApe[2];
