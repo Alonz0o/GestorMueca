@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Management.Instrumentation;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
@@ -14,6 +15,9 @@ namespace EtiquetadoBultos
 {
     public partial class formParada : Form
     {
+        DateTime controlInicio, controlFin;
+        int orden, codigo;
+        string encargadoNomApe, operarioNomApe, auxiliar01NomApe, auxiliar02NomApe;
         public formParada()
         {
             InitializeComponent();
@@ -21,28 +25,44 @@ namespace EtiquetadoBultos
 
         private void formParada_Load(object sender, EventArgs e)
         {
-            var operarios = formPrincipal.instancia.mySqlConexion.GetOperarios();
+            encargadoNomApe = formPrincipal.instancia.operadoresNomApe[0];
+            operarioNomApe = formPrincipal.instancia.operadoresNomApe[1];
+            auxiliar01NomApe =formPrincipal.instancia.operadoresNomApe[2];
+            auxiliar02NomApe= formPrincipal.instancia.operadoresNomApe[3];
             lblMaquina.Text = "Maquina: "+formPrincipal.instancia.maquinaAsignada;
-            lblEncargado.Text = "Encargado: " + formPrincipal.instancia.operadoresNomApe[0];
-            lblOperario.Text = "Operario: " + formPrincipal.instancia.operadoresNomApe[1];
-            lblOP.Text = "OP: " + formPrincipal.instancia.operadoresNomApe[1];
+            lblEncargado.Text = "Encargado: " + encargadoNomApe;
+            lblOperario.Text = "Operario: " + operarioNomApe;
+            lblAuxiliar01.Text = "Auxiliar01: " + auxiliar01NomApe;
+            lblAuxiliar02.Text = "Auxiliar02: " + auxiliar02NomApe; 
 
             orden = Convert.ToInt32(formPrincipal.instancia.datosOp[8]);
             codigo = Convert.ToInt32(formPrincipal.instancia.datosOp[9]);
-            //lueMaquina.Properties.DataSource = formPrincipal.instancia.mySqlConexion.GetMaquinas().OrderBy(m => m.Nombre);
-            //lueEncargado.Properties.DataSource = formPrincipal.instancia.mySqlConexion.GetEncargados();
+            lblOP.Text = "OP: " + orden + "/"+ codigo;
+
             lueOperarioMantenimiento.Properties.DataSource = formPrincipal.instancia.mySqlConexion.GetOperariosMantenimiento();
-            //lueOperario.Properties.DataSource = operarios;
-            //lueAuxiliar01.Properties.DataSource = operarios;
-            //lueAuxiliar02.Properties.DataSource = operarios;
-            //lueAuxiliar03.Properties.DataSource = operarios;
 
             lueRubro.Properties.DataSource = formPrincipal.instancia.mySqlConexion.GetRubros();
+            dtpInicio.DateTimeOffset = DateTime.Now;
+
+             controlInicio = DateTime.Now.AddHours(-24);
+             controlFin = DateTime.Now.AddHours(+12);
+            gcComienzo.Text = "Comienzo * Desde:" + controlInicio + " (-24hs)";
+            gcFin.Text = "Finalización * Hasta:" + controlFin + " (+12hs)";
+
         }
 
         private void lueRubro_EditValueChanged(object sender, EventArgs e)
         {
-            lueMotivo.Properties.DataSource = formPrincipal.instancia.mySqlConexion.GetRubroDescripciones(lueRubro.Text);
+            var descripciones = formPrincipal.instancia.mySqlConexion.GetRubroDescripciones(lueRubro.Text);
+            if (descripciones.Count != 0) {
+                gcDescripcion.Visible = true;
+                lueMotivo.Properties.DataSource = descripciones;
+                lueMotivo.ItemIndex = 0;
+            }
+            else {
+                gcDescripcion.Visible = false;
+
+            }
         }
         private string GetTurno()
         {
@@ -65,31 +85,27 @@ namespace EtiquetadoBultos
         DateTime inicio, fin;
         private void btnAgregarParada_Click(object sender, EventArgs e)
         {
-            var parada = new Parada();
-            //parada.TurnoEncargado = GetTurno();
-
-            parada.Maquina = lblMaquina.Text;
-
             if (dtpInicio.EditValue == null || dtpFin.EditValue == null) {
                 MessageBox.Show("Debe seleccionar hora inicio y hora fin.");
                 return;
             }
-
+            var parada = new Parada();
             parada.FechaComienzo = inicio;
             parada.FechaFin = fin;
 
-            parada.OperarioNombre = lblOperario.Text;
-
-            //VERIFICAR OPERARIO MANT
-            var lueOperarioMantenimientoA = lueOperarioMantenimiento.GetSelectedDataRow() as Usuario;
-            if (lueOperarioMantenimientoA == null)
-            {
-                MessageBox.Show("Debe seleccionar operario de mantenimiento.");
+            var controlInicio = DateTime.Now.AddHours(-24);
+            if (parada.FechaComienzo < controlInicio) {
+                MessageBox.Show("Limite de fechas. La fecha ingresada debe ser menor a la fecha actual - 24 horas");
                 return;
             }
-            parada.OperadorMantenimiento = lueOperarioMantenimientoA.Nombre;
-            parada.TurnoEncargado = lblEncargado.Text;
 
+            var controlFin =  DateTime.Now.AddHours(+12);
+            if (parada.FechaFin > controlFin)
+            {
+                MessageBox.Show("Limite de fechas. La fecha ingresada debe ser mayor a la fecha actual + 12 horas");
+                return;
+            }
+          
             //VERIFICAR RUBRO
             var lueRubroA = lueRubro.GetSelectedDataRow() as Rubro;
             if (lueRubroA == null)
@@ -97,15 +113,33 @@ namespace EtiquetadoBultos
                 MessageBox.Show("Debe seleccionar rubro.");
                 return;
             }
+            if (inicio < controlInicio)
+            {
+                MessageBox.Show("Limite de fechas. La fecha ingresada debe ser menor a la fecha actual - 24 horas");
+                return;
+            }
+            if (fin > controlFin)
+            {
+                MessageBox.Show("Limite de fechas. La fecha ingresada debe ser mayor a la fecha actual + 12 horas");
+                return;
+            }
+
+            //parada.TurnoEncargado = GetTurno();
+            parada.Maquina = lblMaquina.Text;
+            parada.TurnoEncargado = encargadoNomApe;
+            parada.OperarioNombre = operarioNomApe;
+            parada.OperadorMantenimiento = lueOperarioMantenimiento.Text;
 
             parada.TotalHora = $"{(int)diferencia.TotalHours} h {diferencia.Minutes}''";
             parada.Rubro = lueRubroA.Nombre;
             parada.Motivo = lueMotivo.Text;
-            //parada.Auxiliar01 = lueAuxiliar01.Text;
-            //parada.Auxiliar02 = lueAuxiliar02.Text;
+            parada.Auxiliar01 = auxiliar01NomApe=="0" ? "No Hay, Auxiliar" : lblAuxiliar01.Text;
+            parada.Auxiliar02 = auxiliar02NomApe == "0" ? "No Hay, Auxiliar" : lblAuxiliar02.Text;
             parada.LiberacionSanitaria = Convert.ToInt32(cbLiberacion.Checked);
             parada.Observacion = rtbObservacion.Text;
             parada.FechaReal = DateTime.Now;
+            parada.Orden = orden;
+            parada.Codigo = codigo;
             if (formPrincipal.instancia.mySqlConexion.InsertParada(parada))
             {
                 MessageBox.Show("Se agrego la parada correctamente");
@@ -115,7 +149,7 @@ namespace EtiquetadoBultos
                 lueMotivo.Text = string.Empty;
                 rtbObservacion.Text = string.Empty;
                 cbLiberacion.Checked = false;
-                dtpInicio.EditValue = string.Empty;
+                dtpInicio.DateTimeOffset = DateTime.Now;
                 dtpFin.EditValue = string.Empty;
             }
             else MessageBox.Show("Error al agregar parada");
@@ -124,8 +158,11 @@ namespace EtiquetadoBultos
 
         private void dtpInicio_EditValueChanged(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(dtpInicio.EditValue.ToString())) return;                       
             inicio = dtpInicio.DateTimeOffset.DateTime;
             if (dtpFin.EditValue == null) return;
+            if (string.IsNullOrEmpty(dtpFin.EditValue.ToString())) return;
+
             fin = dtpFin.DateTimeOffset.DateTime;
 
             if (inicio > fin)
@@ -133,14 +170,26 @@ namespace EtiquetadoBultos
                 dtpInicio.EditValue = fin.AddDays(-1);
                 return;
             }
+
+            if (inicio < controlInicio )
+            {
+                MessageBox.Show("Limite de fechas. La fecha ingresada debe ser menor a la fecha actual - 24 horas");
+                return;
+            }
+
             diferencia = fin - inicio;
             lblHorasParada.Text = $"La maquina estará parada por: {(int)diferencia.TotalHours} hs y {diferencia.Minutes} min";
         }
         TimeSpan diferencia;
+
+      
+
         private void dtpFin_EditValueChanged(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(dtpFin.EditValue.ToString())) return;
             fin = dtpFin.DateTimeOffset.DateTime;
             if (dtpInicio.EditValue == null) return;
+            if (string.IsNullOrEmpty(dtpInicio.EditValue.ToString())) return;
             inicio = dtpInicio.DateTimeOffset.DateTime;
 
             if (fin < inicio)
@@ -148,8 +197,18 @@ namespace EtiquetadoBultos
                 dtpFin.EditValue = inicio;
                 return;
             }
+
+            if (fin > controlFin)
+            {
+                MessageBox.Show("Limite de fechas. La fecha ingresada debe ser mayor a la fecha actual + 12 horas");
+                return;
+            }
             diferencia = fin - inicio;
             lblHorasParada.Text = $"La maquina estará parada por: {(int)diferencia.TotalHours} hs y {diferencia.Minutes} min";
+        } 
+        private void btnMostrarParadas_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Ir a desarrollo > Filtros > Paradas");
         }
     }
 }

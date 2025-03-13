@@ -1384,12 +1384,6 @@ namespace EtiquetadoBultos
 
         private void btnGenerarParada_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(tbOperario.Text))
-            {
-                MessageBox.Show("Debe ingresar Operario");
-                tbOperario.Focus();
-                return;
-            }
             if (string.IsNullOrEmpty(tbEncargado.Text))
             {
                 MessageBox.Show("Debe ingresar Encargado");
@@ -1397,6 +1391,13 @@ namespace EtiquetadoBultos
                 return;
             }
 
+            if (string.IsNullOrEmpty(tbOperario.Text))
+            {
+                MessageBox.Show("Debe ingresar Operario");
+                tbOperario.Focus();
+                return;
+            }
+          
             maquinaAsignada = string.IsNullOrEmpty(maquinaSeleccionada) ? datosOp[6] : maquinaSeleccionada;
 
             try
