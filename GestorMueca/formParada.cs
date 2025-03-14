@@ -17,7 +17,7 @@ namespace EtiquetadoBultos
     {
         DateTime controlInicio, controlFin;
         int orden, codigo;
-        string encargadoNomApe, operarioNomApe, auxiliar01NomApe, auxiliar02NomApe;
+        string maquina,encargadoNomApe, operarioNomApe, auxiliar01NomApe, auxiliar02NomApe;
         public formParada()
         {
             InitializeComponent();
@@ -25,20 +25,25 @@ namespace EtiquetadoBultos
 
         private void formParada_Load(object sender, EventArgs e)
         {
-                  //eaeasdsadsaasaasdadd
+            maquina = formPrincipal.instancia.maquinaSeleccionada;
             encargadoNomApe = formPrincipal.instancia.operadoresNomApe[0];
             operarioNomApe = formPrincipal.instancia.operadoresNomApe[1];
             auxiliar01NomApe =formPrincipal.instancia.operadoresNomApe[2];
             auxiliar02NomApe= formPrincipal.instancia.operadoresNomApe[3];
-            lblMaquina.Text = "Maquina: "+formPrincipal.instancia.maquinaAsignada;
+            lblMaquina.Text = "Maquina: "+ maquina;
             lblEncargado.Text = "Encargado: " + encargadoNomApe;
             lblOperario.Text = "Operario: " + operarioNomApe;
             lblAuxiliar01.Text = "Auxiliar01: " + auxiliar01NomApe;
-            lblAuxiliar02.Text = "Auxiliar02: " + auxiliar02NomApe; 
+            lblAuxiliar02.Text = "Auxiliar02: " + auxiliar02NomApe;
 
-            orden = Convert.ToInt32(formPrincipal.instancia.datosOp[8]);
-            codigo = Convert.ToInt32(formPrincipal.instancia.datosOp[9]);
-            lblOP.Text = "OP: " + orden + "/"+ codigo;
+            if (formPrincipal.instancia.datosOp.Count != 0)
+            {
+                orden = Convert.ToInt32(formPrincipal.instancia.datosOp[8]);
+                codigo = Convert.ToInt32(formPrincipal.instancia.datosOp[9]);
+                lblOP.Text = "OP: " + orden + "/"+ codigo;
+            }
+
+           
 
             lueOperarioMantenimiento.Properties.DataSource = formPrincipal.instancia.mySqlConexion.GetOperariosMantenimiento();
 
@@ -126,10 +131,15 @@ namespace EtiquetadoBultos
             }
 
             //parada.TurnoEncargado = GetTurno();
-            parada.Maquina = lblMaquina.Text;
+            parada.Maquina = maquina;
             parada.TurnoEncargado = encargadoNomApe;
             parada.OperarioNombre = operarioNomApe;
-            parada.OperadorMantenimiento = lueOperarioMantenimiento.Text;
+
+            var lueOperarioMantA = lueOperarioMantenimiento.GetSelectedDataRow() as Usuario;
+            if (lueOperarioMantA != null)
+            { 
+                parada.OperadorMantenimiento = lueOperarioMantA.Nombre + " " + lueOperarioMantA.Apellido;
+            }
 
             parada.TotalHora = $"{(int)diferencia.TotalHours} h {diferencia.Minutes}''";
             parada.Rubro = lueRubroA.Nombre;
@@ -179,7 +189,7 @@ namespace EtiquetadoBultos
             }
 
             diferencia = fin - inicio;
-            lblHorasParada.Text = $"La maquina estará parada por: {(int)diferencia.TotalHours} hs y {diferencia.Minutes} min";
+            lblHorasParada.Text = $"Declaro: {(int)diferencia.TotalHours} hs y {diferencia.Minutes} min";
         }
         TimeSpan diferencia;
 
@@ -205,7 +215,7 @@ namespace EtiquetadoBultos
                 return;
             }
             diferencia = fin - inicio;
-            lblHorasParada.Text = $"La maquina estará parada por: {(int)diferencia.TotalHours} hs y {diferencia.Minutes} min";
+            lblHorasParada.Text = $"Declaro: {(int)diferencia.TotalHours} hs y {diferencia.Minutes} min";
         } 
         private void btnMostrarParadas_Click(object sender, EventArgs e)
         {

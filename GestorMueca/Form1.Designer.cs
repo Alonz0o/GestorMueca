@@ -59,6 +59,10 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.tbTotalBolsas = new System.Windows.Forms.TextBox();
             this.tlpAuxiliares = new System.Windows.Forms.TableLayoutPanel();
+            this.gbEncargado = new System.Windows.Forms.GroupBox();
+            this.ibtnEncargadoOk = new FontAwesome.Sharp.IconButton();
+            this.ibtnEncargadoLimpiar = new FontAwesome.Sharp.IconButton();
+            this.tbEncargado = new System.Windows.Forms.TextBox();
             this.gbAuxiliar02 = new System.Windows.Forms.GroupBox();
             this.ibtnAuxiliar02Ok = new FontAwesome.Sharp.IconButton();
             this.ibtnAuxiliar02Limpiar = new FontAwesome.Sharp.IconButton();
@@ -117,21 +121,23 @@
             this.ibtnManualBobinado = new FontAwesome.Sharp.IconButton();
             this.ibtnSeleccionarEti = new FontAwesome.Sharp.IconButton();
             this.tlpPie = new System.Windows.Forms.TableLayoutPanel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.ibtnCambiarEncargado = new FontAwesome.Sharp.IconButton();
-            this.lblOperariosEncargado = new System.Windows.Forms.Label();
             this.btnGenerarParada = new EtiquetadoBultos.AFControles.AFButton();
             this.btnAgregarScrap = new EtiquetadoBultos.AFControles.AFButton();
             this.btnIp = new EtiquetadoBultos.AFControles.AFButton();
             this.btnReEtiquetar = new EtiquetadoBultos.AFControles.AFButton();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.btnGenerarFason = new EtiquetadoBultos.AFControles.AFButton();
             this.btnEtiquetar = new EtiquetadoBultos.AFControles.AFButton();
             this.btnSalir = new EtiquetadoBultos.AFControles.AFButton();
-            this.gbEncargado = new System.Windows.Forms.GroupBox();
-            this.ibtnEncargadoOk = new FontAwesome.Sharp.IconButton();
-            this.ibtnEncargadoLimpiar = new FontAwesome.Sharp.IconButton();
-            this.tbEncargado = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.ibtnCambiarEncargado = new FontAwesome.Sharp.IconButton();
+            this.lblOperariosEncargado = new System.Windows.Forms.Label();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.cbtnFason = new DevExpress.XtraEditors.CheckButton();
+            this.cbtnPolimaquina = new DevExpress.XtraEditors.CheckButton();
+            this.cbtnManual02 = new DevExpress.XtraEditors.CheckButton();
+            this.cbtnRudra = new DevExpress.XtraEditors.CheckButton();
+            this.cbtnItaliana = new DevExpress.XtraEditors.CheckButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBobinasRegistradas)).BeginInit();
             this.tlpBobinadoCabezera.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -145,6 +151,7 @@
             this.gbRegistroBob.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.tlpAuxiliares.SuspendLayout();
+            this.gbEncargado.SuspendLayout();
             this.gbAuxiliar02.SuspendLayout();
             this.gbAuxiliar01.SuspendLayout();
             this.gbOperario.SuspendLayout();
@@ -171,7 +178,7 @@
             this.panel12.SuspendLayout();
             this.tlpPie.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.gbEncargado.SuspendLayout();
+            this.tableLayoutPanel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // tbAnchoBolsa
@@ -281,7 +288,7 @@
             this.dgvBobinasRegistradas.Location = new System.Drawing.Point(0, 0);
             this.dgvBobinasRegistradas.Name = "dgvBobinasRegistradas";
             this.dgvBobinasRegistradas.ReadOnly = true;
-            this.dgvBobinasRegistradas.Size = new System.Drawing.Size(907, 160);
+            this.dgvBobinasRegistradas.Size = new System.Drawing.Size(907, 120);
             this.dgvBobinasRegistradas.TabIndex = 16;
             this.dgvBobinasRegistradas.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBobinasRegistradas_CellContentDoubleClick);
             this.dgvBobinasRegistradas.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvBobinasRegistradas_CellMouseClick);
@@ -303,7 +310,7 @@
             this.tlpBobinadoCabezera.Controls.Add(this.tableLayoutPanel4, 0, 0);
             this.tlpBobinadoCabezera.Controls.Add(this.groupBox3, 4, 0);
             this.tlpBobinadoCabezera.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tlpBobinadoCabezera.Location = new System.Drawing.Point(0, 213);
+            this.tlpBobinadoCabezera.Location = new System.Drawing.Point(0, 253);
             this.tlpBobinadoCabezera.Name = "tlpBobinadoCabezera";
             this.tlpBobinadoCabezera.RowCount = 1;
             this.tlpBobinadoCabezera.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -608,12 +615,74 @@
             this.tlpAuxiliares.Controls.Add(this.gbAuxiliar01, 2, 0);
             this.tlpAuxiliares.Controls.Add(this.gbOperario, 1, 0);
             this.tlpAuxiliares.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tlpAuxiliares.Location = new System.Drawing.Point(0, 107);
+            this.tlpAuxiliares.Location = new System.Drawing.Point(0, 147);
             this.tlpAuxiliares.Name = "tlpAuxiliares";
             this.tlpAuxiliares.RowCount = 1;
             this.tlpAuxiliares.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpAuxiliares.Size = new System.Drawing.Size(907, 72);
             this.tlpAuxiliares.TabIndex = 17;
+            // 
+            // gbEncargado
+            // 
+            this.gbEncargado.BackColor = System.Drawing.Color.Transparent;
+            this.gbEncargado.Controls.Add(this.ibtnEncargadoOk);
+            this.gbEncargado.Controls.Add(this.ibtnEncargadoLimpiar);
+            this.gbEncargado.Controls.Add(this.tbEncargado);
+            this.gbEncargado.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gbEncargado.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
+            this.gbEncargado.ForeColor = System.Drawing.Color.DarkBlue;
+            this.gbEncargado.Location = new System.Drawing.Point(6, 6);
+            this.gbEncargado.Name = "gbEncargado";
+            this.gbEncargado.Size = new System.Drawing.Size(217, 60);
+            this.gbEncargado.TabIndex = 12;
+            this.gbEncargado.TabStop = false;
+            this.gbEncargado.Text = "Encargado *";
+            // 
+            // ibtnEncargadoOk
+            // 
+            this.ibtnEncargadoOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ibtnEncargadoOk.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ibtnEncargadoOk.FlatAppearance.BorderSize = 0;
+            this.ibtnEncargadoOk.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ibtnEncargadoOk.IconChar = FontAwesome.Sharp.IconChar.Check;
+            this.ibtnEncargadoOk.IconColor = System.Drawing.SystemColors.Highlight;
+            this.ibtnEncargadoOk.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.ibtnEncargadoOk.IconSize = 20;
+            this.ibtnEncargadoOk.Location = new System.Drawing.Point(158, 21);
+            this.ibtnEncargadoOk.Name = "ibtnEncargadoOk";
+            this.ibtnEncargadoOk.Size = new System.Drawing.Size(29, 25);
+            this.ibtnEncargadoOk.TabIndex = 5;
+            this.ibtnEncargadoOk.UseVisualStyleBackColor = true;
+            // 
+            // ibtnEncargadoLimpiar
+            // 
+            this.ibtnEncargadoLimpiar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ibtnEncargadoLimpiar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ibtnEncargadoLimpiar.FlatAppearance.BorderSize = 0;
+            this.ibtnEncargadoLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ibtnEncargadoLimpiar.IconChar = FontAwesome.Sharp.IconChar.Trash;
+            this.ibtnEncargadoLimpiar.IconColor = System.Drawing.Color.Black;
+            this.ibtnEncargadoLimpiar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.ibtnEncargadoLimpiar.IconSize = 18;
+            this.ibtnEncargadoLimpiar.Location = new System.Drawing.Point(185, 21);
+            this.ibtnEncargadoLimpiar.Name = "ibtnEncargadoLimpiar";
+            this.ibtnEncargadoLimpiar.Size = new System.Drawing.Size(29, 25);
+            this.ibtnEncargadoLimpiar.TabIndex = 3;
+            this.ibtnEncargadoLimpiar.UseVisualStyleBackColor = true;
+            this.ibtnEncargadoLimpiar.Click += new System.EventHandler(this.ibtnEncargadoLimpiar_Click);
+            // 
+            // tbEncargado
+            // 
+            this.tbEncargado.BackColor = System.Drawing.SystemColors.Info;
+            this.tbEncargado.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tbEncargado.Location = new System.Drawing.Point(3, 20);
+            this.tbEncargado.Margin = new System.Windows.Forms.Padding(0);
+            this.tbEncargado.MaxLength = 4;
+            this.tbEncargado.Name = "tbEncargado";
+            this.tbEncargado.Size = new System.Drawing.Size(211, 24);
+            this.tbEncargado.TabIndex = 1;
+            this.tbEncargado.TextChanged += new System.EventHandler(this.tbOperario_TextChanged);
+            this.tbEncargado.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbOperario_KeyDown);
             // 
             // gbAuxiliar02
             // 
@@ -822,7 +891,7 @@
             this.tlpDatos.Controls.Add(this.pnlDatosCliente, 1, 0);
             this.tlpDatos.Controls.Add(this.pnlDatosOp, 0, -1);
             this.tlpDatos.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tlpDatos.Location = new System.Drawing.Point(0, 0);
+            this.tlpDatos.Location = new System.Drawing.Point(0, 40);
             this.tlpDatos.Name = "tlpDatos";
             this.tlpDatos.RowCount = 1;
             this.tlpDatos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -1116,6 +1185,7 @@
             this.pnlPrincipal.Controls.Add(this.ibtnCambiarEncargado);
             this.pnlPrincipal.Controls.Add(this.lblOperariosEncargado);
             this.pnlPrincipal.Controls.Add(this.tlpDatos);
+            this.pnlPrincipal.Controls.Add(this.tableLayoutPanel5);
             this.pnlPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlPrincipal.Location = new System.Drawing.Point(0, 66);
             this.pnlPrincipal.Name = "pnlPrincipal";
@@ -1128,9 +1198,9 @@
             this.pnlDgvBobinas.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlDgvBobinas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.pnlDgvBobinas.ForeColor = System.Drawing.Color.DimGray;
-            this.pnlDgvBobinas.Location = new System.Drawing.Point(0, 328);
+            this.pnlDgvBobinas.Location = new System.Drawing.Point(0, 368);
             this.pnlDgvBobinas.Name = "pnlDgvBobinas";
-            this.pnlDgvBobinas.Size = new System.Drawing.Size(907, 160);
+            this.pnlDgvBobinas.Size = new System.Drawing.Size(907, 120);
             this.pnlDgvBobinas.TabIndex = 44;
             // 
             // tlpDatosResumen
@@ -1262,7 +1332,7 @@
             this.tlpDatosDimensiones.Controls.Add(this.panel11, 1, 0);
             this.tlpDatosDimensiones.Controls.Add(this.panel12, 0, -1);
             this.tlpDatosDimensiones.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tlpDatosDimensiones.Location = new System.Drawing.Point(0, 279);
+            this.tlpDatosDimensiones.Location = new System.Drawing.Point(0, 319);
             this.tlpDatosDimensiones.Name = "tlpDatosDimensiones";
             this.tlpDatosDimensiones.RowCount = 1;
             this.tlpDatosDimensiones.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -1387,7 +1457,7 @@
             this.ibtnManualBobinado.IconColor = System.Drawing.Color.AliceBlue;
             this.ibtnManualBobinado.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.ibtnManualBobinado.IconSize = 25;
-            this.ibtnManualBobinado.Location = new System.Drawing.Point(869, 185);
+            this.ibtnManualBobinado.Location = new System.Drawing.Point(869, 223);
             this.ibtnManualBobinado.Name = "ibtnManualBobinado";
             this.ibtnManualBobinado.Size = new System.Drawing.Size(29, 27);
             this.ibtnManualBobinado.TabIndex = 19;
@@ -1405,7 +1475,7 @@
             this.ibtnSeleccionarEti.IconColor = System.Drawing.Color.AliceBlue;
             this.ibtnSeleccionarEti.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.ibtnSeleccionarEti.IconSize = 25;
-            this.ibtnSeleccionarEti.Location = new System.Drawing.Point(872, 77);
+            this.ibtnSeleccionarEti.Location = new System.Drawing.Point(872, 117);
             this.ibtnSeleccionarEti.Name = "ibtnSeleccionarEti";
             this.ibtnSeleccionarEti.Size = new System.Drawing.Size(29, 27);
             this.ibtnSeleccionarEti.TabIndex = 20;
@@ -1436,67 +1506,6 @@
             this.tlpPie.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpPie.Size = new System.Drawing.Size(907, 56);
             this.tlpPie.TabIndex = 40;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.btnGenerarFason);
-            this.panel1.Controls.Add(this.btnEtiquetar);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(5, 5);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(142, 46);
-            this.panel1.TabIndex = 5;
-            // 
-            // label4
-            // 
-            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
-            this.label4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.label4.ForeColor = System.Drawing.Color.AliceBlue;
-            this.label4.Location = new System.Drawing.Point(0, 179);
-            this.label4.Margin = new System.Windows.Forms.Padding(0);
-            this.label4.Name = "label4";
-            this.label4.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.label4.Size = new System.Drawing.Size(907, 34);
-            this.label4.TabIndex = 22;
-            this.label4.Text = "Bobinado";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // ibtnCambiarEncargado
-            // 
-            this.ibtnCambiarEncargado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
-            this.ibtnCambiarEncargado.BackgroundImage = global::EtiquetadoBultos.Properties.Resources.cambio;
-            this.ibtnCambiarEncargado.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ibtnCambiarEncargado.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ibtnCambiarEncargado.FlatAppearance.BorderSize = 0;
-            this.ibtnCambiarEncargado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ibtnCambiarEncargado.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.ibtnCambiarEncargado.IconColor = System.Drawing.SystemColors.Highlight;
-            this.ibtnCambiarEncargado.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.ibtnCambiarEncargado.IconSize = 20;
-            this.ibtnCambiarEncargado.Location = new System.Drawing.Point(835, 73);
-            this.ibtnCambiarEncargado.Name = "ibtnCambiarEncargado";
-            this.ibtnCambiarEncargado.Size = new System.Drawing.Size(32, 32);
-            this.ibtnCambiarEncargado.TabIndex = 6;
-            this.ibtnCambiarEncargado.UseVisualStyleBackColor = false;
-            this.ibtnCambiarEncargado.Visible = false;
-            this.ibtnCambiarEncargado.Click += new System.EventHandler(this.ibtnCambiarEncargado_Click);
-            // 
-            // lblOperariosEncargado
-            // 
-            this.lblOperariosEncargado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
-            this.lblOperariosEncargado.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblOperariosEncargado.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblOperariosEncargado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.lblOperariosEncargado.ForeColor = System.Drawing.Color.AliceBlue;
-            this.lblOperariosEncargado.Location = new System.Drawing.Point(0, 73);
-            this.lblOperariosEncargado.Margin = new System.Windows.Forms.Padding(0);
-            this.lblOperariosEncargado.Name = "lblOperariosEncargado";
-            this.lblOperariosEncargado.Size = new System.Drawing.Size(907, 34);
-            this.lblOperariosEncargado.TabIndex = 21;
-            this.lblOperariosEncargado.Text = "Operarios";
-            this.lblOperariosEncargado.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnGenerarParada
             // 
@@ -1586,6 +1595,16 @@
             this.btnReEtiquetar.UseVisualStyleBackColor = false;
             this.btnReEtiquetar.Click += new System.EventHandler(this.btnReEtiquetar_Click);
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.btnGenerarFason);
+            this.panel1.Controls.Add(this.btnEtiquetar);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(5, 5);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(142, 46);
+            this.panel1.TabIndex = 5;
+            // 
             // btnGenerarFason
             // 
             this.btnGenerarFason.BackColor = System.Drawing.Color.Transparent;
@@ -1654,67 +1673,148 @@
             this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.ibtnSalir_Click);
             // 
-            // gbEncargado
+            // label4
             // 
-            this.gbEncargado.BackColor = System.Drawing.Color.Transparent;
-            this.gbEncargado.Controls.Add(this.ibtnEncargadoOk);
-            this.gbEncargado.Controls.Add(this.ibtnEncargadoLimpiar);
-            this.gbEncargado.Controls.Add(this.tbEncargado);
-            this.gbEncargado.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gbEncargado.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
-            this.gbEncargado.ForeColor = System.Drawing.Color.DarkBlue;
-            this.gbEncargado.Location = new System.Drawing.Point(6, 6);
-            this.gbEncargado.Name = "gbEncargado";
-            this.gbEncargado.Size = new System.Drawing.Size(217, 60);
-            this.gbEncargado.TabIndex = 12;
-            this.gbEncargado.TabStop = false;
-            this.gbEncargado.Text = "Encargado *";
+            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
+            this.label4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.label4.ForeColor = System.Drawing.Color.AliceBlue;
+            this.label4.Location = new System.Drawing.Point(0, 219);
+            this.label4.Margin = new System.Windows.Forms.Padding(0);
+            this.label4.Name = "label4";
+            this.label4.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.label4.Size = new System.Drawing.Size(907, 34);
+            this.label4.TabIndex = 22;
+            this.label4.Text = "Bobinado";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // ibtnEncargadoOk
+            // ibtnCambiarEncargado
             // 
-            this.ibtnEncargadoOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ibtnEncargadoOk.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ibtnEncargadoOk.FlatAppearance.BorderSize = 0;
-            this.ibtnEncargadoOk.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.ibtnEncargadoOk.IconChar = FontAwesome.Sharp.IconChar.Check;
-            this.ibtnEncargadoOk.IconColor = System.Drawing.SystemColors.Highlight;
-            this.ibtnEncargadoOk.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.ibtnEncargadoOk.IconSize = 20;
-            this.ibtnEncargadoOk.Location = new System.Drawing.Point(158, 21);
-            this.ibtnEncargadoOk.Name = "ibtnEncargadoOk";
-            this.ibtnEncargadoOk.Size = new System.Drawing.Size(29, 25);
-            this.ibtnEncargadoOk.TabIndex = 5;
-            this.ibtnEncargadoOk.UseVisualStyleBackColor = true;
+            this.ibtnCambiarEncargado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
+            this.ibtnCambiarEncargado.BackgroundImage = global::EtiquetadoBultos.Properties.Resources.cambio;
+            this.ibtnCambiarEncargado.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.ibtnCambiarEncargado.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ibtnCambiarEncargado.FlatAppearance.BorderSize = 0;
+            this.ibtnCambiarEncargado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ibtnCambiarEncargado.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.ibtnCambiarEncargado.IconColor = System.Drawing.SystemColors.Highlight;
+            this.ibtnCambiarEncargado.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.ibtnCambiarEncargado.IconSize = 20;
+            this.ibtnCambiarEncargado.Location = new System.Drawing.Point(835, 114);
+            this.ibtnCambiarEncargado.Name = "ibtnCambiarEncargado";
+            this.ibtnCambiarEncargado.Size = new System.Drawing.Size(32, 32);
+            this.ibtnCambiarEncargado.TabIndex = 6;
+            this.ibtnCambiarEncargado.UseVisualStyleBackColor = false;
+            this.ibtnCambiarEncargado.Visible = false;
+            this.ibtnCambiarEncargado.Click += new System.EventHandler(this.ibtnCambiarEncargado_Click);
             // 
-            // ibtnEncargadoLimpiar
+            // lblOperariosEncargado
             // 
-            this.ibtnEncargadoLimpiar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ibtnEncargadoLimpiar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ibtnEncargadoLimpiar.FlatAppearance.BorderSize = 0;
-            this.ibtnEncargadoLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.ibtnEncargadoLimpiar.IconChar = FontAwesome.Sharp.IconChar.Trash;
-            this.ibtnEncargadoLimpiar.IconColor = System.Drawing.Color.Black;
-            this.ibtnEncargadoLimpiar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.ibtnEncargadoLimpiar.IconSize = 18;
-            this.ibtnEncargadoLimpiar.Location = new System.Drawing.Point(185, 21);
-            this.ibtnEncargadoLimpiar.Name = "ibtnEncargadoLimpiar";
-            this.ibtnEncargadoLimpiar.Size = new System.Drawing.Size(29, 25);
-            this.ibtnEncargadoLimpiar.TabIndex = 3;
-            this.ibtnEncargadoLimpiar.UseVisualStyleBackColor = true;
-            this.ibtnEncargadoLimpiar.Click += new System.EventHandler(this.ibtnEncargadoLimpiar_Click);
+            this.lblOperariosEncargado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
+            this.lblOperariosEncargado.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblOperariosEncargado.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblOperariosEncargado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.lblOperariosEncargado.ForeColor = System.Drawing.Color.AliceBlue;
+            this.lblOperariosEncargado.Location = new System.Drawing.Point(0, 113);
+            this.lblOperariosEncargado.Margin = new System.Windows.Forms.Padding(0);
+            this.lblOperariosEncargado.Name = "lblOperariosEncargado";
+            this.lblOperariosEncargado.Size = new System.Drawing.Size(907, 34);
+            this.lblOperariosEncargado.TabIndex = 21;
+            this.lblOperariosEncargado.Text = "Operarios";
+            this.lblOperariosEncargado.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // tbEncargado
+            // tableLayoutPanel5
             // 
-            this.tbEncargado.BackColor = System.Drawing.SystemColors.Info;
-            this.tbEncargado.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tbEncargado.Location = new System.Drawing.Point(3, 20);
-            this.tbEncargado.Margin = new System.Windows.Forms.Padding(0);
-            this.tbEncargado.MaxLength = 4;
-            this.tbEncargado.Name = "tbEncargado";
-            this.tbEncargado.Size = new System.Drawing.Size(211, 24);
-            this.tbEncargado.TabIndex = 1;
-            this.tbEncargado.TextChanged += new System.EventHandler(this.tbOperario_TextChanged);
-            this.tbEncargado.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbOperario_KeyDown);
+            this.tableLayoutPanel5.ColumnCount = 5;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.tableLayoutPanel5.Controls.Add(this.cbtnRudra, 1, 0);
+            this.tableLayoutPanel5.Controls.Add(this.cbtnItaliana, 0, 0);
+            this.tableLayoutPanel5.Controls.Add(this.cbtnManual02, 2, 0);
+            this.tableLayoutPanel5.Controls.Add(this.cbtnPolimaquina, 3, 0);
+            this.tableLayoutPanel5.Controls.Add(this.cbtnFason, 4, 0);
+            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 1;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(907, 40);
+            this.tableLayoutPanel5.TabIndex = 45;
+            // 
+            // cbtnFason
+            // 
+            this.cbtnFason.Appearance.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.cbtnFason.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbtnFason.Appearance.Options.UseBackColor = true;
+            this.cbtnFason.Appearance.Options.UseFont = true;
+            this.cbtnFason.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbtnFason.Location = new System.Drawing.Point(727, 3);
+            this.cbtnFason.Name = "cbtnFason";
+            this.cbtnFason.Size = new System.Drawing.Size(177, 34);
+            this.cbtnFason.TabIndex = 23;
+            this.cbtnFason.Text = "FASON";
+            this.cbtnFason.CheckedChanged += new System.EventHandler(this.cbtn_CheckedChanged);
+            // 
+            // cbtnPolimaquina
+            // 
+            this.cbtnPolimaquina.Appearance.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.cbtnPolimaquina.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbtnPolimaquina.Appearance.Options.UseBackColor = true;
+            this.cbtnPolimaquina.Appearance.Options.UseFont = true;
+            this.cbtnPolimaquina.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbtnPolimaquina.Location = new System.Drawing.Point(546, 3);
+            this.cbtnPolimaquina.Name = "cbtnPolimaquina";
+            this.cbtnPolimaquina.Size = new System.Drawing.Size(175, 34);
+            this.cbtnPolimaquina.TabIndex = 22;
+            this.cbtnPolimaquina.Text = "POLIMAQUINA";
+            this.cbtnPolimaquina.CheckedChanged += new System.EventHandler(this.cbtn_CheckedChanged);
+            // 
+            // cbtnManual02
+            // 
+            this.cbtnManual02.Appearance.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.cbtnManual02.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbtnManual02.Appearance.Options.UseBackColor = true;
+            this.cbtnManual02.Appearance.Options.UseFont = true;
+            this.cbtnManual02.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbtnManual02.Location = new System.Drawing.Point(365, 3);
+            this.cbtnManual02.Name = "cbtnManual02";
+            this.cbtnManual02.Size = new System.Drawing.Size(175, 34);
+            this.cbtnManual02.TabIndex = 21;
+            this.cbtnManual02.Text = "MANUAL II";
+            this.cbtnManual02.CheckedChanged += new System.EventHandler(this.cbtn_CheckedChanged);
+            // 
+            // cbtnRudra
+            // 
+            this.cbtnRudra.Appearance.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.cbtnRudra.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbtnRudra.Appearance.Options.UseBackColor = true;
+            this.cbtnRudra.Appearance.Options.UseFont = true;
+            this.cbtnRudra.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbtnRudra.Location = new System.Drawing.Point(184, 3);
+            this.cbtnRudra.Name = "cbtnRudra";
+            this.cbtnRudra.Size = new System.Drawing.Size(175, 34);
+            this.cbtnRudra.TabIndex = 18;
+            this.cbtnRudra.Text = "RUDRA";
+            this.cbtnRudra.CheckedChanged += new System.EventHandler(this.cbtn_CheckedChanged);
+            // 
+            // cbtnItaliana
+            // 
+            this.cbtnItaliana.Appearance.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.cbtnItaliana.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbtnItaliana.Appearance.Options.UseBackColor = true;
+            this.cbtnItaliana.Appearance.Options.UseFont = true;
+            this.cbtnItaliana.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbtnItaliana.Location = new System.Drawing.Point(3, 3);
+            this.cbtnItaliana.Name = "cbtnItaliana";
+            this.cbtnItaliana.Size = new System.Drawing.Size(175, 34);
+            this.cbtnItaliana.TabIndex = 17;
+            this.cbtnItaliana.Text = "ITALIANA";
+            this.cbtnItaliana.CheckedChanged += new System.EventHandler(this.cbtn_CheckedChanged);
             // 
             // formPrincipal
             // 
@@ -1755,6 +1855,8 @@
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.tlpAuxiliares.ResumeLayout(false);
+            this.gbEncargado.ResumeLayout(false);
+            this.gbEncargado.PerformLayout();
             this.gbAuxiliar02.ResumeLayout(false);
             this.gbAuxiliar02.PerformLayout();
             this.gbAuxiliar01.ResumeLayout(false);
@@ -1792,8 +1894,7 @@
             this.panel12.PerformLayout();
             this.tlpPie.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
-            this.gbEncargado.ResumeLayout(false);
-            this.gbEncargado.PerformLayout();
+            this.tableLayoutPanel5.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1901,6 +2002,12 @@
         private FontAwesome.Sharp.IconButton ibtnEncargadoOk;
         private FontAwesome.Sharp.IconButton ibtnEncargadoLimpiar;
         private System.Windows.Forms.TextBox tbEncargado;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
+        private DevExpress.XtraEditors.CheckButton cbtnFason;
+        private DevExpress.XtraEditors.CheckButton cbtnPolimaquina;
+        private DevExpress.XtraEditors.CheckButton cbtnManual02;
+        private DevExpress.XtraEditors.CheckButton cbtnRudra;
+        private DevExpress.XtraEditors.CheckButton cbtnItaliana;
     }
 }
 

@@ -31,6 +31,8 @@
             this.tlpRealizados = new System.Windows.Forms.TableLayoutPanel();
             this.pnlPendientes = new System.Windows.Forms.Panel();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnMostrarParadas = new EtiquetadoBultos.AFControles.AFButton();
+            this.btnAgregarParada = new EtiquetadoBultos.AFControles.AFButton();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.groupControl13 = new DevExpress.XtraEditors.GroupControl();
             this.cbLiberacion = new System.Windows.Forms.CheckBox();
@@ -59,8 +61,6 @@
             this.lblMaquina = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnMostrarParadas = new EtiquetadoBultos.AFControles.AFButton();
-            this.btnAgregarParada = new EtiquetadoBultos.AFControles.AFButton();
             this.tlpRealizados.SuspendLayout();
             this.pnlPendientes.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
@@ -141,6 +141,50 @@
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel6.Size = new System.Drawing.Size(781, 43);
             this.tableLayoutPanel6.TabIndex = 80;
+            // 
+            // btnMostrarParadas
+            // 
+            this.btnMostrarParadas.BackColor = System.Drawing.Color.Transparent;
+            this.btnMostrarParadas.BackgroundColor = System.Drawing.Color.Transparent;
+            this.btnMostrarParadas.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
+            this.btnMostrarParadas.BorderRadius = 4;
+            this.btnMostrarParadas.BorderSize = 3;
+            this.btnMostrarParadas.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMostrarParadas.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnMostrarParadas.FlatAppearance.BorderSize = 0;
+            this.btnMostrarParadas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMostrarParadas.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
+            this.btnMostrarParadas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
+            this.btnMostrarParadas.Location = new System.Drawing.Point(393, 3);
+            this.btnMostrarParadas.Name = "btnMostrarParadas";
+            this.btnMostrarParadas.Size = new System.Drawing.Size(385, 37);
+            this.btnMostrarParadas.TabIndex = 8;
+            this.btnMostrarParadas.Text = "Mostrar Paradas";
+            this.btnMostrarParadas.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
+            this.btnMostrarParadas.UseVisualStyleBackColor = false;
+            this.btnMostrarParadas.Click += new System.EventHandler(this.btnMostrarParadas_Click);
+            // 
+            // btnAgregarParada
+            // 
+            this.btnAgregarParada.BackColor = System.Drawing.Color.Transparent;
+            this.btnAgregarParada.BackgroundColor = System.Drawing.Color.Transparent;
+            this.btnAgregarParada.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
+            this.btnAgregarParada.BorderRadius = 4;
+            this.btnAgregarParada.BorderSize = 3;
+            this.btnAgregarParada.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAgregarParada.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnAgregarParada.FlatAppearance.BorderSize = 0;
+            this.btnAgregarParada.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarParada.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
+            this.btnAgregarParada.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
+            this.btnAgregarParada.Location = new System.Drawing.Point(3, 3);
+            this.btnAgregarParada.Name = "btnAgregarParada";
+            this.btnAgregarParada.Size = new System.Drawing.Size(384, 37);
+            this.btnAgregarParada.TabIndex = 7;
+            this.btnAgregarParada.Text = "Guardar Parada";
+            this.btnAgregarParada.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
+            this.btnAgregarParada.UseVisualStyleBackColor = false;
+            this.btnAgregarParada.Click += new System.EventHandler(this.btnAgregarParada_Click);
             // 
             // tableLayoutPanel5
             // 
@@ -339,7 +383,7 @@
             // 
             // lblHorasParada
             // 
-            this.lblHorasParada.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHorasParada.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
             this.lblHorasParada.Appearance.ForeColor = System.Drawing.Color.Crimson;
             this.lblHorasParada.Appearance.Options.UseFont = true;
             this.lblHorasParada.Appearance.Options.UseForeColor = true;
@@ -569,50 +613,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(7, 581);
             this.panel2.TabIndex = 1;
-            // 
-            // btnMostrarParadas
-            // 
-            this.btnMostrarParadas.BackColor = System.Drawing.Color.Transparent;
-            this.btnMostrarParadas.BackgroundColor = System.Drawing.Color.Transparent;
-            this.btnMostrarParadas.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
-            this.btnMostrarParadas.BorderRadius = 4;
-            this.btnMostrarParadas.BorderSize = 3;
-            this.btnMostrarParadas.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMostrarParadas.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnMostrarParadas.FlatAppearance.BorderSize = 0;
-            this.btnMostrarParadas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMostrarParadas.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
-            this.btnMostrarParadas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
-            this.btnMostrarParadas.Location = new System.Drawing.Point(393, 3);
-            this.btnMostrarParadas.Name = "btnMostrarParadas";
-            this.btnMostrarParadas.Size = new System.Drawing.Size(385, 37);
-            this.btnMostrarParadas.TabIndex = 8;
-            this.btnMostrarParadas.Text = "Mostrar Paradas";
-            this.btnMostrarParadas.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
-            this.btnMostrarParadas.UseVisualStyleBackColor = false;
-            this.btnMostrarParadas.Click += new System.EventHandler(this.btnMostrarParadas_Click);
-            // 
-            // btnAgregarParada
-            // 
-            this.btnAgregarParada.BackColor = System.Drawing.Color.Transparent;
-            this.btnAgregarParada.BackgroundColor = System.Drawing.Color.Transparent;
-            this.btnAgregarParada.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
-            this.btnAgregarParada.BorderRadius = 4;
-            this.btnAgregarParada.BorderSize = 3;
-            this.btnAgregarParada.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAgregarParada.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnAgregarParada.FlatAppearance.BorderSize = 0;
-            this.btnAgregarParada.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregarParada.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
-            this.btnAgregarParada.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
-            this.btnAgregarParada.Location = new System.Drawing.Point(3, 3);
-            this.btnAgregarParada.Name = "btnAgregarParada";
-            this.btnAgregarParada.Size = new System.Drawing.Size(384, 37);
-            this.btnAgregarParada.TabIndex = 7;
-            this.btnAgregarParada.Text = "Guardar Parada";
-            this.btnAgregarParada.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
-            this.btnAgregarParada.UseVisualStyleBackColor = false;
-            this.btnAgregarParada.Click += new System.EventHandler(this.btnAgregarParada_Click);
             // 
             // formParada
             // 

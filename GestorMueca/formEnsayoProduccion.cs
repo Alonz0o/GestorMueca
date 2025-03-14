@@ -69,7 +69,7 @@ namespace EtiquetadoBultos
             idop = Convert.ToInt32(formPrincipal.instancia.datosOp[11]);
             aConfeccionar = Convert.ToInt32(formPrincipal.instancia.datosOp[7]);
             idBobinaMadre = formPrincipal.instancia.bobinaMadre;
-            maquina = formPrincipal.instancia.maquinaAsignada;
+            maquina = formPrincipal.instancia.maquinaSeleccionada;
             legajo = Convert.ToInt32(formPrincipal.instancia.operarioAsignado);
 
             var muestreo = formPrincipal.instancia.mySqlConexion.VerificarMuestreo(idop, aConfeccionar);

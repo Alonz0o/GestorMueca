@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Diagnostics;
 using MaterialSkin.Controls;
+using DevExpress.XtraEditors;
 
 namespace EtiquetadoBultos
 {
@@ -51,33 +52,42 @@ namespace EtiquetadoBultos
             _formEnsayoProduccion = new formEnsayoProduccion();
             InitializeComponent();
             cargarDatosEnTextBox();
-            if (Program.argumentos.Count != 0)
-            {
-                bobinaSector = mySqlConexion.comprobarSector(Program.argumentos[1]);
-                datosOp = mySqlConexion.buscarOp(Program.argumentos[0], Program.argumentos[1]);
-                if (datosOp.Count == 0) return;
-                bobinasOp = mySqlConexion.buscarBobinas(Program.argumentos[0], Program.argumentos[1], bobinaSector);
+            cbtnItaliana.GroupIndex = 1;
+            cbtnRudra.GroupIndex = 1;
+            cbtnManual02.GroupIndex = 1;
+            cbtnPolimaquina.GroupIndex = 1;
+            cbtnFason.GroupIndex = 1;
 
-                if (Program.argumentos[2] != "0")
-                {
-                    cargarEncargado(Program.argumentos[2]);
-                }
-                if (Program.argumentos[3] != "0")
-                {
-                    tbOperario.Text = Program.argumentos[3];
-                    if (!string.IsNullOrEmpty(tbOperario.Text)) cargarPersonal("00");
-                }
-                if (Program.argumentos[4] != "0")
-                {
-                    maquinaSeleccionada = mySqlConexion.buscarMaquinaPorId(Program.argumentos[4]);
-                }
-                if (maquinaSeleccionada == "FASON")
-                {
-                    btnEtiquetar.Visible = false;
-                    btnGenerarFason.Visible = true;
-                }
-                cambiarDatos();
-            }
+            //if (Program.argumentos.Count != 0)
+            //{
+            //    if (Program.argumentos[0] != "1")
+            //    {
+            //        bobinaSector = mySqlConexion.comprobarSector(Program.argumentos[1]);
+            //        datosOp = mySqlConexion.buscarOp(Program.argumentos[0], Program.argumentos[1]);
+            //        if (datosOp.Count == 0) return;
+            //        bobinasOp = mySqlConexion.buscarBobinas(Program.argumentos[0], Program.argumentos[1], bobinaSector);
+
+            //        if (Program.argumentos[2] != "0")
+            //        {
+            //            cargarEncargado(Program.argumentos[2]);
+            //        }
+            //        if (Program.argumentos[3] != "0")
+            //        {
+            //            tbOperario.Text = Program.argumentos[3];
+            //            if (!string.IsNullOrEmpty(tbOperario.Text)) cargarPersonal("00");
+            //        }
+            //        if (Program.argumentos[4] != "0")
+            //        {
+            //            maquinaSeleccionada = mySqlConexion.buscarMaquinaPorId(Program.argumentos[4]);
+            //        }
+            //        if (maquinaSeleccionada == "FASON")
+            //        {
+            //            btnEtiquetar.Visible = false;
+            //            btnGenerarFason.Visible = true;
+            //        }
+            //        cambiarDatos();
+            //    }
+            //}
 
             instancia = this;
             dgvBobinasRegistradas.AllowUserToAddRows = false;
@@ -691,17 +701,17 @@ namespace EtiquetadoBultos
                 else btnEtiquetar.Enabled = false;
             }
         }
-        public string maquinaAsignada = "", operarioAsignado = "";
+        public string operarioAsignado = "";
         public int bobinaMadre = 0,ultimoBulto=0;
 
         private void btnEtiquetar_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(tbOperario.Text)) {
+            if (string.IsNullOrEmpty(tbOperario.Text))
+            {
                 MessageBox.Show("Debe ingresar al menos el oparario");
                 tbOperario.Focus();
                 return;
             }
-            maquinaAsignada = string.IsNullOrEmpty(maquinaSeleccionada) ? datosOp[6] : maquinaSeleccionada;
 
             var cantPaquetes = Convert.ToInt32(tbCantPaquetes.Text);
             //if (cantPaquetes > 5) {
@@ -709,14 +719,11 @@ namespace EtiquetadoBultos
             //    tbCantPaquetes.Select();
             //    return;
             //}
-            
+
             var op = datosOp[11];
             var muestrasTotales = mySqlConexion.VerificarMuestreo(op, datosOp[7]);
-            //if (muestrasTotales.Realizadas < muestrasTotales.Requeridas) {
-            //    MessageBox.Show("Actualmente se encuentran un total de "+muestrasTotales.Realizadas+ " muestras. Se solicitaran muestras de largo y ancho cada " + muestrasTotales.PedirCada + "paquetes hasta un total de " +muestrasTotales.Requeridas+".", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //}
-            //Se calcula por un paquete, si no viene por sistema se toma el tbCantidadBolsas.
-            var idMaquina = (int)mySqlConexion.GetIdMaquina(datosOp[6]);
+            string maquina = string.IsNullOrEmpty(maquinaSeleccionada) ? datosOp[6] : maquinaSeleccionada;
+            var idMaquina = (int)mySqlConexion.GetIdMaquina(maquina);
             if (calc.porUnPaquete == 0) calc.porUnPaquete = double.Parse(tbCantidadBolsas.Text) * double.Parse(datosOp[2]);
             bolsasConfeccionadas = 0;
             ultimoBulto = mySqlConexion.buscarUltimoBulto(int.Parse(datosOp[11]));
@@ -803,7 +810,7 @@ namespace EtiquetadoBultos
                         if (ultimoBulto % muestrasTotales.PedirCada == 0)
                         {
                             try
-                            {                                
+                            {
                                 operarioAsignado = operadores[1];
                                 bobinaMadre = Convert.ToInt32(row.Cells[identificador].Value);
                                 _formEnsayoProduccion?.ShowDialog();
@@ -1276,7 +1283,7 @@ namespace EtiquetadoBultos
 
         private void ibtnCambiarEncargado_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void btnGenerarFason_Click(object sender, EventArgs e)
@@ -1355,6 +1362,48 @@ namespace EtiquetadoBultos
             gbEncargado.Text = "Encargado *";
         }
 
+        private void cbtn_CheckedChanged(object sender, EventArgs e)
+        {
+            var componente = (CheckButton)sender;
+            btnEtiquetar.Visible = true;
+            btnGenerarFason.Visible = false;
+            switch (componente.Name)
+            {
+                case "cbtnItaliana":
+                    maquinaSeleccionada = mySqlConexion.buscarMaquinaPorId("1");
+
+                    break;
+                case "cbtnRudra":
+                    maquinaSeleccionada = mySqlConexion.buscarMaquinaPorId("2");
+
+                    break;
+                case "cbtnRappart01":
+                    maquinaSeleccionada = mySqlConexion.buscarMaquinaPorId("3");
+
+                    break;
+                case "cbtnManual01":
+                    maquinaSeleccionada = mySqlConexion.buscarMaquinaPorId("5");
+
+                    break;
+                case "cbtnManual02":
+                    maquinaSeleccionada = mySqlConexion.buscarMaquinaPorId("6");
+
+                    break;
+                case "cbtnPolimaquina":
+                    maquinaSeleccionada = mySqlConexion.buscarMaquinaPorId("23");
+
+                    break;
+                case "cbtnFason":
+                    maquinaSeleccionada = mySqlConexion.buscarMaquinaPorId("24");
+                    btnEtiquetar.Visible = false;
+                    btnGenerarFason.Visible = true;
+                    break;
+
+            }
+            lblMaquina.Text = maquinaSeleccionada != "" ? maquinaSeleccionada : datosOp[6];
+
+        }
+
         private void btnAgregarMuestras_Click(object sender, EventArgs e)
         {
             try
@@ -1384,21 +1433,19 @@ namespace EtiquetadoBultos
 
         private void btnGenerarParada_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(tbEncargado.Text))
+            if (string.IsNullOrEmpty(tbEncargado.Text) || operadores[0]=="0")
             {
                 MessageBox.Show("Debe ingresar Encargado");
                 tbEncargado.Focus();
                 return;
             }
 
-            if (string.IsNullOrEmpty(tbOperario.Text))
+            if (string.IsNullOrEmpty(tbOperario.Text)|| operadores[1] == "0")
             {
                 MessageBox.Show("Debe ingresar Operario");
                 tbOperario.Focus();
                 return;
             }
-          
-            maquinaAsignada = string.IsNullOrEmpty(maquinaSeleccionada) ? datosOp[6] : maquinaSeleccionada;
 
             try
             {
