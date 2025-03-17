@@ -25,6 +25,7 @@ namespace EtiquetadoBultos
 
         private void formParada_Load(object sender, EventArgs e)
         {
+            //Ariel 17/03/2025
             maquina = formPrincipal.instancia.maquinaSeleccionada;
             encargadoNomApe = formPrincipal.instancia.operadoresNomApe[0];
             operarioNomApe = formPrincipal.instancia.operadoresNomApe[1];
