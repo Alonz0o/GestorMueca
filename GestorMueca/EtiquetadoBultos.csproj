@@ -73,7 +73,7 @@
       <HintPath>..\packages\Google.Protobuf.3.14.0\lib\net45\Google.Protobuf.dll</HintPath>
     </Reference>
     <Reference Include="INIFileParser">
-      <HintPath>..\..\GestorIncidencias\GestorIncidencias\Ref\INIFileParser.dll</HintPath>
+      <HintPath>..\..\Protocolo_User_DataEntry\Protocolo_User_DataEntry\Ref\INIFileParser.dll</HintPath>
     </Reference>
     <Reference Include="K4os.Compression.LZ4, Version=1.2.6.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
       <HintPath>..\packages\K4os.Compression.LZ4.1.2.6\lib\net46\K4os.Compression.LZ4.dll</HintPath>
@@ -248,7 +248,6 @@
     <Compile Include="formSeleccionarEtiquetadora.Designer.cs">
       <DependentUpon>formSeleccionarEtiquetadora.cs</DependentUpon>
     </Compile>
-    <Compile Include="ItemValor.cs" />
     <Compile Include="manualDeUsuarioBobinado.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -261,6 +260,7 @@
     <Compile Include="Models\Calculo.cs" />
     <Compile Include="Models\Especificacion.cs" />
     <Compile Include="Models\Insumo.cs" />
+    <Compile Include="Models\ItemValor.cs" />
     <Compile Include="Models\Maquina.cs" />
     <Compile Include="Models\MinMax.cs" />
     <Compile Include="Models\Muestreo.cs" />

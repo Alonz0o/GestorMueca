@@ -10,7 +10,7 @@ namespace EtiquetadoBultos.Models
     {
         public int Id { get; set; }
         public string Nombre { get; set; }
-        public string Proceso { get; set; }
+        public string Sector { get; set; }
         public string Medida { get; set; }
         public string Auditor { get; set; }
         public string Simbolo { get; set; }

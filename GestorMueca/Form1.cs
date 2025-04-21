@@ -147,7 +147,6 @@ namespace EtiquetadoBultos
             var largoMostrar = double.Parse(datosOp[2]) * 100;
             lblOp.Text = datosOp[orden] + " / " + datosOp[codigo];
             tbCliente.Text = datosOp[0];
-            lblMaquina.Text = maquinaSeleccionada != "" ? maquinaSeleccionada : datosOp[6];
             lblSoldadura.Text = datosOp[5];
             lblMillar.Text = Math.Round(Convert.ToDouble(datosOp[13]) * 1000, 2).ToString()+" gr" + " ∓ 2";
 
@@ -1365,6 +1364,7 @@ namespace EtiquetadoBultos
 
         private void cbtn_CheckedChanged(object sender, EventArgs e)
         {
+            LimpiarDatos();
             string ultimaOP = "";
             var componente = (CheckButton)sender;
             btnEtiquetar.Visible = true;
@@ -1372,6 +1372,7 @@ namespace EtiquetadoBultos
             switch (componente.Name)
             {
                 case "cbtnItaliana":
+                    maquinaSeleccionada = "Italiana";
                     ultimaOP = LeerUltimaOp("Italiana");
                     cbtnRudra.Checked = false;
                     cbtnManual02.Checked = false;
@@ -1379,6 +1380,7 @@ namespace EtiquetadoBultos
                     cbtnFason.Checked = false;
                     break;
                 case "cbtnRudra":
+                    maquinaSeleccionada = "Rudra";
                     ultimaOP = LeerUltimaOp("Rudra");
                     cbtnItaliana.Checked = false;
                     cbtnManual02.Checked = false;
@@ -1386,6 +1388,7 @@ namespace EtiquetadoBultos
                     cbtnFason.Checked = false;
                     break;
                 case "cbtnManual02":
+                    maquinaSeleccionada = "Manual II";
                     ultimaOP = LeerUltimaOp("Manual II");
                     cbtnItaliana.Checked = false;
                     cbtnRudra.Checked = false;
@@ -1393,6 +1396,7 @@ namespace EtiquetadoBultos
                     cbtnFason.Checked = false;
                     break;
                 case "cbtnPolimaquina":
+                    maquinaSeleccionada = "PoliMaquina";
                     ultimaOP = LeerUltimaOp("PoliMaquina");
                     cbtnItaliana.Checked = false;
                     cbtnRudra.Checked = false;
@@ -1400,6 +1404,7 @@ namespace EtiquetadoBultos
                     cbtnFason.Checked = false;
                     break;
                 case "cbtnFason":
+                    maquinaSeleccionada = "Fason";
                     cbtnItaliana.Checked = false;
                     cbtnRudra.Checked = false;
                     cbtnManual02.Checked = false;
@@ -1410,13 +1415,12 @@ namespace EtiquetadoBultos
                     break;
 
             }
-
+            lblMaquina.Text = maquinaSeleccionada != "" ? maquinaSeleccionada : datosOp[6];
             if (string.IsNullOrEmpty(ultimaOP)) return;
             var idOrden = ultimaOP.Split('/')[0];
             var idCodigo = ultimaOP.Split('/')[1];
             var datosOpe = mySqlConexion.buscarOp(idOrden, idCodigo);
             if (datosOpe.Count <= 0)
-
             {
                 MessageBox.Show("O/P no valida o inexistente.", "Precaución", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -1424,8 +1428,30 @@ namespace EtiquetadoBultos
             bobinaSector = mySqlConexion.comprobarSector(idCodigo);
             datosOp = datosOpe;
             bobinasOp = mySqlConexion.buscarBobinas(idOrden, idCodigo, formPrincipal.instancia.bobinaSector);
+
             cambiarDatos();
         }
+
+        private void LimpiarDatos()
+        {
+            lblOp.Text = "";
+            tbCliente.Text ="";
+            lblSoldadura.Text = "";
+            lblMillar.Text = "";
+            tbAnchoBolsa.Text = "";
+            tbLargoBolsa.Text = "";
+            tbEspesorBolsa.Text = "";
+            tbCantBolsasMin.Text = "";
+            tbCantBolsasMax.Text = "";
+            tbBolsasSolicitadas.Text = "";
+            btnReEtiquetar.Enabled = false;
+            btnIp.Enabled = false;
+            bobinaSector = "";
+
+            datosOp.Clear();
+            bobinasOp.Clear();
+        }
+
         private string LeerUltimaOp(string maquina)
         {
             var ultimaOP = "";

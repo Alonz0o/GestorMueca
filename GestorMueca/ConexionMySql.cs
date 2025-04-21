@@ -18,7 +18,51 @@ namespace EtiquetadoBultos
         MySqlConnection conexion = new MySqlConnection("server = 192.168.1.1; port=3306; userid=root; password=kamila; database=sistemaindustrial;");
         MySqlConnection conexionSanlufilm_db = new MySqlConnection("server = 192.168.1.1; port=3306; userid=root; password=kamila; database=sanlufilm_db;");
         string connectionString = "server = 192.168.1.1; port=3306; userid=root; password=kamila; database=sistemaindustrial;";
-        
+        internal List<ProtocoloItem> GetItemsPorMaquina(string maquina, string datosEntrantes)
+        {
+            List<ProtocoloItem> pis = new List<ProtocoloItem>();
+            using (var conexion = new MySqlConnection(connectionString))
+            using (var command = new MySqlCommand())
+            {
+                conexion.Open();
+                command.Connection = conexion;
+                command.CommandText = $@"SELECT fi.id,fi.nombre,fi.unidad,fi.certifica,fi.constante,fi.simbolo,fi.posicion,fi.sector
+                                        FROM formato_item fi 
+                                        WHERE fi.maquina LIKE '%{maquina}%' AND fi.datos_entrantes LIKE '%{datosEntrantes}%';";
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        var esCertificado = reader[3] != DBNull.Value ? Convert.ToBoolean(reader.GetInt32(3)) : false;
+                        ProtocoloItem pi = new ProtocoloItem
+                        {
+                            Id = reader.IsDBNull(0) ? 0 : reader.GetInt32(0),
+                            Nombre = reader.IsDBNull(1) ? "" : reader.GetString(1),
+                            Medida = reader.IsDBNull(2) ? "Constante" : reader.GetString(2),
+                            EsCertificado = esCertificado,
+                            EsConstante = reader[4] != DBNull.Value ? Convert.ToBoolean(reader.GetInt32(4)) : false,
+                            EsCertificadoSiNo = esCertificado ? "SI" : "NO",
+                            Simbolo = reader.IsDBNull(5) ? "" : reader.GetString(5),
+                            Posicion = reader.IsDBNull(6) ? 0 : reader.GetInt32(6),
+                            Sector = reader.IsDBNull(7) ? "" : reader.GetString(7),
+                        };
+                        if (pi.Id == 9)
+                        {
+                            pi.EspecificacionDato = formEnsayoProduccion.instancia.espAncho.Medio + "±" + formEnsayoProduccion.instancia.espAncho.Maximo;
+                        }
+                        if (pi.Id == 7)
+                        {
+                            pi.EspecificacionDato = formEnsayoProduccion.instancia.espLargo.Medio + "±" + formEnsayoProduccion.instancia.espLargo.Maximo;
+                        }
+                        if (pi.Id == 14) {
+                            pi.EspecificacionDato = Math.Round(Convert.ToDouble(formPrincipal.instancia.datosOp[13]) * 1000, 2) + "±" + "5";
+                        }
+                        pis.Add(pi);
+                    }
+                }
+            }
+            return pis;
+        }
         internal List<OP> GetOps(string maquina)
         {
             List<OP> pis = new List<OP>();
@@ -1143,6 +1187,8 @@ namespace EtiquetadoBultos
             }
             return res;
         }
+      
+
         internal bool InsertEnsayoLote(List<ItemValor> valores, ProtocoloItem pi)
         {
             bool res = false;
