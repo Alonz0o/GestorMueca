@@ -118,12 +118,12 @@
             // 
             this.tbCodigo.BackColor = System.Drawing.SystemColors.Info;
             this.tbCodigo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tbCodigo.Font = new System.Drawing.Font("Roboto Black", 11F, System.Drawing.FontStyle.Bold);
+            this.tbCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
             this.tbCodigo.Location = new System.Drawing.Point(3, 21);
             this.tbCodigo.Margin = new System.Windows.Forms.Padding(0);
             this.tbCodigo.MaxLength = 11;
             this.tbCodigo.Name = "tbCodigo";
-            this.tbCodigo.Size = new System.Drawing.Size(257, 25);
+            this.tbCodigo.Size = new System.Drawing.Size(257, 24);
             this.tbCodigo.TabIndex = 19;
             this.tbCodigo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.tbCodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbCodigo_KeyPress);
@@ -132,10 +132,10 @@
             // 
             this.lbl02.AutoSize = true;
             this.lbl02.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lbl02.Font = new System.Drawing.Font("Roboto Black", 11F, System.Drawing.FontStyle.Bold);
+            this.lbl02.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
             this.lbl02.Location = new System.Drawing.Point(3, 3);
             this.lbl02.Name = "lbl02";
-            this.lbl02.Size = new System.Drawing.Size(55, 18);
+            this.lbl02.Size = new System.Drawing.Size(62, 18);
             this.lbl02.TabIndex = 20;
             this.lbl02.Text = "Codigo";
             // 
@@ -172,12 +172,12 @@
             // 
             this.tbOrden.BackColor = System.Drawing.SystemColors.Info;
             this.tbOrden.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tbOrden.Font = new System.Drawing.Font("Roboto Black", 11F, System.Drawing.FontStyle.Bold);
+            this.tbOrden.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
             this.tbOrden.Location = new System.Drawing.Point(3, 21);
             this.tbOrden.Margin = new System.Windows.Forms.Padding(0);
             this.tbOrden.MaxLength = 11;
             this.tbOrden.Name = "tbOrden";
-            this.tbOrden.Size = new System.Drawing.Size(256, 25);
+            this.tbOrden.Size = new System.Drawing.Size(256, 24);
             this.tbOrden.TabIndex = 19;
             this.tbOrden.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.tbOrden.TextChanged += new System.EventHandler(this.tbOrden_TextChanged);
@@ -187,10 +187,10 @@
             // 
             this.lbl01.AutoSize = true;
             this.lbl01.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lbl01.Font = new System.Drawing.Font("Roboto Black", 11F, System.Drawing.FontStyle.Bold);
+            this.lbl01.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
             this.lbl01.Location = new System.Drawing.Point(3, 3);
             this.lbl01.Name = "lbl01";
-            this.lbl01.Size = new System.Drawing.Size(48, 18);
+            this.lbl01.Size = new System.Drawing.Size(54, 18);
             this.lbl01.TabIndex = 20;
             this.lbl01.Text = "Orden";
             // 
@@ -222,7 +222,7 @@
             this.btnCambiarOp.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnCambiarOp.FlatAppearance.BorderSize = 0;
             this.btnCambiarOp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCambiarOp.Font = new System.Drawing.Font("Roboto Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCambiarOp.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCambiarOp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(94)))), ((int)(((byte)(215)))));
             this.btnCambiarOp.Location = new System.Drawing.Point(5, 5);
             this.btnCambiarOp.Name = "btnCambiarOp";
@@ -244,7 +244,7 @@
             this.btnSalirOp.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnSalirOp.FlatAppearance.BorderSize = 0;
             this.btnSalirOp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSalirOp.Font = new System.Drawing.Font("Roboto Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalirOp.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalirOp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(45)))), ((int)(((byte)(59)))));
             this.btnSalirOp.Location = new System.Drawing.Point(277, 5);
             this.btnSalirOp.Name = "btnSalirOp";
@@ -286,7 +286,7 @@
             // lblTitulo
             // 
             this.lblTitulo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTitulo.Font = new System.Drawing.Font("Roboto Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitulo.ForeColor = System.Drawing.Color.White;
             this.lblTitulo.Location = new System.Drawing.Point(0, 0);
             this.lblTitulo.Name = "lblTitulo";
@@ -297,12 +297,12 @@
             // 
             // formCambiarOp
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(548, 194);
             this.Controls.Add(this.pnlOpPrincipal);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Font = new System.Drawing.Font("Roboto Light", 14.25F);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
             this.ForeColor = System.Drawing.Color.DarkBlue;
             this.FormStyle = MaterialSkin.Controls.MaterialForm.FormStyles.ActionBar_None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

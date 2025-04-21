@@ -5,11 +5,13 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
-using System.Windows.Forms;
 using System.IO;
 using System.Diagnostics;
 using MaterialSkin.Controls;
 using DevExpress.XtraEditors;
+using System.Windows.Forms;
+using IniParser;
+using IniParser.Model;
 
 namespace EtiquetadoBultos
 {
@@ -46,17 +48,16 @@ namespace EtiquetadoBultos
         public string maquinaSeleccionada = "";
         public Label lblInstanciaOP;
         private formEnsayoProduccion _formEnsayoProduccion;
+        string archivoINI = Directory.GetCurrentDirectory() + @"\config.ini";
 
         public formPrincipal()
         {          
             _formEnsayoProduccion = new formEnsayoProduccion();
             InitializeComponent();
             cargarDatosEnTextBox();
-            cbtnItaliana.GroupIndex = 1;
-            cbtnRudra.GroupIndex = 1;
-            cbtnManual02.GroupIndex = 1;
-            cbtnPolimaquina.GroupIndex = 1;
-            cbtnFason.GroupIndex = 1;
+        
+
+            if (!File.Exists(archivoINI)) File.Create(archivoINI).Close();
 
             //if (Program.argumentos.Count != 0)
             //{
@@ -1364,44 +1365,101 @@ namespace EtiquetadoBultos
 
         private void cbtn_CheckedChanged(object sender, EventArgs e)
         {
+            string ultimaOP = "";
             var componente = (CheckButton)sender;
             btnEtiquetar.Visible = true;
             btnGenerarFason.Visible = false;
             switch (componente.Name)
             {
                 case "cbtnItaliana":
-                    maquinaSeleccionada = mySqlConexion.buscarMaquinaPorId("1");
-
+                    ultimaOP = LeerUltimaOp("Italiana");
+                    cbtnRudra.Checked = false;
+                    cbtnManual02.Checked = false;
+                    cbtnPolimaquina.Checked = false;
+                    cbtnFason.Checked = false;
                     break;
                 case "cbtnRudra":
-                    maquinaSeleccionada = mySqlConexion.buscarMaquinaPorId("2");
-
-                    break;
-                case "cbtnRappart01":
-                    maquinaSeleccionada = mySqlConexion.buscarMaquinaPorId("3");
-
-                    break;
-                case "cbtnManual01":
-                    maquinaSeleccionada = mySqlConexion.buscarMaquinaPorId("5");
-
+                    ultimaOP = LeerUltimaOp("Rudra");
+                    cbtnItaliana.Checked = false;
+                    cbtnManual02.Checked = false;
+                    cbtnPolimaquina.Checked = false;
+                    cbtnFason.Checked = false;
                     break;
                 case "cbtnManual02":
-                    maquinaSeleccionada = mySqlConexion.buscarMaquinaPorId("6");
-
+                    ultimaOP = LeerUltimaOp("Manual II");
+                    cbtnItaliana.Checked = false;
+                    cbtnRudra.Checked = false;
+                    cbtnPolimaquina.Checked = false;
+                    cbtnFason.Checked = false;
                     break;
                 case "cbtnPolimaquina":
-                    maquinaSeleccionada = mySqlConexion.buscarMaquinaPorId("23");
-
+                    ultimaOP = LeerUltimaOp("PoliMaquina");
+                    cbtnItaliana.Checked = false;
+                    cbtnRudra.Checked = false;
+                    cbtnManual02.Checked = false;
+                    cbtnFason.Checked = false;
                     break;
                 case "cbtnFason":
-                    maquinaSeleccionada = mySqlConexion.buscarMaquinaPorId("24");
+                    cbtnItaliana.Checked = false;
+                    cbtnRudra.Checked = false;
+                    cbtnManual02.Checked = false;
+                    cbtnPolimaquina.Checked = false;
+
                     btnEtiquetar.Visible = false;
                     btnGenerarFason.Visible = true;
                     break;
 
             }
-            lblMaquina.Text = maquinaSeleccionada != "" ? maquinaSeleccionada : datosOp[6];
 
+            if (string.IsNullOrEmpty(ultimaOP)) return;
+            var idOrden = ultimaOP.Split('/')[0];
+            var idCodigo = ultimaOP.Split('/')[1];
+            var datosOpe = mySqlConexion.buscarOp(idOrden, idCodigo);
+            if (datosOpe.Count <= 0)
+
+            {
+                MessageBox.Show("O/P no valida o inexistente.", "Precaución", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            bobinaSector = mySqlConexion.comprobarSector(idCodigo);
+            datosOp = datosOpe;
+            bobinasOp = mySqlConexion.buscarBobinas(idOrden, idCodigo, formPrincipal.instancia.bobinaSector);
+            cambiarDatos();
+        }
+        private string LeerUltimaOp(string maquina)
+        {
+            var ultimaOP = "";
+            var parser = new FileIniDataParser();
+            IniData data = parser.ReadFile(archivoINI);
+            ultimaOP = data[maquina]["UltimaOP"];
+            if (ultimaOP != null) return ultimaOP;
+            else return "";
+        }
+        private void GuardarUltimaOP(string maquina,string ultimaOP)
+        {
+            var parser = new FileIniDataParser();
+            IniData data = parser.ReadFile(archivoINI);
+            data[maquina]["UltimaOP"] = ultimaOP;
+            parser.WriteFile(archivoINI, data);
+        }
+
+        private void MenuItem_Click(object sender, EventArgs e)
+        {
+            ToolStripItem item = sender as ToolStripItem;
+            var idOrden = item.Text.Split('/')[0];
+            var idCodigo = item.Text.Split('/')[1];
+            var datosOpe = mySqlConexion.buscarOp(idOrden, idCodigo);
+            if (datosOpe.Count <= 0)
+
+            {
+                MessageBox.Show("O/P no valida o inexistente.", "Precaución", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            GuardarUltimaOP(maquinaSeleccionada,item.Text);
+            bobinaSector = mySqlConexion.comprobarSector(idCodigo);
+            datosOp = datosOpe;
+            bobinasOp = mySqlConexion.buscarBobinas(idOrden, idCodigo, formPrincipal.instancia.bobinaSector);
+            cambiarDatos();
         }
 
         private void btnAgregarMuestras_Click(object sender, EventArgs e)
@@ -1429,6 +1487,41 @@ namespace EtiquetadoBultos
                 MessageBox.Show("No se pudo abrir el cargado de muestras debido a un error técnico.");
                 return;
             }
+        }
+
+        private void btnDesplegable(object sender, EventArgs e)
+        {
+            var listaDeOps = new List<OP>();
+            var componente = (IconButton)sender;
+            cmsOps.Hide();
+            cmsOps.Items.Clear();
+            switch (componente.Name)
+            {
+                case "btnDesplegableIta":
+                    maquinaSeleccionada = mySqlConexion.buscarMaquinaPorId("1");
+                    break;
+                case "btnDesplegableRud":
+                    maquinaSeleccionada = mySqlConexion.buscarMaquinaPorId("2");
+
+                    break;
+                case "btnDesplegableMan02":
+                    maquinaSeleccionada = mySqlConexion.buscarMaquinaPorId("6");
+
+                    break;
+                case "btnDesplegablePoli":
+                    maquinaSeleccionada = mySqlConexion.buscarMaquinaPorId("23");
+
+                    break;
+            }
+            listaDeOps = mySqlConexion.GetOps(maquinaSeleccionada);
+
+            foreach (var item in listaDeOps)
+            {
+                cmsOps.Items.Add(item.Orden + "/" + item.Codigo, null, MenuItem_Click);
+
+            }
+            cmsOps.Show(MousePosition);
+            lblMaquina.Text = maquinaSeleccionada != "" ? maquinaSeleccionada : datosOp[6];
         }
 
         private void btnGenerarParada_Click(object sender, EventArgs e)

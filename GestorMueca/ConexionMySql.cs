@@ -18,7 +18,41 @@ namespace EtiquetadoBultos
         MySqlConnection conexion = new MySqlConnection("server = 192.168.1.1; port=3306; userid=root; password=kamila; database=sistemaindustrial;");
         MySqlConnection conexionSanlufilm_db = new MySqlConnection("server = 192.168.1.1; port=3306; userid=root; password=kamila; database=sanlufilm_db;");
         string connectionString = "server = 192.168.1.1; port=3306; userid=root; password=kamila; database=sistemaindustrial;";
+        
+        internal List<OP> GetOps(string maquina)
+        {
+            List<OP> pis = new List<OP>();
+            using (var conexion = new MySqlConnection(connectionString))
+            using (var command = new MySqlCommand())
+            {
+                conexion.Open();
+                command.Connection = conexion;
+                command.CommandText = @"SELECT cantidaddeproduccion,numeroOrden,codigoOrden,MaquinaAlternativa,cantidad_realizada,prioridadMaquina,fecha_cargado
+                                        FROM produccion_confeccion
+                                        WHERE (MaquinaAlternativa <> 'Terminada' AND MaquinaAlternativa=@pMaquina) AND (YEAR(fecha_cargado) = YEAR(CURDATE()) AND
+										cantidad_bolsa_conf > cantidad_realizada)
+										ORDER BY prioridadMaquina limit 10;";
+                command.Parameters.Add("@pMaquina", MySqlDbType.String).Value = maquina;
 
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        OP pi = new OP
+                        {
+                            CantProduccion = reader.IsDBNull(0) ? 0 : reader.GetInt32(0),
+                            Orden = reader.IsDBNull(1) ? 0 : reader.GetInt32(1),
+                            Codigo = reader.IsDBNull(2) ? 0 : Convert.ToInt32(reader.GetDouble(2)),
+                            Maquina = reader.IsDBNull(3) ? "" : reader.GetString(3),
+                            Cantidad = reader.IsDBNull(4) ? 0 : Convert.ToInt32(reader.GetDouble(4)),
+                            Prioridad = reader.IsDBNull(5) ? 0 : Convert.ToInt32(reader.GetDouble(5)),
+                        };
+                        pis.Add(pi);
+                    }
+                }
+            }
+            return pis;
+        }
         internal List<Usuario> GetOperarios()
         {
             List<Usuario> us = new List<Usuario>();

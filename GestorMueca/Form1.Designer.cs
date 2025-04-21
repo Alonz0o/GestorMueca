@@ -121,23 +121,37 @@
             this.ibtnManualBobinado = new FontAwesome.Sharp.IconButton();
             this.ibtnSeleccionarEti = new FontAwesome.Sharp.IconButton();
             this.tlpPie = new System.Windows.Forms.TableLayoutPanel();
-            this.btnGenerarParada = new EtiquetadoBultos.AFControles.AFButton();
-            this.btnAgregarScrap = new EtiquetadoBultos.AFControles.AFButton();
-            this.btnIp = new EtiquetadoBultos.AFControles.AFButton();
-            this.btnReEtiquetar = new EtiquetadoBultos.AFControles.AFButton();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnGenerarFason = new EtiquetadoBultos.AFControles.AFButton();
-            this.btnEtiquetar = new EtiquetadoBultos.AFControles.AFButton();
-            this.btnSalir = new EtiquetadoBultos.AFControles.AFButton();
             this.label4 = new System.Windows.Forms.Label();
             this.ibtnCambiarEncargado = new FontAwesome.Sharp.IconButton();
             this.lblOperariosEncargado = new System.Windows.Forms.Label();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel7 = new System.Windows.Forms.Panel();
             this.cbtnFason = new DevExpress.XtraEditors.CheckButton();
+            this.panel8 = new System.Windows.Forms.Panel();
             this.cbtnPolimaquina = new DevExpress.XtraEditors.CheckButton();
+            this.btnDesplegablePoli = new FontAwesome.Sharp.IconButton();
+            this.panel13 = new System.Windows.Forms.Panel();
             this.cbtnManual02 = new DevExpress.XtraEditors.CheckButton();
+            this.btnDesplegableMan02 = new FontAwesome.Sharp.IconButton();
+            this.panel14 = new System.Windows.Forms.Panel();
             this.cbtnRudra = new DevExpress.XtraEditors.CheckButton();
+            this.btnDesplegableRud = new FontAwesome.Sharp.IconButton();
+            this.panel15 = new System.Windows.Forms.Panel();
             this.cbtnItaliana = new DevExpress.XtraEditors.CheckButton();
+            this.btnDesplegableIta = new FontAwesome.Sharp.IconButton();
+            this.cmsOps = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.iconMenuItem1 = new FontAwesome.Sharp.IconMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.iconMenuItem2 = new FontAwesome.Sharp.IconMenuItem();
+            this.iconMenuItem3 = new FontAwesome.Sharp.IconMenuItem();
+            this.btnGenerarParada = new EtiquetadoBultos.AFControles.AFButton();
+            this.btnAgregarScrap = new EtiquetadoBultos.AFControles.AFButton();
+            this.btnIp = new EtiquetadoBultos.AFControles.AFButton();
+            this.btnReEtiquetar = new EtiquetadoBultos.AFControles.AFButton();
+            this.btnGenerarFason = new EtiquetadoBultos.AFControles.AFButton();
+            this.btnEtiquetar = new EtiquetadoBultos.AFControles.AFButton();
+            this.btnSalir = new EtiquetadoBultos.AFControles.AFButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBobinasRegistradas)).BeginInit();
             this.tlpBobinadoCabezera.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -179,6 +193,12 @@
             this.tlpPie.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
+            this.panel7.SuspendLayout();
+            this.panel8.SuspendLayout();
+            this.panel13.SuspendLayout();
+            this.panel14.SuspendLayout();
+            this.panel15.SuspendLayout();
+            this.cmsOps.SuspendLayout();
             this.SuspendLayout();
             // 
             // tbAnchoBolsa
@@ -1507,6 +1527,321 @@
             this.tlpPie.Size = new System.Drawing.Size(907, 56);
             this.tlpPie.TabIndex = 40;
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.btnGenerarFason);
+            this.panel1.Controls.Add(this.btnEtiquetar);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(5, 5);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(142, 46);
+            this.panel1.TabIndex = 5;
+            // 
+            // label4
+            // 
+            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
+            this.label4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.label4.ForeColor = System.Drawing.Color.AliceBlue;
+            this.label4.Location = new System.Drawing.Point(0, 219);
+            this.label4.Margin = new System.Windows.Forms.Padding(0);
+            this.label4.Name = "label4";
+            this.label4.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.label4.Size = new System.Drawing.Size(907, 34);
+            this.label4.TabIndex = 22;
+            this.label4.Text = "Bobinado";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // ibtnCambiarEncargado
+            // 
+            this.ibtnCambiarEncargado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
+            this.ibtnCambiarEncargado.BackgroundImage = global::EtiquetadoBultos.Properties.Resources.cambio;
+            this.ibtnCambiarEncargado.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.ibtnCambiarEncargado.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ibtnCambiarEncargado.FlatAppearance.BorderSize = 0;
+            this.ibtnCambiarEncargado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ibtnCambiarEncargado.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.ibtnCambiarEncargado.IconColor = System.Drawing.SystemColors.Highlight;
+            this.ibtnCambiarEncargado.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.ibtnCambiarEncargado.IconSize = 20;
+            this.ibtnCambiarEncargado.Location = new System.Drawing.Point(835, 114);
+            this.ibtnCambiarEncargado.Name = "ibtnCambiarEncargado";
+            this.ibtnCambiarEncargado.Size = new System.Drawing.Size(32, 32);
+            this.ibtnCambiarEncargado.TabIndex = 6;
+            this.ibtnCambiarEncargado.UseVisualStyleBackColor = false;
+            this.ibtnCambiarEncargado.Visible = false;
+            this.ibtnCambiarEncargado.Click += new System.EventHandler(this.ibtnCambiarEncargado_Click);
+            // 
+            // lblOperariosEncargado
+            // 
+            this.lblOperariosEncargado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
+            this.lblOperariosEncargado.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblOperariosEncargado.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblOperariosEncargado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.lblOperariosEncargado.ForeColor = System.Drawing.Color.AliceBlue;
+            this.lblOperariosEncargado.Location = new System.Drawing.Point(0, 113);
+            this.lblOperariosEncargado.Margin = new System.Windows.Forms.Padding(0);
+            this.lblOperariosEncargado.Name = "lblOperariosEncargado";
+            this.lblOperariosEncargado.Size = new System.Drawing.Size(907, 34);
+            this.lblOperariosEncargado.TabIndex = 21;
+            this.lblOperariosEncargado.Text = "Operarios";
+            this.lblOperariosEncargado.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tableLayoutPanel5
+            // 
+            this.tableLayoutPanel5.ColumnCount = 5;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.tableLayoutPanel5.Controls.Add(this.panel7, 4, 0);
+            this.tableLayoutPanel5.Controls.Add(this.panel8, 3, 0);
+            this.tableLayoutPanel5.Controls.Add(this.panel13, 2, 0);
+            this.tableLayoutPanel5.Controls.Add(this.panel14, 1, 0);
+            this.tableLayoutPanel5.Controls.Add(this.panel15, 0, 0);
+            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 1;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(907, 40);
+            this.tableLayoutPanel5.TabIndex = 45;
+            // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.cbtnFason);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel7.Location = new System.Drawing.Point(727, 3);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(177, 34);
+            this.panel7.TabIndex = 23;
+            // 
+            // cbtnFason
+            // 
+            this.cbtnFason.Appearance.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.cbtnFason.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbtnFason.Appearance.Options.UseBackColor = true;
+            this.cbtnFason.Appearance.Options.UseFont = true;
+            this.cbtnFason.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbtnFason.Location = new System.Drawing.Point(0, 0);
+            this.cbtnFason.Name = "cbtnFason";
+            this.cbtnFason.Size = new System.Drawing.Size(177, 34);
+            this.cbtnFason.TabIndex = 23;
+            this.cbtnFason.Text = "FASON";
+            this.cbtnFason.Click += new System.EventHandler(this.cbtn_CheckedChanged);
+            // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.cbtnPolimaquina);
+            this.panel8.Controls.Add(this.btnDesplegablePoli);
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel8.Location = new System.Drawing.Point(546, 3);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(175, 34);
+            this.panel8.TabIndex = 24;
+            // 
+            // cbtnPolimaquina
+            // 
+            this.cbtnPolimaquina.Appearance.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.cbtnPolimaquina.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbtnPolimaquina.Appearance.Options.UseBackColor = true;
+            this.cbtnPolimaquina.Appearance.Options.UseFont = true;
+            this.cbtnPolimaquina.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbtnPolimaquina.Location = new System.Drawing.Point(0, 0);
+            this.cbtnPolimaquina.Name = "cbtnPolimaquina";
+            this.cbtnPolimaquina.Size = new System.Drawing.Size(150, 34);
+            this.cbtnPolimaquina.TabIndex = 22;
+            this.cbtnPolimaquina.Text = "POLIMAQUINA";
+            this.cbtnPolimaquina.Click += new System.EventHandler(this.cbtn_CheckedChanged);
+            // 
+            // btnDesplegablePoli
+            // 
+            this.btnDesplegablePoli.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
+            this.btnDesplegablePoli.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDesplegablePoli.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnDesplegablePoli.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDesplegablePoli.IconChar = FontAwesome.Sharp.IconChar.SortDown;
+            this.btnDesplegablePoli.IconColor = System.Drawing.Color.AliceBlue;
+            this.btnDesplegablePoli.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnDesplegablePoli.IconSize = 35;
+            this.btnDesplegablePoli.Location = new System.Drawing.Point(150, 0);
+            this.btnDesplegablePoli.Name = "btnDesplegablePoli";
+            this.btnDesplegablePoli.Size = new System.Drawing.Size(25, 34);
+            this.btnDesplegablePoli.TabIndex = 25;
+            this.btnDesplegablePoli.UseVisualStyleBackColor = false;
+            this.btnDesplegablePoli.Click += new System.EventHandler(this.btnDesplegable);
+            // 
+            // panel13
+            // 
+            this.panel13.Controls.Add(this.cbtnManual02);
+            this.panel13.Controls.Add(this.btnDesplegableMan02);
+            this.panel13.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel13.Location = new System.Drawing.Point(365, 3);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(175, 34);
+            this.panel13.TabIndex = 25;
+            // 
+            // cbtnManual02
+            // 
+            this.cbtnManual02.Appearance.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.cbtnManual02.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbtnManual02.Appearance.Options.UseBackColor = true;
+            this.cbtnManual02.Appearance.Options.UseFont = true;
+            this.cbtnManual02.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbtnManual02.Location = new System.Drawing.Point(0, 0);
+            this.cbtnManual02.Name = "cbtnManual02";
+            this.cbtnManual02.Size = new System.Drawing.Size(150, 34);
+            this.cbtnManual02.TabIndex = 21;
+            this.cbtnManual02.Text = "MANUAL II";
+            this.cbtnManual02.Click += new System.EventHandler(this.cbtn_CheckedChanged);
+            // 
+            // btnDesplegableMan02
+            // 
+            this.btnDesplegableMan02.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
+            this.btnDesplegableMan02.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDesplegableMan02.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnDesplegableMan02.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDesplegableMan02.IconChar = FontAwesome.Sharp.IconChar.SortDown;
+            this.btnDesplegableMan02.IconColor = System.Drawing.Color.AliceBlue;
+            this.btnDesplegableMan02.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnDesplegableMan02.IconSize = 35;
+            this.btnDesplegableMan02.Location = new System.Drawing.Point(150, 0);
+            this.btnDesplegableMan02.Name = "btnDesplegableMan02";
+            this.btnDesplegableMan02.Size = new System.Drawing.Size(25, 34);
+            this.btnDesplegableMan02.TabIndex = 26;
+            this.btnDesplegableMan02.UseVisualStyleBackColor = false;
+            this.btnDesplegableMan02.Click += new System.EventHandler(this.btnDesplegable);
+            // 
+            // panel14
+            // 
+            this.panel14.Controls.Add(this.cbtnRudra);
+            this.panel14.Controls.Add(this.btnDesplegableRud);
+            this.panel14.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel14.Location = new System.Drawing.Point(184, 3);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(175, 34);
+            this.panel14.TabIndex = 26;
+            // 
+            // cbtnRudra
+            // 
+            this.cbtnRudra.Appearance.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.cbtnRudra.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbtnRudra.Appearance.Options.UseBackColor = true;
+            this.cbtnRudra.Appearance.Options.UseFont = true;
+            this.cbtnRudra.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbtnRudra.Location = new System.Drawing.Point(0, 0);
+            this.cbtnRudra.Name = "cbtnRudra";
+            this.cbtnRudra.Size = new System.Drawing.Size(150, 34);
+            this.cbtnRudra.TabIndex = 18;
+            this.cbtnRudra.Text = "RUDRA";
+            this.cbtnRudra.Click += new System.EventHandler(this.cbtn_CheckedChanged);
+            // 
+            // btnDesplegableRud
+            // 
+            this.btnDesplegableRud.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
+            this.btnDesplegableRud.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDesplegableRud.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnDesplegableRud.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDesplegableRud.IconChar = FontAwesome.Sharp.IconChar.SortDown;
+            this.btnDesplegableRud.IconColor = System.Drawing.Color.AliceBlue;
+            this.btnDesplegableRud.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnDesplegableRud.IconSize = 35;
+            this.btnDesplegableRud.Location = new System.Drawing.Point(150, 0);
+            this.btnDesplegableRud.Name = "btnDesplegableRud";
+            this.btnDesplegableRud.Size = new System.Drawing.Size(25, 34);
+            this.btnDesplegableRud.TabIndex = 27;
+            this.btnDesplegableRud.UseVisualStyleBackColor = false;
+            this.btnDesplegableRud.Click += new System.EventHandler(this.btnDesplegable);
+            // 
+            // panel15
+            // 
+            this.panel15.Controls.Add(this.cbtnItaliana);
+            this.panel15.Controls.Add(this.btnDesplegableIta);
+            this.panel15.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel15.Location = new System.Drawing.Point(3, 3);
+            this.panel15.Name = "panel15";
+            this.panel15.Size = new System.Drawing.Size(175, 34);
+            this.panel15.TabIndex = 27;
+            // 
+            // cbtnItaliana
+            // 
+            this.cbtnItaliana.Appearance.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.cbtnItaliana.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbtnItaliana.Appearance.Options.UseBackColor = true;
+            this.cbtnItaliana.Appearance.Options.UseFont = true;
+            this.cbtnItaliana.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbtnItaliana.Location = new System.Drawing.Point(0, 0);
+            this.cbtnItaliana.Name = "cbtnItaliana";
+            this.cbtnItaliana.Size = new System.Drawing.Size(150, 34);
+            this.cbtnItaliana.TabIndex = 17;
+            this.cbtnItaliana.Text = "ITALIANA";
+            this.cbtnItaliana.Click += new System.EventHandler(this.cbtn_CheckedChanged);
+            // 
+            // btnDesplegableIta
+            // 
+            this.btnDesplegableIta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
+            this.btnDesplegableIta.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDesplegableIta.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnDesplegableIta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDesplegableIta.IconChar = FontAwesome.Sharp.IconChar.SortDown;
+            this.btnDesplegableIta.IconColor = System.Drawing.Color.AliceBlue;
+            this.btnDesplegableIta.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnDesplegableIta.IconSize = 35;
+            this.btnDesplegableIta.Location = new System.Drawing.Point(150, 0);
+            this.btnDesplegableIta.Name = "btnDesplegableIta";
+            this.btnDesplegableIta.Size = new System.Drawing.Size(25, 34);
+            this.btnDesplegableIta.TabIndex = 28;
+            this.btnDesplegableIta.UseVisualStyleBackColor = false;
+            this.btnDesplegableIta.Click += new System.EventHandler(this.btnDesplegable);
+            // 
+            // cmsOps
+            // 
+            this.cmsOps.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.iconMenuItem1,
+            this.toolStripSeparator1,
+            this.iconMenuItem2,
+            this.iconMenuItem3});
+            this.cmsOps.Name = "cmsDgvBultos";
+            this.cmsOps.Size = new System.Drawing.Size(148, 76);
+            // 
+            // iconMenuItem1
+            // 
+            this.iconMenuItem1.Enabled = false;
+            this.iconMenuItem1.IconChar = FontAwesome.Sharp.IconChar.HandPointDown;
+            this.iconMenuItem1.IconColor = System.Drawing.Color.Black;
+            this.iconMenuItem1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconMenuItem1.IconSize = 30;
+            this.iconMenuItem1.Name = "iconMenuItem1";
+            this.iconMenuItem1.Size = new System.Drawing.Size(147, 22);
+            this.iconMenuItem1.Text = "Ultimas 5 OP";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(144, 6);
+            // 
+            // iconMenuItem2
+            // 
+            this.iconMenuItem2.IconChar = FontAwesome.Sharp.IconChar.Pen;
+            this.iconMenuItem2.IconColor = System.Drawing.Color.Black;
+            this.iconMenuItem2.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconMenuItem2.IconSize = 30;
+            this.iconMenuItem2.Name = "iconMenuItem2";
+            this.iconMenuItem2.Size = new System.Drawing.Size(147, 22);
+            this.iconMenuItem2.Text = "Editar Metros";
+            // 
+            // iconMenuItem3
+            // 
+            this.iconMenuItem3.IconChar = FontAwesome.Sharp.IconChar.Ban;
+            this.iconMenuItem3.IconColor = System.Drawing.Color.Black;
+            this.iconMenuItem3.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconMenuItem3.Name = "iconMenuItem3";
+            this.iconMenuItem3.Size = new System.Drawing.Size(147, 22);
+            this.iconMenuItem3.Text = "Quitar Bobina";
+            // 
             // btnGenerarParada
             // 
             this.btnGenerarParada.BackColor = System.Drawing.Color.Transparent;
@@ -1595,16 +1930,6 @@
             this.btnReEtiquetar.UseVisualStyleBackColor = false;
             this.btnReEtiquetar.Click += new System.EventHandler(this.btnReEtiquetar_Click);
             // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.btnGenerarFason);
-            this.panel1.Controls.Add(this.btnEtiquetar);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(5, 5);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(142, 46);
-            this.panel1.TabIndex = 5;
-            // 
             // btnGenerarFason
             // 
             this.btnGenerarFason.BackColor = System.Drawing.Color.Transparent;
@@ -1672,149 +1997,6 @@
             this.btnSalir.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(45)))), ((int)(((byte)(59)))));
             this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.ibtnSalir_Click);
-            // 
-            // label4
-            // 
-            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
-            this.label4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.label4.ForeColor = System.Drawing.Color.AliceBlue;
-            this.label4.Location = new System.Drawing.Point(0, 219);
-            this.label4.Margin = new System.Windows.Forms.Padding(0);
-            this.label4.Name = "label4";
-            this.label4.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.label4.Size = new System.Drawing.Size(907, 34);
-            this.label4.TabIndex = 22;
-            this.label4.Text = "Bobinado";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // ibtnCambiarEncargado
-            // 
-            this.ibtnCambiarEncargado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
-            this.ibtnCambiarEncargado.BackgroundImage = global::EtiquetadoBultos.Properties.Resources.cambio;
-            this.ibtnCambiarEncargado.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ibtnCambiarEncargado.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ibtnCambiarEncargado.FlatAppearance.BorderSize = 0;
-            this.ibtnCambiarEncargado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ibtnCambiarEncargado.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.ibtnCambiarEncargado.IconColor = System.Drawing.SystemColors.Highlight;
-            this.ibtnCambiarEncargado.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.ibtnCambiarEncargado.IconSize = 20;
-            this.ibtnCambiarEncargado.Location = new System.Drawing.Point(835, 114);
-            this.ibtnCambiarEncargado.Name = "ibtnCambiarEncargado";
-            this.ibtnCambiarEncargado.Size = new System.Drawing.Size(32, 32);
-            this.ibtnCambiarEncargado.TabIndex = 6;
-            this.ibtnCambiarEncargado.UseVisualStyleBackColor = false;
-            this.ibtnCambiarEncargado.Visible = false;
-            this.ibtnCambiarEncargado.Click += new System.EventHandler(this.ibtnCambiarEncargado_Click);
-            // 
-            // lblOperariosEncargado
-            // 
-            this.lblOperariosEncargado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
-            this.lblOperariosEncargado.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblOperariosEncargado.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblOperariosEncargado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.lblOperariosEncargado.ForeColor = System.Drawing.Color.AliceBlue;
-            this.lblOperariosEncargado.Location = new System.Drawing.Point(0, 113);
-            this.lblOperariosEncargado.Margin = new System.Windows.Forms.Padding(0);
-            this.lblOperariosEncargado.Name = "lblOperariosEncargado";
-            this.lblOperariosEncargado.Size = new System.Drawing.Size(907, 34);
-            this.lblOperariosEncargado.TabIndex = 21;
-            this.lblOperariosEncargado.Text = "Operarios";
-            this.lblOperariosEncargado.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // tableLayoutPanel5
-            // 
-            this.tableLayoutPanel5.ColumnCount = 5;
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel5.Controls.Add(this.cbtnRudra, 1, 0);
-            this.tableLayoutPanel5.Controls.Add(this.cbtnItaliana, 0, 0);
-            this.tableLayoutPanel5.Controls.Add(this.cbtnManual02, 2, 0);
-            this.tableLayoutPanel5.Controls.Add(this.cbtnPolimaquina, 3, 0);
-            this.tableLayoutPanel5.Controls.Add(this.cbtnFason, 4, 0);
-            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
-            this.tableLayoutPanel5.RowCount = 1;
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(907, 40);
-            this.tableLayoutPanel5.TabIndex = 45;
-            // 
-            // cbtnFason
-            // 
-            this.cbtnFason.Appearance.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.cbtnFason.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbtnFason.Appearance.Options.UseBackColor = true;
-            this.cbtnFason.Appearance.Options.UseFont = true;
-            this.cbtnFason.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cbtnFason.Location = new System.Drawing.Point(727, 3);
-            this.cbtnFason.Name = "cbtnFason";
-            this.cbtnFason.Size = new System.Drawing.Size(177, 34);
-            this.cbtnFason.TabIndex = 23;
-            this.cbtnFason.Text = "FASON";
-            this.cbtnFason.CheckedChanged += new System.EventHandler(this.cbtn_CheckedChanged);
-            // 
-            // cbtnPolimaquina
-            // 
-            this.cbtnPolimaquina.Appearance.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.cbtnPolimaquina.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbtnPolimaquina.Appearance.Options.UseBackColor = true;
-            this.cbtnPolimaquina.Appearance.Options.UseFont = true;
-            this.cbtnPolimaquina.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cbtnPolimaquina.Location = new System.Drawing.Point(546, 3);
-            this.cbtnPolimaquina.Name = "cbtnPolimaquina";
-            this.cbtnPolimaquina.Size = new System.Drawing.Size(175, 34);
-            this.cbtnPolimaquina.TabIndex = 22;
-            this.cbtnPolimaquina.Text = "POLIMAQUINA";
-            this.cbtnPolimaquina.CheckedChanged += new System.EventHandler(this.cbtn_CheckedChanged);
-            // 
-            // cbtnManual02
-            // 
-            this.cbtnManual02.Appearance.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.cbtnManual02.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbtnManual02.Appearance.Options.UseBackColor = true;
-            this.cbtnManual02.Appearance.Options.UseFont = true;
-            this.cbtnManual02.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cbtnManual02.Location = new System.Drawing.Point(365, 3);
-            this.cbtnManual02.Name = "cbtnManual02";
-            this.cbtnManual02.Size = new System.Drawing.Size(175, 34);
-            this.cbtnManual02.TabIndex = 21;
-            this.cbtnManual02.Text = "MANUAL II";
-            this.cbtnManual02.CheckedChanged += new System.EventHandler(this.cbtn_CheckedChanged);
-            // 
-            // cbtnRudra
-            // 
-            this.cbtnRudra.Appearance.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.cbtnRudra.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbtnRudra.Appearance.Options.UseBackColor = true;
-            this.cbtnRudra.Appearance.Options.UseFont = true;
-            this.cbtnRudra.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cbtnRudra.Location = new System.Drawing.Point(184, 3);
-            this.cbtnRudra.Name = "cbtnRudra";
-            this.cbtnRudra.Size = new System.Drawing.Size(175, 34);
-            this.cbtnRudra.TabIndex = 18;
-            this.cbtnRudra.Text = "RUDRA";
-            this.cbtnRudra.CheckedChanged += new System.EventHandler(this.cbtn_CheckedChanged);
-            // 
-            // cbtnItaliana
-            // 
-            this.cbtnItaliana.Appearance.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.cbtnItaliana.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbtnItaliana.Appearance.Options.UseBackColor = true;
-            this.cbtnItaliana.Appearance.Options.UseFont = true;
-            this.cbtnItaliana.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cbtnItaliana.Location = new System.Drawing.Point(3, 3);
-            this.cbtnItaliana.Name = "cbtnItaliana";
-            this.cbtnItaliana.Size = new System.Drawing.Size(175, 34);
-            this.cbtnItaliana.TabIndex = 17;
-            this.cbtnItaliana.Text = "ITALIANA";
-            this.cbtnItaliana.CheckedChanged += new System.EventHandler(this.cbtn_CheckedChanged);
             // 
             // formPrincipal
             // 
@@ -1895,6 +2077,12 @@
             this.tlpPie.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
+            this.panel7.ResumeLayout(false);
+            this.panel8.ResumeLayout(false);
+            this.panel13.ResumeLayout(false);
+            this.panel14.ResumeLayout(false);
+            this.panel15.ResumeLayout(false);
+            this.cmsOps.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -2008,6 +2196,20 @@
         private DevExpress.XtraEditors.CheckButton cbtnManual02;
         private DevExpress.XtraEditors.CheckButton cbtnRudra;
         private DevExpress.XtraEditors.CheckButton cbtnItaliana;
+        private System.Windows.Forms.ContextMenuStrip cmsOps;
+        private FontAwesome.Sharp.IconMenuItem iconMenuItem1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private FontAwesome.Sharp.IconMenuItem iconMenuItem2;
+        private FontAwesome.Sharp.IconMenuItem iconMenuItem3;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Panel panel8;
+        private FontAwesome.Sharp.IconButton btnDesplegablePoli;
+        private System.Windows.Forms.Panel panel13;
+        private FontAwesome.Sharp.IconButton btnDesplegableMan02;
+        private System.Windows.Forms.Panel panel14;
+        private FontAwesome.Sharp.IconButton btnDesplegableRud;
+        private System.Windows.Forms.Panel panel15;
+        private FontAwesome.Sharp.IconButton btnDesplegableIta;
     }
 }
 
